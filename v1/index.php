@@ -19,51 +19,59 @@
     <body>
         <!-- __________________________________________Sidebar___________________________________________ -->
         <div class="sidenav border">
-            <a href="#" class="border">Sign up / Log in</a>
-            <a href="#"><u>Best Friends</u></a>
+            <div class="flex">
+                <a href="#" class="">Sign up</a>
+                <a href="#" class="">Log in</a>
+            </div>
+
+            <a href="#" class="bestFriends"><u>Best Friends</u></a>
             <p class="font-body">It looks like you're not logged in. Login or sign up to add friends.</p>
             <!-- <a href="#">Clients</a>
             <a href="#">Contact</a> -->
         </div>
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
-
+        <div class="main"> <!-- MAIN maken voor de rest van de website buiten de sidebar -->
         <h1 class="border">SUGGESTO</h1>
 
-        <!--                   --     (BORDER WERKT NOG NIET (idk wrm)   --                      -->
-        
-        <div class="header-box ">
-            <div class="button">Home</div>
-            <div class="button">For him</div>
-            <div class="button">For her</div>
-            <div class="button">For kids</div>
-        </div>
+            <!--                   --     (BORDER WERKT NOG NIET (idk wrm)   --                      -->
+            
+            <div class="header-box">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">For him</a></li>
+                    <li><a href="#">For her</a></li>
+                    <li><a href="#">For kids</a></li>
+                </ul>
+            </div>
 
-        <br>
+            <br>
 
-        <p class="font-body"><b>Sign up to get the best gift recommendations!</b></p>
-        <p class="font-body">TOP PICKS:</p>
-  
-        <br>
-        <br>
+            <p class="font-body"><b>Sign up to get the best gift recommendations!</b></p>
+            <p class="font-body">TOP PICKS:</p>
+    
+            <br>
+            <br>
 
-        <div class="suggestion-div">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-        </div>
+            <div class="suggestion-div">
+                
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
 
-        <br>
-        <br>
-        <br>
+            <br>
+            <br>
+            <br>
 
-        <div class="suggestion-div">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-        </div>
+            <div class="suggestion-div">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>  
 
 
 
