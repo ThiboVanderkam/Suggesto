@@ -1,0 +1,53 @@
+dit is code voor de functie
+
+
+
+linkBolHome = "https://www.bol.com/be/nl/s/?page=1&searchtext=voor+hem&view=list&sort=popularity1"
+
+
+reqBolHome = DoeRequest(linkBolHome)
+
+topItems = []
+links = []
+images = []
+prices = []
+ratings = []
+
+for i in range(4):
+
+    # GET THE NAME------------------------------------------------------
+
+    nameOfProduct = reqBolHome.find_all("ul", {"id": "js_items_content"})[0].find_all("li", {"class": "product-item--row js_item_root"})[i].find_all("a", {"class": "product-title px_list_page_product_click"})[0].get_text()
+    topItems.append(nameOfProduct)
+
+    # NU DE PRODUCT LINK------------------------------------------------------
+
+    linkNaarProduct = "https://www.bol.com" + reqBolHome.find_all("div", {"class": "h-o-hidden"})[i].find_all("a", {"class": "product-image product-image--list px_list_page_product_click"})[0].get("href")
+    links.append(linkNaarProduct)
+
+    # NU DE FOTO LINK------------------------------------------------------
+
+    linkNaarFoto = reqBolHome.find_all("div", {"class": "h-o-hidden"})[i].find_all("a", {"class": "product-image product-image--list px_list_page_product_click"})[0].find_all("img")[0]
+    if(i == 0): #(de class van de eerste had een andere naam)
+        linkNaarFoto = reqBolHome.find_all("div", {"class": "h-o-hidden"})[i].find_all("a", {"class": "product-image product-image--list px_list_page_product_click"})[0].find_all("img")[0].get("src")
+    else:
+        linkNaarFoto = reqBolHome.find_all("div", {"class": "h-o-hidden"})[i].find_all("a", {"class": "product-image product-image--list px_list_page_product_click"})[0].find_all("img")[0].get("data-src")
+    images.append(linkNaarFoto)
+
+    # NU DE PRIJS------------------------------------------------------
+
+    priceOfProduct =  "€" + reqBolHome.find_all("ul", {"id": "js_items_content"})[0].find_all("span", {"class": "promo-price"})[i].get_text().replace("\n", "").replace(" ", ",", 1).replace(" ", "") #prijzen mooi maken
+    prices.append(priceOfProduct)
+
+    # NU DE RATINGS------------------------------------------------------
+
+    ratingsOfProduct = reqBolHome.find_all("div", {"class": "star-rating"})[i].get("title")
+    ratings.append(ratingsOfProduct)
+
+# print(links)
+# print(images)
+# print(prices)
+# print(ratings)
+
+
+# print(topItems + " - " + links + " - " + images + " - " + prices + " - " + ratings)
