@@ -27,7 +27,7 @@
             </div>
 
             <a href="#" class="bestFriends"><u>Best Friends</u></a>
-            <ul >
+            <ul>
                 <li id="friend-list">
                     vriend 1
                 </li>
