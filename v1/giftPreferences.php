@@ -33,7 +33,7 @@
 
             <br>
 
-            <a href="#" ><u>My gift preferences</u></a>
+            <a href="giftPreferences.php" ><u>My gift preferences</u></a>
             
         </div>
 
