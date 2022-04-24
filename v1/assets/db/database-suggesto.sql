@@ -10,9 +10,8 @@ CREATE TABLE user (
     u_lastname VARCHAR(100) NOT NULL,
     u_dob DATE NOT NULL,
     u_email VARCHAR(100) NOT NULL UNIQUE,
-    u_password VARCHAR(200) NOT NULL,
+    u_password VARCHAR(500) NOT NULL,
     u_id INT NOT NULL UNIQUE,
-    local_friend INT NOT NULL UNIQUE,
     PRIMARY KEY(u_id)
 );
 
