@@ -31,17 +31,16 @@ class Api {
         $email = $parameters["email"];
         $password = $parameters["password"];
 
-        $query = "SELECT u_password FROM user WHERE u_email =" . $email . ";"
-        $hashInDatabase = $conn->getQuery($query);
-
+        $query = "SELECT u_password FROM user WHERE u_email =\"" . $email . "\";";
+        $hashInDatabase = $this->conn->getQuery($query)[0]["u_password"];
         $correct = $this->checkPassword($password, $hashInDatabase);
         return $correct;
     }
     
     function selectCall($parameters) {
         if ($parameters["call"] == "login") {
-            $output = $this->login($parameters)
-            return $output
+            $output = $this->login($parameters);
+            return $output;
         }
         
     }
