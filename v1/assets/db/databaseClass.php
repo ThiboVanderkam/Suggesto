@@ -12,10 +12,10 @@ class Database {
     {
         // add data to the props
         //gebeurt wanneer je die megeeft in andere file, ze worde ndan ook globaal aangepast in de klasse
-        $this->hostname = "ID362561_apidemo.db.webhosting.be";
-        $this->user = "ID362561_apidemo";
-        $this->password = "suggesto2022"; 
-        $this->database = "ID362561_apidemo";
+        $this->hostname = "ID362561_suggesto.db.webhosting.be";
+        $this->user = "ID362561_suggesto";
+        $this->password = "InspirationLab2022"; 
+        $this->database = "ID362561_suggesto";
         $this->port = 3306;
 
         // connection with database 
@@ -49,3 +49,5 @@ class Database {
         $this->connection->close();
     }
 }
+
+?>
