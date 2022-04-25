@@ -1,11 +1,139 @@
-
-body {
-    /* background: url("../images/homepage-Suggesto.png") center center fixed; */
+/*******************************Calendar Top Navigation*********************************/
+/* .calendarSpace{
+    display: flex;
     justify-content: center;
-    text-align: center;
-    background-color: #F9F7F7;
-    margin-left: 0;
-    color: #3F72AF
+} */
+
+div#calendar{
+    margin: 0 auto;
+    padding:0px;
+    width: 602px;
+    font-family:Helvetica, "Times New Roman", Times, serif;
+}
+
+div#calendar div.box{
+    position:relative;
+    top:0px;
+    left:0px;
+    width:602px;
+    height:40px;
+    background-color:   #787878 ;      
+}
+
+div#calendar div.header{
+    line-height:40px;  
+    vertical-align:middle;
+    position:absolute;
+    left:11px;
+    top:0px;
+    width:582px;
+    height:40px;   
+    text-align:center;
+}
+
+div#calendar div.header a.prev,div#calendar div.header a.next{ 
+    position:absolute;
+    top:0px;   
+    height: 17px;
+    display:block;
+    cursor:pointer;
+    text-decoration:none;
+    color:#FFF;
+}
+
+div#calendar div.header span.title{
+    color:#FFF;
+    font-size:18px;
+}
+
+
+div#calendar div.header a.prev{
+    left:0px;
+}
+
+div#calendar div.header a.next{
+    right:0px;
+}
+
+
+
+
+/*******************************Calendar Content Cells*********************************/
+div#calendar div.box-content{
+    border:1px solid #787878 ;
+    border-top:none;
+    width: 602px;
+}
+
+
+
+div#calendar ul.label{
+    float:left;
+    margin: 0px;
+    padding: 0px;
+    margin-top:5px;
+    margin-left: 5px;
+}
+
+div#calendar ul.label li{
+    margin:0px;
+    padding:0px;
+    margin-right:5px;  
+    float:left;
+    list-style-type:none;
+    width:80px;
+    height:40px;
+    line-height:40px;
+    vertical-align:middle;
+    text-align:center;
+    color:#000;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+
+div#calendar ul.dates{
+    float:left;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+/** overall width = width+padding-right**/
+div#calendar ul.dates li{
+    margin:0px;
+    padding:0px;
+    margin-right:5px;
+    margin-top: 5px;
+    line-height:80px;
+    vertical-align:middle;
+    float:left;
+    list-style-type:none;
+    width:80px;
+    height:80px;
+    font-size:25px;
+    background-color: #DDD;
+    color:#000;
+    text-align:center; 
+}
+
+:focus{
+    outline:none;
+}
+
+div.clear{
+    clear:both;
+}     
+
+/* ---------------------------------------------PAGE CSS------------------------------------------ */
+body {
+/* background: url("../images/homepage-Suggesto.png") center center fixed; */
+justify-content: center;
+text-align: center;
+background-color: #F9F7F7;
+margin-left: 0;
+color: #3F72AF
 }
 
 .font-body{
@@ -82,7 +210,7 @@ h1 {
 .header-box li {
     float: left;
     border-right: 1px solid #3F72AF;
-    width: 24.8%;
+    width: 33%;
 }
 
 .header-box-3 li {
@@ -194,40 +322,3 @@ h1 {
 .bestFriends{
     margin: 30px 0px 0px 0px;
 }
-
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size)
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
- */
-
-
-
-
-
-
-
-
-
-/*---------------------- comments ---------------------------------*/
-
-
-/*  OPTIONAL
-figure{
-    width:400px;
-    height:220px;
-    border-radius:4px;
-    border:2px solid #ccc;
-    position:relative;
-}
-
-figure:before{
-    content:'';
-    position:absolute;
-    top:40px;
-    left:0;
-    width:100%;
-    height:2px;
-    background:#ccc;
-} */

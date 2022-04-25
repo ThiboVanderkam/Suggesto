@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <title>Your Calendar</title>
+        <link rel="stylesheet" href="css/styleCalendar.css" type="text/css">
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,12 +20,11 @@
         <!-- __________________________________________Sidebar___________________________________________ -->
         <div class="sidenav border">
             <div class="flex">
-                <a href="#" class="">Sign up</a>
-                <a href="#" class="">Log in</a>
+                <a href="#" class="">Hello ...<?php #get name of user ?></a>
             </div>
 
-            <a href="assets/calendar.php" class="bestFriends"><u>Best Friends</u></a>
-            <p class="font-body">It looks like you're not logged in. Login or sign up to add friends.</p>
+            <a href="#" class="bestFriends"><u>Best Friends</u></a>
+            <p class="font-body">It looks like you haven't chosen your best freinds yet.</p>
             <!-- <a href="#">Clients</a>
             <a href="#">Contact</a> -->
 
@@ -52,44 +51,22 @@
             
             <div class="header-box">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">For him</a></li>
-                    <li><a href="#">For her</a></li>
-                    <li><a href="#">For kids</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Friends</a></li>
+                    <li><a href="#">My Profile</a></li>
                 </ul>
             </div>
 
             <br>
+        </div>
 
-            <p class="font-body"><b>Sign up to get the best gift recommendations!</b></p>
-            <p class="font-body">TOP PICKS:</p>
-    
-            <br>
-            <br>
-
-            <div class="suggestion-div">
-                
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
-
-            <div class="suggestion-div">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
-
-            <div class="suggestion-div">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
-        </div>  
-
+        <div>
+            <?php
+                include "classes/calendarClass.php";
+                $calendar = new Calendar();
+                echo $calendar->show();
+            ?>
+        </div>
 
 
         <script src="assets/js/script.js">
