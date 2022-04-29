@@ -45,7 +45,7 @@
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
         <div class="main"> <!-- MAIN maken voor de rest van de website buiten de sidebar -->
-        <h1 class="border">SUGGESTO</h1>
+            <h1 class="border">SUGGESTO</h1>
 
             <!--                   --     (BORDER WERKT NOG NIET (idk wrm)   --                      -->
             
@@ -58,14 +58,14 @@
             </div>
 
             <br>
-        </div>
-
-        <div>
-            <?php
-                include "classes/calendarClass.php";
-                $calendar = new Calendar();
-                echo $calendar->show();
-            ?>
+        
+            <div>
+                <?php
+                    include "classes/calendarClass.php";
+                    $calendar = new Calendar();
+                    echo $calendar->show();
+                ?>
+            </div>
         </div>
 
 
