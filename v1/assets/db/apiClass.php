@@ -36,10 +36,19 @@ class Api {
         $correct = $this->checkPassword($password, $hashInDatabase);
         return $correct;
     }
+
+    function signUp($parameters) {
+        //TODO dit afmaken
+    }
+
     
     function selectCall($parameters) {
         if ($parameters["call"] == "login") {
             $output = $this->login($parameters);
+            return $output;
+        }
+        elseif ($parameters["call"] == "signUp") {
+            $output = $this->signUp($parameters);
             return $output;
         }
         
