@@ -1,14 +1,14 @@
 .body{
-    background-image: url("/v1/assets/images/forest.jpg");
+    background-image: url("/assets/images/forest.jpg");
     
     }
 
-.avatar-box{
+/*.avatar-box{
 width: 150px;
 height: 150px;
 background-color: #0000ff;
 border-radius: 50%;
-}
+}*/
 
 .grotere-box{
 justify-content: center;
@@ -20,7 +20,6 @@ text-align: center;
 border: 2px solid black;
 margin-top: 10%;
 padding: 2%;
-margin-right: 10%;
 height: 20%;
 width: 30%;
 background-color: white;

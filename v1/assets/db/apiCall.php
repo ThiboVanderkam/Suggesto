@@ -3,5 +3,5 @@
 
     $api = new Api();
     $output = $api->selectCall($_GET);
-    echo $output;
+    echo json_encode($output);
 ?>
