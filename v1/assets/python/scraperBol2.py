@@ -1,9 +1,41 @@
 import requests
 from bs4 import BeautifulSoup
+import mysql.connector
+from mysql.connector import Error
+
+# NOTE: de functie GetThem (alle data nemen) 
+
+def MysqlConnection(name, link, prijs, fotoLink, preference):
+    try:
+        connection = mysql.connector.connect(host='ID362561_suggesto.db.webhosting.be',
+                                         database='ID362561_suggesto',
+                                         user='ID362561_suggesto',
+                                         password='InspirationLab2022')
+        if connection.is_connected():
+            db_Info = connection.get_server_info()
+            print("Connected to MySQL Server version ", db_Info)
+            cursor = connection.cursor()
+            # cursor.execute("select database();")
+            # record = cursor.fetchone()
+            # print("You're connected to database: ", record)
+
+            cursor = connection.cursor()
+            cursor.execute("INSERT INTO gifts(name, link, prijs, fotoLink, preference) VALUES(" + "\""+ name + "\"" + ", " + "\"" +link + "\"" + ", " + prijs + ", " + "\"" + fotoLink + "\"" + ", " +"\""+ preference + "\"" + ");")
+            connection.commit()
+            # cursor.execute(str(query), val)
 
 
+            # cursor.execute("SELECT * FROM gifts;")
+            # res = cursor.fetchall()
+            # for line in res:
+            #     print(res)
+            
+            #cursor.fetchall() => geeft alle dingen terug als je info vraagt aan DB
 
-# NOTE: de functie GetThem (alle data nemen) werkt niet bij producten die 18 plus zijn vanwege de andere lay out !!! °_° (so no buttplugs yet)
+    except Error as e:
+        print("Error while connecting to MySQL", e)
+
+
 
 
 def DoeRequest(url):
@@ -33,12 +65,10 @@ def MakeLink(product):  #dit is als alternatief als je geen input wilt
     deLink = begin + product + eind
     return(deLink)
 
-
-
-def GetThem(link, hoeveelheid):
+def GetThem(link, hoeveelheid, preference):
     # linkBolHome = "https://www.bol.com/be/nl/s/?page=1&searchtext=voor+hem&view=list&sort=popularity1"
     reqBolHome = DoeRequest(link)
-
+    print(link)
     topItems = []
     links = []
     images = []
@@ -77,10 +107,6 @@ def GetThem(link, hoeveelheid):
         ratingsOfProduct = reqBolHome.find_all("div", {"class": "star-rating"})[i].get("title")
         ratings.append(ratingsOfProduct)
 
-    # print(links)
-    # print(images)
-    # print(prices)
-    # print(ratings)
     
     # -------------------------------WRITING TO FILE-------------------------------
     # EERST CONTENT V FILE VERWIJDEREN
@@ -93,40 +119,50 @@ def GetThem(link, hoeveelheid):
     for i in range(hoeveelheid):                                                                        # bij de link moet erachter een spatie (anders w prijs meegenomen in link)
         file.write(str(topItems[i]).replace("é", "e").replace("è", "e").replace("ö", "o").replace('®', "").replace("™", "") + ";" + str(links[i])  + " " + ";" + str(images[i]) + " " + ";" + str(prices[i]).replace('€', "euro: ") + ";" + str(ratings[i]) + "\n")
 
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        print(str(topItems[i]) + " - " + str(links[i]) + " - " + str(images[i]) + " - " + str(prices[i]) + " - " + str(ratings[i]))
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        # print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        # print(str(topItems[i]) + " - " + str(links[i]) + " - " + str(images[i]) + " - " + str(prices[i]) + " - " + str(ratings[i]))
+        # print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
     file.write("\n") # makkelijk categorien v elkaar te onderscheiden
     file.close()
+
+    #querry doen naar database: ----------------------
+
+    for i in range(hoeveelheid):
+        queryString = ('''INSERT INTO gifts (name, link, prijs, fotoLink, preference) VALUES (''' + "\"" + str(topItems[i]).replace("é", "e").replace("è", "e").replace("ö", "o").replace('®', "").replace("™", "")+ "\"" + ", " + "\"" + str(links[i]) + " \"" + ", " + str(float(prices[i].replace('€', "").replace(",", ".").replace("-", ""))) + ", " + "\"" + str(images[i]) + " \"" + "," + " \"" + str(preference) + "\"" ''')''') + ";"
+        # print(queryString)
+
+        name = str(topItems[i]).replace("é", "e").replace("è", "e").replace("ö", "o").replace('®', "").replace("™", "")
+        prodLink = str(links[i])
+        price = str(float(prices[i].replace('€', "").replace(",", ".").replace("-", "")))
+        fotoLink = str(images[i])
+        pref = str(preference)
+
+        #quer = "INSERT INTO gifts (" + name + ", " + prodLink + ", " + price + ", " + fotoLink + ", " + pref + ");"
+
+        quer1 = "INSERT INTO gifts (name, link, prijs, fotoLink, preference) VALUES (%s, %s, %f, %s, %s)"
+        val =  (str(name), str(prodLink), float(price), str(fotoLink), str(pref))
+
+        MysqlConnection(name, prodLink, price, fotoLink, pref)
+    # def MysqlConnection(name, link, prijs, fotoLink, preference):
+
+
+
 # print(topItems + " - " + links + " - " + images + " - " + prices + " - " + ratings)
 
 def GetCategories(lijstMetCategorien):
     for categorie in lijstMetCategorien:
+        preference = categorie
         link = MakeLink(categorie)
-        GetThem(link, 10)
+        GetThem(link, 10, preference)
+    
 
 
 #_______________________________________________________________________________________________________ EINDE VAN DE FUNCTIES
 
 linkBolVoorHem = "https://www.bol.com/be/nl/s/?page=1&searchtext=voor+hem&view=list&sort=popularity1"
 LinkBolVoorHaar = "https://www.bol.com/be/nl/s/?page=1&searchtext=voor+haar&view=list&sort=popularity1&rating=all"
-# GetThem(LinkBolVoorHaar, 6)
 
-
-
-
-# print(topItems + " - " + links + " - " + images + " - " + prices + " - " + ratings)
-# roberto = reqBolHome.find_all("ul", {"id": "js_items_content"}).find_all("ul", {"id": "js_items_content"})
-# roberto = reqBolHome.find("ul", {"id": "js_items_content"}).find("li", {"class": "product-item--row js_item_root"}).find("a", {"class": "product-title px_list_page_product_click"})
-
-# linkos = "https://www.bol.com/be/nl/s/?page=1&searchtext=fortnite&view=list&sort=popularity1"
-# GetThem(linkos, 4)
-# linkos = "https://www.bol.com/be/nl/s/?searchtext=voor+hem"
-
-# linkos = CreateLink()
-# GetThem(linkos, 10)
-# print(linkos)
 
 # -------------- TEST V FUNCTIE getCategories --------------
 open("itemsCategorie.txt", "w").close() # file leegmaken
@@ -134,14 +170,5 @@ open("itemsCategorie.txt", "w").close() # file leegmaken
 lijstMetCategorien = ["video games", "boeken", "nature", "photo", "sports", "tech", "beauty"]
 GetCategories(lijstMetCategorien)
 
+# MysqlConnection()
 
-
-#     https://www.bol.com/be/nl/s/?searchtext=voor+hem    op relevantie
-#     https://www.bol.com/be/nl/s/?page=1&searchtext=voor+hem&view=list&sort=popularity1    op populariteit
-# video games (games werkt niet lijn 42)
-# boeken
-# nature
-# photo (photography werkt niet)
-# sports
-# tech
-# beauty
