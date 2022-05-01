@@ -37,6 +37,15 @@ class Api {
         return $correct;
     }
 
+    function getInterests($parameters) {
+        $email = $parameters["email"];
+        $idQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
+        $id = $this->conn->getQuery($idQuery)[0]["u_id"];
+        $interestsQuery = "SELECT keyword FROM interests WHERE u_id = \"" . $id . "\";";
+        $interests = $this->conn->getQuery($interestsQuery)[0];
+        return $interests;
+    }
+
     function signUp($parameters) {
         $name= $parameters["name"];
         $surname = $parameters["surname"];
@@ -57,6 +66,10 @@ class Api {
         }
         elseif ($parameters["call"] == "signUp") {
             $output = $this->signUp($parameters);
+            return $output;
+        }
+        elseif ($parameters["call"] == "getInterests") {
+            $output = $this->getInterests($parameters);
             return $output;
         }
         
