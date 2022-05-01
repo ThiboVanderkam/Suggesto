@@ -1,4 +1,10 @@
 <?php
+// data van local fiends krijgen (via gewone db connectie)
+// include($_SERVER['DOCUMENT_ROOT'].'/assets/db/databaseClass.php');
+// $db = new Database();
+
+
+
 class Calendar {  
      
     /**
@@ -33,11 +39,11 @@ class Calendar {
          
         $month = null;
          
-        if(null==$year&&isset($_GET['year'])){
+        if(null==$year&&isset($_GET['year'])){ #GET VAN PHP_SELF regel 8
  
             $year = $_GET['year'];
          
-        }else if(null==$year){
+        }else if(null==$year){ #ALS GET NIET WERKT Date time gewoon
  
             $year = date("Y",time());  
          
@@ -57,30 +63,29 @@ class Calendar {
          
         $this->currentMonth=$month;
          
-        $this->daysInMonth=$this->_daysInMonth($month,$year);  
+        $this->daysInMonth=$this->_daysInMonth($month,$year);  #functie voor dagen in maand te krijgen mbv code erboven
          
         $content='<div id="calendar">'.
-                        '<div class="box">'.
-                        $this->_createNavi().
+                        '<div class="box">'.        #. => concatenate .= => append to content
+                        $this->_createNavi().       #line 128 makes the prev next current month div
                         '</div>'.
                         '<div class="box-content">'.
-                                '<ul class="label">'.$this->_createLabels().'</ul>';   
-                                $content.='<div class="clear"></div>';     
+                                '<ul class="label">'.$this->_createLabels().'</ul>';   # $content is made here 
+                                $content.='<div class="clear"></div>';
                                 $content.='<ul class="dates">';    
                                  
                                 $weeksInMonth = $this->_weeksInMonth($month,$year);
                                 // Create weeks in a month
-                                for( $i=0; $i<$weeksInMonth; $i++ ){
-                                     
+                                for($i=0; $i<$weeksInMonth; $i++){
                                     //Create days in a week
                                     for($j=1;$j<=7;$j++){
-                                        $content.=$this->_showDay($i*7+$j);
+                                        $content.=$this->_showDay($i*7+$j);     #week * 7 + aantal dagen => is dan cellNumber dan concateneert hij de return
                                     }
                                 }
                                  
                                 $content.='</ul>';
                                  
-                                $content.='<div class="clear"></div>';     
+                                $content.='<div class="clear"></div>';
              
                         $content.='</div>';
                  
@@ -89,16 +94,14 @@ class Calendar {
     }
      
     /********************* PRIVATE **********************/ 
-    /**
-    * create the li element for ul
-    */
-    private function _showDay($cellNumber){
+    /* create the li element for ul */
+    private function _showDay($cellNumber){ #function used in line 76
          
-        if($this->currentDay==0){
+        if($this->currentDay==0){ #currentDay is set to 0 line 18
              
             $firstDayOfTheWeek = date('N',strtotime($this->currentYear.'-'.$this->currentMonth.'-01'));
                      
-            if(intval($cellNumber) == intval($firstDayOfTheWeek)){
+            if(intval($cellNumber) == intval($firstDayOfTheWeek)){ #intval neemt gewoon de int value
                  
                 $this->currentDay=1;
                  
@@ -109,8 +112,11 @@ class Calendar {
              
             $this->currentDate = date('Y-m-d',strtotime($this->currentYear.'-'.$this->currentMonth.'-'.($this->currentDay)));
              
-            $cellContent = $this->currentDay;
+            $cellContent = $this->currentDay; 
              
+            #de naam van de jarige toevoegen in de cell content 
+
+
             $this->currentDay++;   
              
         }else{

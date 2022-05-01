@@ -39,7 +39,7 @@ h1 {
     display: flex;
     align-items: center;
     /* justify-content: center;  => dit moet weg, anders zit de side nav over een deel van de buttons => heb gefixt met padding left*/
-    padding-left: 15px;
+    padding-left: 0px;
     gap: 7%; /*plaats tussen de buttons*/
     /* gap: 10%; */
     /* width: 1vw; */

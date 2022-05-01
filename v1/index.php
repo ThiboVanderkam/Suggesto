@@ -52,10 +52,10 @@
             
             <div class="header-box">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">For him</a></li>
-                    <li><a href="#">For her</a></li>
-                    <li><a href="#">For kids</a></li>
+                    <li><a id="homeButton" href="#">Home</a></li>
+                    <li><a id="forHimButton" href="#">For him</a></li>
+                    <li><a id="forHerButton" href="#">For her</a></li>
+                    <li><a id="forKidsButton" href="#">For kids</a></li>
                 </ul>
             </div>
 
@@ -92,7 +92,7 @@
 
 
 
-        <script src="assets/js/script.js">
+        <script src="assets/js/indexPage.js">
         </script>
     </body>
 </html>

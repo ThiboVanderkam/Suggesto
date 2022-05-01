@@ -58,6 +58,14 @@ class Api {
         return "done";
     }
 
+    // function getFriendsBdays($parameters){
+    //     $email = $parameters["email"];
+    //     $idQuery = "SELECT local_friend FROM user WHERE u_email =\"" . $email . "\";";
+    //     $id = $this->conn->getQuery($idQuery)[0]["local_friend"];
+    //     $localFriend = "SELECT l_firstname, l_lastname, l_dob FROM localfriends WHERE local_id = \"" . $id . "\";";
+    //     $localFriendData = $this->conn->getQuery($localFriend)[0];
+    //     return $localFriendData
+    // }
     
     function selectCall($parameters) {
         if ($parameters["call"] == "login") {
@@ -72,6 +80,11 @@ class Api {
             $output = $this->getInterests($parameters);
             return $output;
         }
+        // elseif($parameters["call"] == "getFriendsBdays"){
+        //     $output = $this->getFriendsBdays($parameters);
+        //     return $output;
+        // }
         
     }
+
 }

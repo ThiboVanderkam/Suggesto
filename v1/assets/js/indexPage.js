@@ -1,6 +1,6 @@
 homeButton = document.querySelector("#homeButton");
 homeButton.addEventListener("click", function() {
-    window.location.href = "../../index.html"
+    window.location.href = "../../index.php"
 });
 
 forHimButton = document.querySelector("#forHimButton");
