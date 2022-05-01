@@ -69,7 +69,7 @@
         </div>
 
 
-        <script src="assets/js/script.js">
+        <script src="js/calendar.js">
         </script>
     </body>
 </html>

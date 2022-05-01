@@ -118,6 +118,7 @@ div#calendar ul.dates li{
     background-color: #DDD;
     color: #000;
     text-align: center; 
+    cursor: pointer;
 }
 
 :focus{

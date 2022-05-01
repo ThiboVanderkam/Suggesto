@@ -127,7 +127,7 @@ class Calendar {
         }
              
          
-        return '<li id="li-'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).
+        return '<li id="li-'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).//if cellnum modulo 1 class= start (very cool :))
                 ($cellContent==null?'mask':'').'">'.$cellContent.'</li>';
     }
      
