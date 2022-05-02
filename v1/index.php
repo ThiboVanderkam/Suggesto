@@ -20,8 +20,8 @@
         <!-- __________________________________________Sidebar___________________________________________ -->
         <div class="sidenav border">
             <div class="flex">
-                <a href="#" class="">Sign up</a>
-                <a href="#" class="">Log in</a>
+                <a href="#" id="signUpButton">Sign up</a>
+                <a href="#" id="logInButton">Log in</a>
             </div>
 
             <a href="assets/calendar.php" class="bestFriends"><u>Best Friends</u></a>

@@ -63,7 +63,7 @@
                     <div>
                     <!--<a href="/ForgotPassword.html" class="forgetPassword">Forgot password?</a>-->
     
-                    <p>Need an account? <a href= "/SignUp.html" class="link">SIGN UP HERE</a></p>
+                    <p>Need an account? <a href= "/SignUp.php" class="link">SIGN UP HERE</a></p>
     
                     </div>
     
