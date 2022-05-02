@@ -24,7 +24,7 @@
                 <a href="#" class="">Log in</a>
             </div>
 
-            <a href="assets/calendar.php" class="bestFriends"><u>Best Friends</u></a>
+            <a href="calendar.php" class="bestFriends"><u>Best Friends</u></a>
             <p class="font-body">It looks like you're not logged in. Login or sign up to add friends.</p>
             <!-- <a href="#">Clients</a>
             <a href="#">Contact</a> -->
