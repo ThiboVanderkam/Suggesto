@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Calendar</title>
-        <link rel="stylesheet" href="css/styleCalendar.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/styleCalendar.css" type="text/css">
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +61,7 @@
         
             <div>
                 <?php
-                    include "classes/calendarClass.php";
+                    include "assets/classes/calendarClass.php";
                     $calendar = new Calendar();
                     echo $calendar->show();
                 ?>
@@ -69,7 +69,7 @@
         </div>
 
 
-        <script src="js/calendar.js">
+        <script src="assets/js/calendar.js">
         </script>
     </body>
 </html>
