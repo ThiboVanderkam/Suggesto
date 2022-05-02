@@ -133,7 +133,7 @@
                         </div>
         
                         <div>    
-                        <p>Already have an account? <a href= "/login.html" class="link">LOGIN HERE</a></p>
+                        <p>Already have an account? <a href= "/login.php" class="link">LOGIN HERE</a></p>
         
                         </div>
 
