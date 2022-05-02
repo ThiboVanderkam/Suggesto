@@ -51,9 +51,9 @@
             
             <div class="header-box">
                 <ul>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Friends</a></li>
-                    <li><a href="#">My Profile</a></li>
+                    <li id="calendarButton"><a href="#">Calendar</a></li>
+                    <li id="addFriendEmailButton"><a href="#">Friends</a></li>
+                    <li id="profileButton"><a href="#">My Profile</a></li>
                 </ul>
             </div>
 
