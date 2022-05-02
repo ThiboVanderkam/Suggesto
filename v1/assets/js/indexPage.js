@@ -17,3 +17,14 @@ forKidsButton = document.querySelector("#forKidsButton");
 forKidsButton.addEventListener("click", function() {
     window.location.href = "https://www.bol.com/be/nl/sdl/kinderen/3?promo=main_314_sdl__category_3_&bltgh=pS8axOV72Xn3T8bdhYtIsg.61_62_63.66.CategoryImage"
 });
+
+signUpButton = document.querySelector("#signUpButton");
+signUpButton.addEventListener("click", function() {
+    window.location.href = "../../SignUp.php"
+});
+
+loginButton = document.querySelector("#logInButton");
+loginButton.addEventListener("click", function() {
+    window.location.href = "../../login.php"
+});
+

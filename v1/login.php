@@ -20,7 +20,7 @@
     </head>
     <body class="body">
 
-        <form method="GET" action="/index.html">
+        <form method="GET" action="/index.php">
 
             <div class="grotere-box">
 
@@ -63,7 +63,7 @@
                     <div>
                     <!--<a href="/ForgotPassword.html" class="forgetPassword">Forgot password?</a>-->
     
-                    <p>Need an account? <a href= "/SignUp.html" class="link">SIGN UP HERE</a></p>
+                    <p>Need an account? <a href= "/SignUp.php" class="link">SIGN UP HERE</a></p>
     
                     </div>
     

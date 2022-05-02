@@ -16,6 +16,8 @@ body {
 h1 {
     font-family: 'Italianno', cursive;
     font-family: 'Poppins', sans-serif;
+    width: 85%;
+    margin-left: 15%;
 }
 
 .flex {
@@ -34,8 +36,8 @@ h1 {
     /* background-color: #ECECEC; */
     background-color: #112D4E;
     height: 55px;
-    width: 100%;
-    /* width: 100%;     dit is voor zonder sidebar */
+    width: 85%;
+    margin-left: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,6 +172,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 85%;
+    margin-left: 15%;
 }
 
 #gift-preferences {

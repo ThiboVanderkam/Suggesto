@@ -30,3 +30,18 @@ for (var i = 0; i < dateElements.length; i++){
     };
 };
 
+calendarButton = document.querySelector("#calendarButton");
+calendarButton.addEventListener("click", function() {
+    window.location.href = "../../calendar.php"
+});
+
+
+addFriendEmailButton = document.querySelector("#addFriendEmailButton");
+addFriendEmailButton.addEventListener("click", function() {
+    window.location.href = "../../addFriendEmail.php"
+});
+
+profileButton = document.querySelector("#profileButton");
+profileButton.addEventListener("click", function() {
+    window.location.href = "../../profilePage.php" //moet Arne nog doen
+});
