@@ -25,15 +25,15 @@
         </div>
 
         <div class="sidenav2 border">
-            <a href="#" ><u>My account</u></a>
+            <a href="#" ><u id="myAccount">My account</u></a>
 
             <br>
 
-            <a href="#" ><u>Security</u></a>
+            <!-- <a href="#" ><u>Security</u></a> -->
 
-            <br>
+            <!-- <br> -->
 
-            <a href="giftPreferences.php" ><u>My gift preferences</u></a>
+            <a href="giftPreferences.php"><u id="giftPreferences">My gift preferences</u></a>
             
         </div>
 
@@ -136,7 +136,7 @@
             </div>
         </div>
     </div> 
-    <script src="assets/js/script.js">
+    <script src="assets/js/giftPreferences.js">
     </script>
     </body>
 </html>
