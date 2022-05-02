@@ -24,7 +24,7 @@
             Pick your favorite topics for recieving gifts
         </div>
 
-        <div class="sidenav2 border">
+        <div class="sidenav2 border font-body">
             <a href="#" ><u id="myAccount">My account</u></a>
 
             <br>
