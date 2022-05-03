@@ -58,7 +58,7 @@ class Api {
         return "done";
     }
 
-    function getFriendsBdays($parameters){
+    function getFriendsData($parameters){
         $email = $parameters["email"];
         $userIdQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
         $userId = $this->conn->getQuery($userIdQuery)[0]["u_id"];
@@ -67,7 +67,7 @@ class Api {
         $friendsDataQuery = "SELECT l_firstname, l_lastname, l_birthday FROM local_friend WHERE local_id ='";
         $friendsData = array(count($friendsId));
         for ($x = 0; $x < count($friendsId); $x++){
-            $friendsData[$x] = $this->conn->getQuery($friendsDataQuery . $friendsId[$x]["f_id"] . "';");
+            $friendsData[$x] = $this->conn->getQuery($friendsDataQuery . $friendsId[$x]["f_id"] . "';")[0];
         }
         return $friendsData;
     }
@@ -86,7 +86,7 @@ class Api {
             return $output;
         }
         elseif($parameters["call"] == "getFriendsData"){
-            $output = $this->getFriendsBdays($parameters);
+            $output = $this->getFriendsData($parameters);
             return $output;
         }
         else {
