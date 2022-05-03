@@ -1,7 +1,7 @@
 dateElements = Array.from(document.querySelector(".dates").children);
 
 var response = ""
-link = "http://localhost/assets/db/apiCall.php?call=login&email=r0886870@student.thomasmore.be&password=Bartje123"
+link = "http://localhost/assets/db/apiCall.php?call=getFriendsBdays&email=r0886870@student.thomasmore.be"
 fetch(link, { mode: 'no-cors'})
     .then(function(response) {
         return response.json();

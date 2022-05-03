@@ -63,10 +63,13 @@ class Api {
         $userIdQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
         $userId = $this->conn->getQuery($userIdQuery)[0]["u_id"];
         $friendsIdQuery = "SELECT f_id FROM isFriendsWith WHERE u_id ='".$userId."';";
-        
-        // $userId = "SELECT local_friend FROM user WHERE u_email =\"" . $email . "\";";
         $friendsId = $this->conn->getQuery($friendsIdQuery);
-        return $friendsId;
+        $friendsDataQuery = "SELECT l_firstname, l_lastname, l_birthday FROM local_friend WHERE local_id ='";
+        $friendsData = array(count($friendsId));
+        for ($x = 0; $x < count($friendsId); $x++){
+            $friendsData[$x] = $this->conn->getQuery($friendsDataQuery . $friendsId[$x]["f_id"] . "';");
+        }
+        return $friendsData;
     }
     
     function selectCall($parameters) {
@@ -85,6 +88,9 @@ class Api {
         elseif($parameters["call"] == "getFriendsData"){
             $output = $this->getFriendsBdays($parameters);
             return $output;
+        }
+        else {
+            return "Wrong call!";
         }
         
     }
