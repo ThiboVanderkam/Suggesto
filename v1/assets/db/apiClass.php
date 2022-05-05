@@ -58,6 +58,20 @@ class Api {
         return "done";
     }
 
+    function storeInterests($parameters) {
+        $email = $parameters["email"];
+        $interests = $parameters["interests"];
+        $interestsArray = explode(",", $interests);
+        $idQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
+        $id = $this->conn->getQuery($idQuery)[0]["u_id"];
+        foreach ($interestsArray as $interest) {
+            $query = "INSERT INTO `interests` (`u_id`, `keyword`) VALUES ('$id', '$interest');";
+            $this->conn->insertQuery($query);
+        }
+        return "done";
+        
+    }
+
     function getFriendsData($parameters){
         $email = $parameters["email"];
         $userIdQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
@@ -87,6 +101,10 @@ class Api {
         }
         elseif($parameters["call"] == "getFriendsData"){
             $output = $this->getFriendsData($parameters);
+            return $output;
+        }
+        elseif($parameters["call"] == "storeInterests") {
+            $output = $this->storeInterests($parameters);
             return $output;
         }
         else {
