@@ -1,3 +1,53 @@
+<?php
+
+include "assets/db/databaseClass.php";
+
+$db = new Database();
+
+if (isset($_POST["submit"])){
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $bday = $_POST["birthday"];
+    $email = $_POST["email"];
+    $password = $_POST["password"]; 
+    $cpassword = $_POST["cpassword"];
+    //moet nog interests bij maken
+
+    if ($password == $cpassword){        
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        $query = "SELECT * FROM user WHERE u_email ='$email';";
+        $result = mysqli_query($db->connection, $query);
+        if($result->num_rows > 0){
+            echo "<script>alert('Email already in use.')</script>";
+        }
+        else{    
+            $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
+            $result = $db->insertQuery($query); //putting the things in the database
+            if($result == true){
+                $name = "";
+                $surname = "";
+                $bday = "";
+                $email = "";
+                $_POST["password"];
+                $_POST["cpassword"];
+                echo "<script>alert('Sign up success.')</script>";
+            }
+            else{
+                echo "<script>alert('Something went wrong.')</script>";
+            }
+        }        
+    }
+    else{
+        echo "<script>alert('Passwords do not match.')</script>";
+    }
+}
+
+?>
+
+
+
+
 <!-- Arne Vernaillen -->
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +70,7 @@
     </head>
     <body class="body">
 
-        <form method="GET" action="/index.html">
+        <form method="POST" action="">
 
             <div class="grotere-box">
 
@@ -34,18 +84,18 @@
 
                         <!--Name-->
                         <div>
+                            <br> <!-- br(ol) -->
+                            <label>First Name</label>
                             <br>
-                            <label>Name</label>
-                            <br>
-                            <input type="text" name="name" id="form-name" required>
+                            <input type="text" placeholder="Name" name="name" id="form-name" required>
                         </div>
 
                         <!--Surname-->
                         <div>
                             <br>
-                            <label>Surname</label>
+                            <label>Last Name</label>
                             <br>
-                            <input type="text" name="surname" id="form-surname" required>
+                            <input type="text" placeholder="Surname" name="surname" id="form-surname" required>
                             <br>
                         </div>
 
@@ -68,7 +118,7 @@
                             <br>
                             <label>E-mail</label>
                             <br>
-                            <input type="text" name="email" id="form-email"required>
+                            <input type="email" placeholder="E-mail" name="email" id="form-email" required>
                             <br>
                             <br>
                         </div>
@@ -77,16 +127,16 @@
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" name="password" id="form-password"required>
+                            <input type="password" placeholder="Password" name="password" id="form-password" required>
                             <br>
                             <br>
                         </div>
 
                         <!--re-enter Password-->
                         <div>
-                            <label>Re- enter Password</label>
+                            <label>Confirm Password</label>
                             <br>
-                            <input type="password" name="rePassword" id="form-rePassword"required>
+                            <input type="password" placeholder="Confirm Password" name="cpassword" id="form-rePassword" required>
                             <br>
                             <br>
                         </div>
@@ -129,7 +179,7 @@
 
                         <!--Submit button-->
                         <div>
-                            <input class="signUpButton" type="submit" value="Sign Up">
+                            <input class="signUpButton" type="submit" name="submit" value="Sign Up">
                         </div>
         
                         <div>    

@@ -1,3 +1,17 @@
+<?php
+
+include "assets/db/databaseClass.php";
+
+if (isset($_POST["submit"]));
+    
+
+
+?>
+
+
+
+
+
 <!-- Arne Vernaillen -->
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +34,7 @@
     </head>
     <body class="body">
 
-        <form method="GET" action="/index.php">
+        <form method="POST" action="/calendar.php">
 
             <div class="grotere-box">
 
@@ -37,7 +51,7 @@
                             <br>
                             <label>E-mail address</label>
                             <br>
-                            <input type="text" name="email" id="form-email" required>
+                            <input type="email" placeholder="E-mail" name="email" id="form-email" required>
                             <br>
                             <br>
                         </div>
@@ -46,7 +60,7 @@
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" name="password" id="form-password" required>
+                            <input type="password" placeholder="Password" name="password" id="form-password" required>
                             <br>
                             <br>
                         </div>

@@ -41,7 +41,13 @@ class Database {
     }
 
     function insertQuery($query) {
-        mysqli_query($this->connection, $query);
+        if (mysqli_query($this->connection, $query)){
+            return true; //getting the status to see if query succeded
+        }
+        else{
+            return false;
+        }
+        
     }
 
     //connection sluiten

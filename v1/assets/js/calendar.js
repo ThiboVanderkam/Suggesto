@@ -12,9 +12,11 @@ fetch(link, { mode: 'no-cors'})
         //https://stackoverflow.com/questions/57139456/variables-being-changed-in-fetch-but-unchanged-outside-of-function
         bdayData = {};
 
+        // making the object wit h the name and bdays
         for (var i = 0; i < response.length; i++){
             bdayData[response[i].l_firstname + " " + response[i].l_lastname] = response[i].l_birthday;
         };
+        //printin the names on the right date
         for (var i = 0; i < dateElements.length; i++){
             for (var friend in bdayData){
                 if (dateElements[i].id.toString() == ("li-" + bdayData[friend]).toString()){
