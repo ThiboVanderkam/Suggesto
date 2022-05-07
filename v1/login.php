@@ -1,7 +1,7 @@
 <?php
 
 include "assets/db/databaseClass.php";
-include "session.php";
+include "sessionValid.php";
 
 $db = new Database();
 

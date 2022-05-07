@@ -1,3 +1,54 @@
+<?php
+
+include "assets/db/databaseClass.php";
+include "sessionValid.php";
+
+$db = new Database();
+
+if (isset($_POST["submit"])){
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $bday = $_POST["birthday"];
+    $email = $_POST["email"];
+    $password = $_POST["password"]; 
+    $cpassword = $_POST["cpassword"];
+    //moet nog interests bij maken
+
+    if ($password == $cpassword){        
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        $query = "SELECT * FROM user WHERE u_email ='$email';";
+        $result = mysqli_query($db->connection, $query);
+        if($result->num_rows > 0){
+            echo "<script>alert('Email already in use.')</script>";
+        }
+        else{    
+            $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
+            $result = $db->insertQuery($query); //putting the things in the database
+            if($result == true){
+                $name = "";
+                $surname = "";
+                $bday = "";
+                $email = "";
+                $_POST["password"];
+                $_POST["cpassword"];
+                echo "<script>alert('Sign up success.')</script>";
+            }
+            else{
+                echo "<script>alert('Something went wrong.')</script>";
+            }
+        }        
+    }
+    else{
+        echo "<script>alert('Passwords do not match.')</script>";
+    }
+}
+
+?>
+
+
+
+
 <!-- Arne Vernaillen -->
 <!DOCTYPE html>
 <html lang="en">
