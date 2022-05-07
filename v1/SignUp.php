@@ -1,6 +1,7 @@
 <?php
 
 include "assets/db/databaseClass.php";
+include "session.php";
 
 $db = new Database();
 
@@ -69,15 +70,8 @@ if (isset($_POST["submit"])){
 
     </head>
     <body class="body">
-
         <form method="POST" action="">
-
             <div class="grotere-box">
-
-                <div class="avatar-box">
-
-                </div>
-                
                 <div class="signUp-box">
 
                     <div id="div1">
@@ -87,7 +81,7 @@ if (isset($_POST["submit"])){
                             <br> <!-- br(ol) -->
                             <label>First Name</label>
                             <br>
-                            <input type="text" placeholder="Name" name="name" id="form-name" required>
+                            <input type="text" placeholder="Name" name="name" value='<?php echo $name ?>' id="form-name" required>
                         </div>
 
                         <!--Surname-->
@@ -95,7 +89,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>Last Name</label>
                             <br>
-                            <input type="text" placeholder="Surname" name="surname" id="form-surname" required>
+                            <input type="text" placeholder="Surname" name="surname" value='<?php echo $surname ?>' id="form-surname" required>
                             <br>
                         </div>
 
@@ -104,11 +98,10 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>Birthday</label>
                             <br>
-                            <input type="date" name="birthday" id="form-birthday" required>
+                            <input type="date" name="birthday" id="form-birthday" value='<?php echo $bday ?>' required>
                             <br>
                             <br>
                         </div>
-                    
                     </div>
 
                     <div id="div2">
@@ -118,7 +111,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>E-mail</label>
                             <br>
-                            <input type="email" placeholder="E-mail" name="email" id="form-email" required>
+                            <input type="email" placeholder="E-mail" name="email" value='<?php echo $email ?>' id="form-email" required>
                             <br>
                             <br>
                         </div>
@@ -140,7 +133,6 @@ if (isset($_POST["submit"])){
                             <br>
                             <br>
                         </div>
-
                     </div>
 
                     <div id="div3">
@@ -172,11 +164,9 @@ if (isset($_POST["submit"])){
                             <input type="checkbox" name="other" value="other" id="form-other" >
                             <label for="form-other">Other...</label>      
                         </div>
-
                     </div>
 
                     <div id="div6">
-
                         <!--Submit button-->
                         <div>
                             <input class="signUpButton" type="submit" name="submit" value="Sign Up">
@@ -186,17 +176,9 @@ if (isset($_POST["submit"])){
                         <p>Already have an account? <a href= "/login.php" class="link">LOGIN HERE</a></p>
         
                         </div>
-
                     </div>
-    
                 </div> <!--End of loginbox div-->  
-
             </div>
-               
-                
         </form>
-
-        
-	
     </body>
 </html>

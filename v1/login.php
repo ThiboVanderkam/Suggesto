@@ -1,11 +1,25 @@
 <?php
 
 include "assets/db/databaseClass.php";
+include "session.php";
+
+$db = new Database();
 
 if (isset($_POST["submit"]));
-    
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-
+    $query = "SELECT * FROM user WHERE u_email = '$email';";
+    $result = mysqli_query($db->connection, $query);
+    $response = mysqli_fetch_assoc($result);
+    $passVerify = password_verify($password, $response['u_password']);
+    if($result->num_rows > 0 && $passVerify){
+        $_SESSION['u_id'] = $response['u_id'];
+        header("Location: calendar.php");
+    }
+    else{
+        echo "<script>alert('Email or password is incorrect.')</script>";
+    }
 ?>
 
 
@@ -34,7 +48,7 @@ if (isset($_POST["submit"]));
     </head>
     <body class="body">
 
-        <form method="POST" action="/calendar.php">
+        <form method="POST" action="">
 
             <div class="grotere-box">
 
@@ -51,7 +65,7 @@ if (isset($_POST["submit"]));
                             <br>
                             <label>E-mail address</label>
                             <br>
-                            <input type="email" placeholder="E-mail" name="email" id="form-email" required>
+                            <input type="email" placeholder="E-mail" name="email" value='<?php echo $email ?>' id="form-email" required>
                             <br>
                             <br>
                         </div>
@@ -60,7 +74,7 @@ if (isset($_POST["submit"]));
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" placeholder="Password" name="password" id="form-password" required>
+                            <input type="password" placeholder="Password" name="password" value='<?php echo $_POST["password"] ?>' id="form-password" required>
                             <br>
                             <br>
                         </div>
@@ -70,7 +84,7 @@ if (isset($_POST["submit"]));
                     <!--Submit button-->
                     <div>
                         <br>
-                        <input class="loginbutton" type="submit" value="login">
+                        <input class="loginbutton" type="submit" name="submit" value="login">
                         <br>
                     </div>
                     

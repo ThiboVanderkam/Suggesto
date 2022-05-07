@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['u_id'])){
+    header("Location: index.php");
+}
+
+include "assets/db/databaseClass.php";
+
+$db = new Database();
+
+$userId = $_SESSION['u_id'];
+
+$user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
+
+$firstname = $user["u_firstname"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,7 +38,8 @@
         <!-- __________________________________________Sidebar___________________________________________ -->
         <div class="sidenav border">
             <div class="flex">
-                <a href="#" class="">Hello ...<?php #get name of user ?></a>
+                <a href="#" class="">Hello <?php echo $firstname;?></a>
+                <a href="logout.php">Logout</a>
             </div>
 
             <a href="#" class="bestFriends"><u>Best Friends</u></a>
