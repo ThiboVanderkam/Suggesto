@@ -5,7 +5,7 @@ include "session.php";
 
 $db = new Database();
 
-if (isset($_POST["submit"]));
+if (isset($_POST["submit"])){
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -20,6 +20,7 @@ if (isset($_POST["submit"]));
     else{
         echo "<script>alert('Email or password is incorrect.')</script>";
     }
+}
 ?>
 
 
