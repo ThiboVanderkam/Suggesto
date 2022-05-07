@@ -1,54 +1,3 @@
-<?php
-
-include "assets/db/databaseClass.php";
-include "session.php";
-
-$db = new Database();
-
-if (isset($_POST["submit"])){
-    $name = $_POST["name"];
-    $surname = $_POST["surname"];
-    $bday = $_POST["birthday"];
-    $email = $_POST["email"];
-    $password = $_POST["password"]; 
-    $cpassword = $_POST["cpassword"];
-    //moet nog interests bij maken
-
-    if ($password == $cpassword){        
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-
-        $query = "SELECT * FROM user WHERE u_email ='$email';";
-        $result = mysqli_query($db->connection, $query);
-        if($result->num_rows > 0){
-            echo "<script>alert('Email already in use.')</script>";
-        }
-        else{    
-            $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
-            $result = $db->insertQuery($query); //putting the things in the database
-            if($result == true){
-                $name = "";
-                $surname = "";
-                $bday = "";
-                $email = "";
-                $_POST["password"];
-                $_POST["cpassword"];
-                echo "<script>alert('Sign up success.')</script>";
-            }
-            else{
-                echo "<script>alert('Something went wrong.')</script>";
-            }
-        }        
-    }
-    else{
-        echo "<script>alert('Passwords do not match.')</script>";
-    }
-}
-
-?>
-
-
-
-
 <!-- Arne Vernaillen -->
 <!DOCTYPE html>
 <html lang="en">
@@ -70,26 +19,33 @@ if (isset($_POST["submit"])){
 
     </head>
     <body class="body">
-        <form method="POST" action="">
+
+        <form method="GET" action="/index.html">
+
             <div class="grotere-box">
+
+                <div class="avatar-box">
+
+                </div>
+                
                 <div class="signUp-box">
 
                     <div id="div1">
 
                         <!--Name-->
                         <div>
-                            <br> <!-- br(ol) -->
-                            <label>First Name</label>
                             <br>
-                            <input type="text" placeholder="Name" name="name" value='<?php echo $name ?>' id="form-name" required>
+                            <label>Name</label>
+                            <br>
+                            <input type="text" name="name" id="form-name" required>
                         </div>
 
                         <!--Surname-->
                         <div>
                             <br>
-                            <label>Last Name</label>
+                            <label>Surname</label>
                             <br>
-                            <input type="text" placeholder="Surname" name="surname" value='<?php echo $surname ?>' id="form-surname" required>
+                            <input type="text" name="surname" id="form-surname" required>
                             <br>
                         </div>
 
@@ -98,10 +54,11 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>Birthday</label>
                             <br>
-                            <input type="date" name="birthday" id="form-birthday" value='<?php echo $bday ?>' required>
+                            <input type="date" name="birthday" id="form-birthday" required>
                             <br>
                             <br>
                         </div>
+                    
                     </div>
 
                     <div id="div2">
@@ -111,7 +68,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>E-mail</label>
                             <br>
-                            <input type="email" placeholder="E-mail" name="email" value='<?php echo $email ?>' id="form-email" required>
+                            <input type="text" name="email" id="form-email"required>
                             <br>
                             <br>
                         </div>
@@ -120,19 +77,20 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" placeholder="Password" name="password" id="form-password" required>
+                            <input type="password" name="password" id="form-password"required>
                             <br>
                             <br>
                         </div>
 
                         <!--re-enter Password-->
                         <div>
-                            <label>Confirm Password</label>
+                            <label>Re- enter Password</label>
                             <br>
-                            <input type="password" placeholder="Confirm Password" name="cpassword" id="form-rePassword" required>
+                            <input type="password" name="rePassword" id="form-rePassword"required>
                             <br>
                             <br>
                         </div>
+
                     </div>
 
                     <div id="div3">
@@ -164,21 +122,31 @@ if (isset($_POST["submit"])){
                             <input type="checkbox" name="other" value="other" id="form-other" >
                             <label for="form-other">Other...</label>      
                         </div>
+
                     </div>
 
                     <div id="div6">
+
                         <!--Submit button-->
                         <div>
-                            <input class="signUpButton" type="submit" name="submit" value="Sign Up">
+                            <input class="signUpButton" type="submit" value="Sign Up">
                         </div>
         
                         <div>    
                         <p>Already have an account? <a href= "/login.php" class="link">LOGIN HERE</a></p>
         
                         </div>
+
                     </div>
+    
                 </div> <!--End of loginbox div-->  
+
             </div>
+               
+                
         </form>
+
+        
+	
     </body>
 </html>
