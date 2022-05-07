@@ -24,12 +24,12 @@
                 <a href="#" id="logInButton">Log in</a>
             </div>
 
-            <a href="calendar.php" class="bestFriends"><u>Best Friends</u></a>
+            <a href="calendar.php" class="bestFriends"><u>Friends</u></a>
             <p class="font-body">It looks like you're not logged in. Login or sign up to add friends.</p>
             <!-- <a href="#">Clients</a>
             <a href="#">Contact</a> -->
 
-            <div class="suggestion-div">
+            <!-- <div class="suggestion-div">
                 <div class="lilbox">test</div>
                 <div class="lilbox">test</div>
             </div>
@@ -41,7 +41,7 @@
             <div class="suggestion-div">
                 <div class="lilbox">test</div>
                 <div class="lilbox">test</div>
-            </div>
+            </div> -->
         </div>
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->

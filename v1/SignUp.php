@@ -20,7 +20,7 @@
     </head>
     <body class="body">
 
-        <form method="GET" action="/index.html">
+        <form method="GET" action="/index.php">
 
             <div class="grotere-box">
 

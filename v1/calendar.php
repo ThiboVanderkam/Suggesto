@@ -23,12 +23,13 @@
                 <a href="#" class="">Hello ...<?php #get name of user ?></a>
             </div>
 
-            <a href="#" class="bestFriends"><u>Best Friends</u></a>
+            <a href="#" class="bestFriends"><u>Friends</u></a>
+            
             <p class="font-body">It looks like you haven't chosen your best freinds yet.</p>
             <!-- <a href="#">Clients</a>
             <a href="#">Contact</a> -->
 
-            <div class="suggestion-div">
+            <!-- <div class="suggestion-div">
                 <div class="lilbox">test</div>
                 <div class="lilbox">test</div>
             </div>
@@ -40,14 +41,12 @@
             <div class="suggestion-div">
                 <div class="lilbox">test</div>
                 <div class="lilbox">test</div>
-            </div>
+            </div> -->
         </div>
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
         <div class="main"> <!-- MAIN maken voor de rest van de website buiten de sidebar -->
             <h1 class="border">SUGGESTO</h1>
-
-            <!--                   --     (BORDER WERKT NOG NIET (idk wrm)   --                      -->
             
             <div class="header-box">
                 <ul>
