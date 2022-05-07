@@ -1,7 +1,12 @@
-dateElements = Array.from(document.querySelector(".dates").children);
+//makes an array from the li squares for the dates
+var dateElements = Array.from(document.querySelector(".dates").children);
+var friendsListElement = document.querySelector("#friendsList");
+
+var dataElement = document.querySelector("#data");
+var userEmail = dataElement.innerHTML.trim();
 
 var response;
-link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email=r0886870@student.thomasmore.be"
+link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+userEmail;
 fetch(link, { mode: 'no-cors'})
     .then(function(response) {
         return response.json();
@@ -10,11 +15,14 @@ fetch(link, { mode: 'no-cors'})
         
         //need to do this here because:
         //https://stackoverflow.com/questions/57139456/variables-being-changed-in-fetch-but-unchanged-outside-of-function
-        bdayData = {};
+        var bdayData = {};
 
         // making the object wit h the name and bdays
         for (var i = 0; i < response.length; i++){
-            bdayData[response[i].l_firstname + " " + response[i].l_lastname] = response[i].l_birthday;
+            //concatenating the names and bdays
+            var name = response[i].l_firstname + " " + response[i].l_lastname;
+            bdayData[name] = response[i].l_birthday; 
+            friendsListElement.innerHTML += "<br>" + name;
         };
         //printin the names on the right date
         for (var i = 0; i < dateElements.length; i++){
@@ -24,7 +32,8 @@ fetch(link, { mode: 'no-cors'})
                 };
             };
         };
-});
+    }
+);
 
 calendarButton = document.querySelector("#calendarButton");
 calendarButton.addEventListener("click", function() {

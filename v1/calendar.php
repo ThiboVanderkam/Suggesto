@@ -42,24 +42,15 @@ $firstname = $user["u_firstname"];
                 <a href="logout.php">Logout</a>
             </div>
 
-            <a href="#" class="bestFriends"><u>Best Friends</u></a>
-            <p class="font-body">It looks like you haven't chosen your best freinds yet.</p>
+            <a href="#" class="bestFriends"><u>Your Friends</u></a>
+            
             <!-- <a href="#">Clients</a>
             <a href="#">Contact</a> -->
 
-            <div class="suggestion-div">
-                <div class="lilbox">test</div>
-                <div class="lilbox">test</div>
-            </div>
+            <ul id="friendsList" class="font-body">
+                
+            </ul>
 
-            <div class="suggestion-div">
-                <div class="lilbox">test</div>
-                <div class="lilbox">test</div>
-            </div>
-            <div class="suggestion-div">
-                <div class="lilbox">test</div>
-                <div class="lilbox">test</div>
-            </div>
         </div>
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
@@ -87,8 +78,13 @@ $firstname = $user["u_firstname"];
             </div>
         </div>
 
+        <div id="data" style = "display: none">
+            <?php
+                echo $user["u_email"];
+            ?>
+        </div>
 
-        <script src="assets/js/calendar.js">
+        <script src="assets/js/calendar.js">            
         </script>
     </body>
 </html>
