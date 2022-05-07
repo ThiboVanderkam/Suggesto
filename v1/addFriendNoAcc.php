@@ -1,3 +1,17 @@
+<?php
+include "assets/db/databaseClass.php";
+include "sessionInvalid.php";
+
+$db = new Database();
+
+$userId = $_SESSION['u_id'];
+
+$user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
+
+$firstname = $user["u_firstname"];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,11 +36,11 @@
         
         <div class="sidenav border">
             <div class="flex">
-                <a href="#" class="">Hello user</a>
+                <a href="#" class="">Hello <?php echo $firstname?></a>
                 <!-- hier nog naam en foto poppen van de user -->
             </div>
 
-            <a href="#" class="bestFriends"><u>Best Friends</u></a>
+            <a href="#" class="bestFriends"><u>Your Friends</u></a>
             <ul>
                 <li id="friend-list">
                     vriend 1

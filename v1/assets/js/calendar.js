@@ -22,15 +22,17 @@ fetch(link, { mode: 'no-cors'})
             //concatenating the names and bdays
             var name = response[i].l_firstname + " " + response[i].l_lastname;
             bdayData[name] = response[i].l_birthday; 
-            friendsListElement.innerHTML += "<br>" + name;
         };
         //printin the names on the right date
-        for (var i = 0; i < dateElements.length; i++){
-            for (var friend in bdayData){
+        for (var friend in bdayData ){
+            for (var i = 0; i < dateElements.length; i++){
                 if (dateElements[i].id.toString() == ("li-" + bdayData[friend]).toString()){
                     dateElements[i].innerHTML+= '<br>' + friend;
                 };
             };
+            if (bdayData[friend] != undefined){ //als undefined dan geen friend adden
+                friendsListElement.innerHTML += "<li>" + friend + "</li>";
+            }
         };
     }
 );
