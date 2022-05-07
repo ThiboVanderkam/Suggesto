@@ -46,6 +46,20 @@ class Api {
         return $interests;
     }
 
+    function storeInterests($parameters) {
+        $email = $parameters["email"];
+        $interests = $parameters["interests"];
+        $interestsArray = explode(",", $interests);
+        $idQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
+        $id = $this->conn->getQuery($idQuery)[0]["u_id"];
+        foreach ($interestsArray as $interest) {
+            $query = "INSERT INTO `interests` (`u_id`, `keyword`) VALUES ('$id', '$interest');";
+            $this->conn->insertQuery($query);
+        }
+        return "done";
+        
+    }
+
     function signUp($parameters) {
         $name= $parameters["name"];
         $surname = $parameters["surname"];
@@ -58,15 +72,19 @@ class Api {
         return "done";
     }
 
-    function getFriendsBdays($parameters){
+
+    function getFriendsData($parameters){
         $email = $parameters["email"];
         $userIdQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
         $userId = $this->conn->getQuery($userIdQuery)[0]["u_id"];
         $friendsIdQuery = "SELECT f_id FROM isFriendsWith WHERE u_id ='".$userId."';";
-        
-        // $userId = "SELECT local_friend FROM user WHERE u_email =\"" . $email . "\";";
         $friendsId = $this->conn->getQuery($friendsIdQuery);
-        return $friendsId;
+        $friendsDataQuery = "SELECT l_firstname, l_lastname, l_birthday FROM local_friend WHERE local_id ='";
+        $friendsData = array(count($friendsId));
+        for ($x = 0; $x < count($friendsId); $x++){
+            $friendsData[$x] = $this->conn->getQuery($friendsDataQuery . $friendsId[$x]["f_id"] . "';")[0];
+        }
+        return $friendsData;
     }
     
     function selectCall($parameters) {
@@ -83,10 +101,15 @@ class Api {
             return $output;
         }
         elseif($parameters["call"] == "getFriendsData"){
-            $output = $this->getFriendsBdays($parameters);
+            $output = $this->getFriendsData($parameters);
             return $output;
         }
-        
+        elseif($parameters["call"] == "storeInterests") {
+            $output = $this->storeInterests($parameters);
+            return $output;
+        }
+        else {
+            return "Wrong call!";
+        }
     }
-
 }
