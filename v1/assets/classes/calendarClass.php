@@ -114,7 +114,7 @@ class Calendar {
              
             $cellContent = $this->currentDay; 
              
-            #de naam van de jarige toevoegen in de cell content 
+            #de naam van de jarige toevoegen in de cell content zit in de calendar.js
 
 
             $this->currentDay++;   

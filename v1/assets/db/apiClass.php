@@ -46,18 +46,6 @@ class Api {
         return $interests;
     }
 
-    function signUp($parameters) {
-        $name= $parameters["name"];
-        $surname = $parameters["surname"];
-        $birthday = $parameters["birthday"];
-        $email = $parameters["email"];
-        $password = $parameters["password"];
-        $hash = $this->hashPassword($password);
-        $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$birthday', '$email', '$hash', NULL);";
-        $this->conn->insertQuery($query);
-        return "done";
-    }
-
     function storeInterests($parameters) {
         $email = $parameters["email"];
         $interests = $parameters["interests"];
@@ -71,6 +59,19 @@ class Api {
         return "done";
         
     }
+
+    function signUp($parameters) {
+        $name= $parameters["name"];
+        $surname = $parameters["surname"];
+        $birthday = $parameters["birthday"];
+        $email = $parameters["email"];
+        $password = $parameters["password"];
+        $hash = $this->hashPassword($password);
+        $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$birthday', '$email', '$hash', NULL);";
+        $this->conn->insertQuery($query);
+        return "done";
+    }
+
 
     function getFriendsData($parameters){
         $email = $parameters["email"];
@@ -110,7 +111,5 @@ class Api {
         else {
             return "Wrong call!";
         }
-        
     }
-
 }
