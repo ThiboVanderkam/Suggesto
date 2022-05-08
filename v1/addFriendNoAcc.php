@@ -102,8 +102,8 @@ if (isset($_POST["submit"])){
             <div class="header-box">
                 <ul>
                     <li><a href="calendar.php">Calender</a></li>
-                    <li><a href="#">Friends</a></li>
-                    <li><a href="#">My profile</a></li>
+                    <li><a href="addFriendEmail.php">Friends</a></li>
+                    <li><a href="myProfile.php">My profile</a></li>
                 </ul>
             </div>
 

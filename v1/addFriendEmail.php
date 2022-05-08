@@ -84,16 +84,7 @@ $firstname = $user["u_firstname"];
             <div class="sidenav2 border">
 
                 <a href="#" ><u>All Friends</u></a>
-                <ul >
-                    <li id="friend-list">
-                        vriend 1
-                    </li>
-                    <li>
-                        vriend 2
-                    </li>
-                    <li>
-                        vriend 3
-                    </li>
+                <ul id="friend-list">
 
                 </ul>
             </div>
