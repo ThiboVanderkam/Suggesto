@@ -1,14 +1,12 @@
 <?php
-include "assets/db/databaseClass.php";
-include "sessionInvalid.php";
+    include "sessionInvalid.php";
+    include "assets/db/databaseClass.php";
 
-$db = new Database();
+    $db = new Database();
+    $userId = $_SESSION['u_id'];
+    $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
+    $firstname = $user["u_firstname"];
 
-$userId = $_SESSION['u_id'];
-
-$user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
-
-$firstname = $user["u_firstname"];
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +15,8 @@ $firstname = $user["u_firstname"];
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Your Calendar</title>
-        <link rel="stylesheet" href="assets/css/styleCalendar.css" type="text/css">
+        <title>Document</title>
+        <link rel="stylesheet" href="assets/css/myProfile.css" type="text/css">
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +28,20 @@ $firstname = $user["u_firstname"];
         <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Poppins:wght@200;300&display=swap" rel="stylesheet">
     </head>
     <body>
+        <!-- __________________________________________Sidebar___________________________________________ -->
+        <div class="sidenav border">
+            <div class="flex">
+                <a href="#" id="">Hello <?php echo $firstname;?></a>
+                <a href="logout.php" id="">Logout</a>
+            </div>
+
+            <a href="#" class="bestFriends"><u>Your Friends</u></a>
+            <ul id="friendsList" class="font-body">
+                
+            </ul>
+
+        </div>
+
         <!-- __________________________________________Sidebar___________________________________________ -->
         <div class="sidenav border">
             <div class="flex">
@@ -63,14 +75,7 @@ $firstname = $user["u_firstname"];
             </div>
 
             <br>
-        
-            <div>
-                <?php
-                    include "assets/classes/calendarClass.php";
-                    $calendar = new Calendar();
-                    echo $calendar->show();
-                ?>
-            </div>
+
         </div>
 
         <div id="data" style = "display: none">
@@ -78,8 +83,6 @@ $firstname = $user["u_firstname"];
                 echo $user["u_email"];
             ?>
         </div>
-
-        <script src="assets/js/calendar.js">            
-        </script>
-    </body>
+    <script src="assets/js/myProfile.js">
+    </script>
 </html>

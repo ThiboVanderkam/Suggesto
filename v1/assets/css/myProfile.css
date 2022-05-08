@@ -1,0 +1,237 @@
+body {
+    /* background: url("../images/homepage-Suggesto.png") center center fixed; */
+    justify-content: center;
+    text-align: center;
+    background-color: #F9F7F7;
+    margin-left: 0;
+    color: #3F72AF
+}
+
+.font-body{
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.border {
+    border: 1px solid #112D4E;
+}
+
+.header-box {
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+    
+    /* background-color: #ECECEC; */
+    background-color: #112D4E;
+    height: 55px;
+    width: 100%;
+    /* width: 100%;     dit is voor zonder sidebar */
+    display: flex;
+    align-items: center;
+    /* justify-content: center;  => dit moet weg, anders zit de side nav over een deel van de buttons => heb gefixt met padding left*/
+    padding-left: 0px;
+    gap: 7%; /*plaats tussen de buttons*/
+    /* gap: 10%; */
+    /* width: 1vw; */
+}
+
+body {
+/* background: url("../images/homepage-Suggesto.png") center center fixed; */
+justify-content: center;
+text-align: center;
+background-color: #F9F7F7;
+margin-left: 0;
+color: #3F72AF
+}
+
+.font-body{
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.border {
+    border: 1px solid #112D4E;
+} 
+
+.header-box {
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+    
+    /* background-color: #ECECEC; */
+    background-color: #112D4E;
+    height: 55px;
+    width: 100%;
+    /* width: 100%;     dit is voor zonder sidebar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7%; /*plaats tussen de buttons*/
+    /* gap: 10%; */
+    /* width: 1vw; */
+}
+
+.header-box-3 {
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+    
+    /* background-color: #ECECEC; */
+    background-color: #112D4E;
+    height: 55px;
+    width: 100%;
+    /* width: 100%;     dit is voor zonder sidebar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7%; /*plaats tussen de buttons*/
+    /* gap: 10%; */
+    /* width: 1vw; */
+}
+
+.header-box ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DBE2EF;
+    width: 100%;
+}
+  
+.header-box-3 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DBE2EF;
+    width: 100%;
+}
+
+.header-box li {
+    float: left;
+    border-right: 1px solid #3F72AF;
+    width: 33%;
+}
+
+.header-box-3 li {
+    float: left;
+    border-right: 1px solid #3F72AF;
+    width: 33%;
+}
+  
+.header-box li a {
+    display: block;
+    color: #112D4E;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header-box-3 li a {
+    display: block;
+    color: #112D4E;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header-box li a:hover {
+    background-color:#3F72AF; 
+}
+
+.header-box-3 li a:hover {
+    background-color:#3F72AF; 
+}
+
+.lilbox{
+    border: 1px solid #112D4E;
+    background-color: #e6e6e6;
+    height: 200px;
+    width: 100px;
+}
+
+
+.box {
+    border: 1px solid #112D4E;
+    background-color: #e6e6e6;
+    height: 180px;
+    width: 180px;
+}
+
+/* .box:hover {         doesn't work :(
+    color:#000000
+} */
+
+.suggestion-div {
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin: 5% 5% ; /*TOP-BOTTOM  LEFT-RIGHT*/
+    display: flex;
+    gap: 13%;
+}
+
+.button {
+    background-color: #9c9a9a;
+    border: 1px solid black;
+    height: 54px;
+    width: 15%;
+    /* width: 177px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 15%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: #F9F7F7;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+  
+  /* The navigation menu links */
+.sidenav a {
+    padding: 10px 8px 6px 16px; /*top right bottom left*/
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+}
+  
+  /* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    /* color: #f1f1f1; */
+    color: #969696
+}
+  
+  /* Style page content */
+.main {
+    margin-left: 0px;
+    margin-right: 14.0052%; /* Same as the width of the sidebar */
+}
+
+.bestFriends{
+    margin: 30px 0px 0px 0px;
+}
