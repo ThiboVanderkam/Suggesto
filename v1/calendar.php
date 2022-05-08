@@ -51,8 +51,6 @@ $firstname = $user["u_firstname"];
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
         <div class="main"> <!-- MAIN maken voor de rest van de website buiten de sidebar -->
             <h1 class="border">SUGGESTO</h1>
-
-            <!--                   --     (BORDER WERKT NOG NIET (idk wrm)   --                      -->
             
             <div class="header-box">
                 <ul>

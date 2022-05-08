@@ -29,11 +29,15 @@
 
             <br>
 
-            <!-- <a href="#" ><u>Security</u></a> -->
-
-            <!-- <br> -->
-
             <a href="giftPreferences.php"><u id="giftPreferences">My gift preferences</u></a>
+
+            <br>
+
+            <a href="calendar.php"><u>Calendar</u></a>
+
+            <br>
+
+            <a href="addFriendEmail.php"><u>Friends</u></a>
             
         </div>
 

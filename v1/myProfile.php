@@ -6,6 +6,8 @@
     $userId = $_SESSION['u_id'];
     $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
     $firstname = $user["u_firstname"];
+    $lastname = $user["u_lastname"];
+    $dob = $user["u_dob"];
 
 ?>
 
@@ -39,42 +41,56 @@
             <ul id="friendsList" class="font-body">
                 
             </ul>
-
         </div>
 
         <!-- __________________________________________Sidebar___________________________________________ -->
-        <div class="sidenav border">
-            <div class="flex">
-                <a href="#" class="">Hello <?php echo $firstname;?></a>
-                <a href="logout.php">Logout</a>
-            </div>
-
-            <a href="#" class="bestFriends"><u>Your Friends</u></a>
-            
-            <!-- <a href="#">Clients</a>
-            <a href="#">Contact</a> -->
-
-            <ul id="friendsList" class="font-body">
-                
-            </ul>
-
-        </div>
+        
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
         <div class="main"> <!-- MAIN maken voor de rest van de website buiten de sidebar -->
             <h1 class="border">SUGGESTO</h1>
-
-            <!--                   --     (BORDER WERKT NOG NIET (idk wrm)   --                      -->
             
             <div class="header-box">
                 <ul>
-                    <li id="calendarButton"><a href="#">Calendar</a></li>
-                    <li id="addFriendEmailButton"><a href="#">Friends</a></li>
+                    <li id="calendarButton"><a href="calendar.php">Calendar</a></li>
+                    <li id="addFriendEmailButton"><a href="addFriendEmail.php">Friends</a></li>
                     <li id="profileButton"><a href="myProfile.php">My Profile</a></li>
                 </ul>
             </div>
 
             <br>
+
+            <div id="infoDiv">
+                <div id="userInfoDiv">
+                    <a href="myProfile.php" class="font-body gap">My Account</a>
+                    <a href="giftPreferences.php" class="font-body gap">My Gift Preferences</a>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <div id="username" class="font-body">
+                        <p class="black">Firstname: <?php
+                            echo $firstname;
+                        ?></p>
+                        <p class="black">LastName: <?php
+                            echo $lastname;
+                        ?></p>
+                    </div>
+                        
+                    <div id="emailAddress" class="font-body">
+                        <p class="black">Email: <?php
+                            echo $user["u_email"];
+                        ?></p>
+                    </div>
+
+                    <div id="dob" class="font-body">
+                        <p class="black">Date: <?php
+                            echo $dob;
+                        ?></p>
+                    </div>
+                </div>  
+            </div>
 
         </div>
 

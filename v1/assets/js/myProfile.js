@@ -1,4 +1,9 @@
 var friendsListElement = document.querySelector("#friendsList");
+var usernameElement = document.querySelector("#username");
+var emailAddressElement = document.querySelector("#emailAddress");
+// var passwordElement = document.querySelector("#password");
+
+
 var dataElement = document.querySelector("#data");
 var userEmail = dataElement.innerHTML.trim();
 var response;
