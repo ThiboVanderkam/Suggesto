@@ -44,7 +44,22 @@
         </div>
 
         <!-- __________________________________________Sidebar___________________________________________ -->
+<<<<<<< HEAD
         
+=======
+<div class="sidenav border">
+            <div class="flex">
+                <a href="#" class="">Hello <?php echo $firstname;?></a>
+                <a href="logout.php">Logout</a>
+            </div>
+
+            <a href="#" class="bestFriends"><u>Your Friends</u></a>
+            <ul id="friendsList" class="font-body">
+                
+            </ul>
+
+        </div>
+>>>>>>> 94b21338e02af21d4d740fe980dd19adeea519dd
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
         <div class="main"> <!-- MAIN maken voor de rest van de website buiten de sidebar -->

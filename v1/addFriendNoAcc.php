@@ -29,6 +29,7 @@ if (isset($_POST["submit"])){
         ];
         $api->addLocalFriend($parameters);
         $api->storeLocalInterests($parameters);
+        $parameters = [];
     }
     else{
         echo "<b>Please Select Atleast One Option.</b>";
