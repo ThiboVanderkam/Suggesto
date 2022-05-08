@@ -38,10 +38,6 @@ $firstname = $user["u_firstname"];
             </div>
 
             <a href="#" class="bestFriends"><u>Your Friends</u></a>
-            
-            <!-- <a href="#">Clients</a>
-            <a href="#">Contact</a> -->
-
             <ul id="friendsList" class="font-body">
                 
             </ul>
