@@ -66,7 +66,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>E-mail address</label>
                             <br>
-                            <input type="email" placeholder="E-mail" name="email" value='<?php echo $email ?>' id="form-email" required>
+                            <input type="email" placeholder="E-mail" name="email"  id="form-email" required>
                             <br>
                             <br>
                         </div>
@@ -75,7 +75,7 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" placeholder="Password" name="password" value='<?php echo $_POST["password"] ?>' id="form-password" required>
+                            <input type="password" placeholder="Password" name="password" id="form-password" required>
                             <br>
                             <br>
                         </div>
