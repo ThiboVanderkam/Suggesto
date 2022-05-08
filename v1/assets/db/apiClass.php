@@ -57,7 +57,21 @@ class Api {
             $this->conn->insertQuery($query);
         }
         return "done";
-        
+    }
+
+    function storeLocalInterests($parameters){
+        $firstname = $parameters["firstname"];
+        $lastname = $parameters["lastname"];
+        $birthday = $parameters["birthday"];
+        $l_id = $this->conn->getQuery("SELECT local_id FROM local_friend WHERE l_firstname = '$firstname' AND l_lastname = '$lastname' AND l_birthday = '$birthday';")[0]["local_id"];
+        $interests = $parameters["interests"];
+        $interestsArray = explode(",", $interests);
+        foreach ($interestsArray as $interest) {
+            if(strlen($interest) > 0){
+                $query = "INSERT INTO `interests` (`u_id`, `keyword`) VALUES ('$l_id', '$interest');";
+                $this->conn->insertQuery($query);
+            }
+        }
     }
 
     function addLocalFriend($parameters){

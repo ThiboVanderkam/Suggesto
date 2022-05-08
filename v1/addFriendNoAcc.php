@@ -12,16 +12,26 @@ $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
 $firstname = $user["u_firstname"];
 
 if (isset($_POST["submit"])){
-    $parameters = [
-        "u_id" => $userId,
-        "firstname" => $_POST["firstname"],
-        "lastname" => $_POST["lastname"],
-        "birthday" => $_POST["birthday"]
-    ];
-    $result = $api->addLocalFriend($parameters);
-    $parameters = [];
-    if($result){
-        echo "<script>alert('Friend Failed.')</script>";
+    $interestsString = "";
+    if(!empty($_POST['check_list'])) {
+        // Counting number of checked checkboxes.
+        $checked_count = count($_POST['check_list']);        
+        // Loop to store values of individual checked checkbox.
+        foreach($_POST['check_list'] as $selected) {
+            $interestsString .= $selected.",";
+        }        
+        $parameters = [
+            "u_id" => $userId,
+            "firstname" => $_POST["firstname"],
+            "lastname" => $_POST["lastname"],
+            "birthday" => $_POST["birthday"],
+            "interests" => $interestsString
+        ];
+        $api->addLocalFriend($parameters);
+        $api->storeLocalInterests($parameters);
+    }
+    else{
+        echo "<b>Please Select Atleast One Option.</b>";
     }
 }
 
@@ -152,34 +162,34 @@ if (isset($_POST["submit"])){
                     Interests:
                     <div id="interestsDiv">
                         <label for="games">Games</label>
-                        <input type="checkbox" id="games" name="games">
+                        <input type="checkbox" id="games" name="check_list[]" value="games">
                     
                         <label for="books">Books</label>
-                        <input type="checkbox" id="books" name="books">
+                        <input type="checkbox" id="books" name="check_list[]" value="books">
 
                         <br>
 
                         <label for="nature">Nature</label>
-                        <input type="checkbox" id="nature" name="nature">
+                        <input type="checkbox" id="nature" name="check_list[]" value="nature">
 
                         <label for="tech">Tech</label>
-                        <input type="checkbox" id="tech" name="tech">
+                        <input type="checkbox" id="tech" name="check_list[]" value="tech">
                         
                         <br>
                         
                         <label for="sports">Sports</label>
-                        <input type="checkbox" id="sports" name="sports">
+                        <input type="checkbox" id="sports" name="check_list[]" value="sports">
                         
                         <label for="photo">Photo</label>
-                        <input type="checkbox" id="photo" name="photo">
+                        <input type="checkbox" id="photo" name="check_list[]" value="photo">
 
                         <br>
                         
                         <label for="drawing">Drawing</label>
-                        <input type="checkbox" id="drawing" name="drawing">
+                        <input type="checkbox" id="drawing" name="check_list[]" value="drawing">
                         
                         <label for="beauty">Beauty</label>
-                        <input type="checkbox" id="beauty" name="beauty">
+                        <input type="checkbox" id="beauty" name="check_list[]" value="beauty">
                         
                     </div>
 
