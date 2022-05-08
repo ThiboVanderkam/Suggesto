@@ -145,12 +145,12 @@ if (isset($_POST["submit"])){
             <form action="" method="POST" id="addFriendPage" class="font-body"> <!-- is eig gwn de friendsPage.php -->
                 <div class="blueDiv border">
                 <br>
-                    <label for="addFriendFirstnameIput">Friend Name:</label>
+                    <label for="addFriendFirstnameIput">Friend FirstName:</label>
                     <br>
                     <input type="text" name="firstname" id="addFriendNameInput">
 
                     <br>
-                    <label for="addFriendLastnameIput">Friend Name:</label>
+                    <label for="addFriendLastnameIput">Friend LastName:</label>
                     <br>
                     <input type="text" name="lastname" id="addFriendNameInput">
 
@@ -193,10 +193,6 @@ if (isset($_POST["submit"])){
                         <input type="checkbox" id="beauty" name="check_list[]" value="beauty">
                         
                     </div>
-
-                    <br>
-                    <label for="addToFavoriteCheckBox">Add To Favorite:</label>
-                    <input type="checkbox" id="addToFavoriteCheckBox">
 
                     <br>
 
