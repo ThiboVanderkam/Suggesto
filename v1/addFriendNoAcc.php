@@ -1,14 +1,30 @@
 <?php
-include "assets/db/databaseClass.php";
+include "assets/db/apiClass.php";
 include "sessionInvalid.php";
 
 $db = new Database();
+$api = new Api();
 
 $userId = $_SESSION['u_id'];
 
 $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
 
 $firstname = $user["u_firstname"];
+
+if (isset($_POST["submit"])){
+    $parameters = [
+        "u_id" => $userId,
+        "firstname" => $_POST["firstname"],
+        "lastname" => $_POST["lastname"],
+        "birthday" => $_POST["birthday"]
+    ];
+    $result = $api->addLocalFriend($parameters);
+    $parameters = [];
+    if($result){
+        echo "<script>alert('Friend Failed.')</script>";
+    }
+}
+
 ?>
 
 
@@ -75,7 +91,7 @@ $firstname = $user["u_firstname"];
             
             <div class="header-box">
                 <ul>
-                    <li><a href="#">Calender</a></li>
+                    <li><a href="calendar.php">Calender</a></li>
                     <li><a href="#">Friends</a></li>
                     <li><a href="#">My profile</a></li>
                 </ul>
@@ -115,28 +131,24 @@ $firstname = $user["u_firstname"];
             <br>
             <br>
 
-            <div id="addFriendPage" class="font-body"> <!-- is eig gwn de friendsPage.php -->
+            <form action="" method="POST" id="addFriendPage" class="font-body"> <!-- is eig gwn de friendsPage.php -->
                 <div class="blueDiv border">
                 <br>
+                    <label for="addFriendFirstnameIput">Friend Name:</label>
                     <br>
-                    <label for="addFriendNameIput">Friend Name:</label>
-                    <br>
-                    <input type="text" id="addFriendNameInput">
+                    <input type="text" name="firstname" id="addFriendNameInput">
 
                     <br>
+                    <label for="addFriendLastnameIput">Friend Name:</label>
                     <br>
+                    <input type="text" name="lastname" id="addFriendNameInput">
 
+                    <br>
                     <label for="addFriendBrithdayInput">Friend BirthDay:</label>
-
+                    <br>
+                    <input type="date" name="birthday" id="addFriendBrithdayInput">
                     
-
                     <br>
-                    <input type="date" id="addFriendBrithdayInput">
-                    
-
-                    <br>
-                    <br>
-
                     Interests:
                     <div id="interestsDiv">
                         <label for="games">Games</label>
@@ -177,15 +189,13 @@ $firstname = $user["u_firstname"];
 
                     <br>
 
-                    <input type="submit" value="Add">
+                    <input type="submit" name="submit" value="Add">
                 
                    
                 </div>
-            </div>
-
-    
-            
+            </form>
         </div> 
+        
         <script src="assets/js/script.js">
         </script>
     </body>

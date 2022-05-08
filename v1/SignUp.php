@@ -71,13 +71,9 @@ if (isset($_POST["submit"])){
     </head>
     <body class="body">
 
-        <form method="GET" action="/index.html">
+        <form method="POST" action="">
 
             <div class="grotere-box">
-
-                <div class="avatar-box">
-
-                </div>
                 
                 <div class="signUp-box">
 
@@ -128,7 +124,7 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" name="password" id="form-password"required>
+                            <input type="password" name="password" id="form-password" required>
                             <br>
                             <br>
                         </div>
@@ -137,7 +133,7 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Re- enter Password</label>
                             <br>
-                            <input type="password" name="rePassword" id="form-rePassword"required>
+                            <input type="password" name="cpassword" id="form-rePassword"required>
                             <br>
                             <br>
                         </div>
@@ -180,7 +176,7 @@ if (isset($_POST["submit"])){
 
                         <!--Submit button-->
                         <div>
-                            <input class="signUpButton" type="submit" value="Sign Up">
+                            <input class="signUpButton" type="submit" name="submit" value="Sign Up">
                         </div>
         
                         <div>    

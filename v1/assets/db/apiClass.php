@@ -60,6 +60,23 @@ class Api {
         
     }
 
+    function addLocalFriend($parameters){
+        $firstname = $parameters["firstname"];
+        $lastname = $parameters["lastname"];
+        $birthday = $parameters["birthday"];
+        $query = "INSERT INTO local_friend (local_id, l_firstname, l_lastname, l_birthday) VALUES (NULL, '$firstname', '$lastname', '$birthday');";
+        $result = $this->conn->insertQuery($query);
+        if($result){
+            $u_id = $parameters["u_id"];
+            $f_id = $this->conn->getQuery("SELECT local_id FROM local_friend WHERE l_firstname = '$firstname' AND l_lastname = '$lastname' AND l_birthday = '$birthday';")[0]["local_id"];
+            $result = $this->conn->insertQuery("INSERT INTO isFriendsWith (u_id, f_id) VALUES ('$u_id', '$f_id');");
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     function signUp($parameters) {
         $name= $parameters["name"];
         $surname = $parameters["surname"];

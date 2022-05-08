@@ -26,7 +26,7 @@ fetch(link, { mode: 'no-cors'})
         //printin the names on the right date
         for (var friend in bdayData ){
             for (var i = 0; i < dateElements.length; i++){
-                if (dateElements[i].id.toString() == ("li-" + bdayData[friend]).toString()){
+                if (dateElements[i].id.toString().substring(8) == (bdayData[friend]).toString().substring(5)){
                     dateElements[i].innerHTML+= '<br>' + friend;
                 };
             };
