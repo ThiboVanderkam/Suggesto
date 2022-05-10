@@ -1,3 +1,16 @@
+<?php
+    include "sessionInvalid.php";
+    include "assets/db/databaseClass.php";
+
+    $db = new Database();
+    $userId = $_SESSION['u_id'];
+    $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
+    $firstname = $user["u_firstname"];
+    $lastname = $user["u_lastname"];
+    $dob = $user["u_dob"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +18,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/myProfile.css" type="text/css">
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,41 +33,38 @@
         <!-- __________________________________________Sidebar___________________________________________ -->
         <div class="sidenav border">
             <div class="flex">
-                <a href="#" id="signUpButton">Sign up</a>
-                <a href="#" id="logInButton">Log in</a>
+                <a href="#" id="">Hello <?php echo $firstname;?></a>
+                <a href="logout.php" id="">Logout</a>
             </div>
 
-            <a href="calendar.php" class="bestFriends"><u>Friends</u></a>
-            <p class="font-body">It looks like you're not logged in. Login or sign up to add friends.</p>
+            <a href="#" class="bestFriends"><u>Your Friends</u></a>
+            <ul id="friendsList" class="font-body">
+                
+            </ul>
         </div>
+
+        <!-- __________________________________________Sidebar___________________________________________ -->
+        
+
+        <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
         <div class="main"> <!-- MAIN maken voor de rest van de website buiten de sidebar -->
-        <h1 class="border">SUGGESTO</h1>
+            <h1 class="border">SUGGESTO</h1>
             
             <div class="header-box">
                 <ul>
-                    <li><a id="homeButton" href="#">Home</a></li>
-                    <li><a id="forHimButton" href="#">For him</a></li>
-                    <li><a id="forHerButton" href="#">For her</a></li>
-                    <li><a id="forKidsButton" href="#">For kids</a></li>
+                    <li id="calendarButton"><a href="calendar.php">Calendar</a></li>
+                    <li id="addFriendEmailButton"><a href="addFriendEmail.php">Friends</a></li>
+                    <li id="profileButton"><a href="myProfile.php">My Profile</a></li>
                 </ul>
             </div>
 
-            <br>
-
-            <p class="font-body"><b>Sign up to get the best gift recommendations!</b></p>
-            <p class="font-body">TOP PICKS:</p>
-    
-            <br>
-            <br>
-
-            <div class="suggestion-div">
-                
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
+            <div class="center">
+                <h1><u>For me:</u></h1>
             </div>
 
+            <br>
+
+            <div class="font-body category-box">product soort 1</div>
             <div class="suggestion-div">
                 <div class="box"></div>
                 <div class="box"></div>
@@ -62,17 +72,29 @@
                 <div class="box"></div>
             </div>
 
+            <div class="font-body category-box">product soort 2</div>
             <div class="suggestion-div">
                 <div class="box"></div>
                 <div class="box"></div>
                 <div class="box"></div>
                 <div class="box"></div>
             </div>
-        </div>  
 
+            <div class="font-body category-box">product soort 3</div>
+            <div class="suggestion-div">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
 
+        </div>
 
-        <script src="assets/js/indexPage.js">
-        </script>
-    </body>
+        <div id="data" style = "display: none">
+            <?php
+                echo $user["u_email"];
+            ?>
+        </div>
+    <script src="assets/js/myPreferences.js">
+    </script>
 </html>

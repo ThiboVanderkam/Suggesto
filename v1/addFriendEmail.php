@@ -54,18 +54,6 @@ $firstname = $user["u_firstname"];
 
             </ul>
             
-            <a href="#" class="bestFriends"><u>Upcomming events</u></a>
-
-            <button type="radio">ding1</button>
-            <br>
-            <br>
-            <button type="radio">ding2</button>
-            <br>
-            <br>
-            <button type="radio">ding3</button>
-            <br>
-            <br>
-            <button type="radio">ding4</button>
             
         </div>
 
@@ -118,12 +106,13 @@ $firstname = $user["u_firstname"];
 
                     <!-- ---- optioneel ---- -->
 
-                    <br>
+                    <!-- <br>
                     <br>
                     <label for="friendNicknameInput">(optional) Set friend nickname:</label>
                     <br>
                     <input type="text" id="friendNicknameInput">
 
+                    <br> -->
                     <br>
                     <br>
                     <input type="submit">

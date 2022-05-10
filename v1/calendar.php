@@ -53,6 +53,7 @@ $firstname = $user["u_firstname"];
                     <li id="calendarButton"><a href="#">Calendar</a></li>
                     <li id="addFriendEmailButton"><a href="#">Friends</a></li>
                     <li id="profileButton"><a href="myProfile.php">My Profile</a></li>
+                    <!-- <li id=""><a href="myPreferences.php">For Me-Page</a></li> -->
                 </ul>
             </div>
 

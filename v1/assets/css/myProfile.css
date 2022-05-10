@@ -39,19 +39,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-h1 {
-    font-family: 'Italianno', cursive;
-    font-family: 'Poppins', sans-serif;
-}
-
-.flex {
-    display: flex;
-    justify-content: center;
-}
-
-.border {
-    border: 1px solid #112D4E;
-}
 
 .header-box {
     font-family: 'Italianno', cursive;
@@ -69,15 +56,6 @@ h1 {
     gap: 7%; /*plaats tussen de buttons*/
     /* gap: 10%; */
     /* width: 1vw; */
-}
-
-body {
-/* background: url("../images/homepage-Suggesto.png") center center fixed; */
-justify-content: center;
-text-align: center;
-background-color: #F9F7F7;
-margin-left: 0;
-color: #3F72AF
 }
 
 .font-body{
@@ -99,22 +77,6 @@ h1 {
     border: 1px solid #112D4E;
 } 
 
-.header-box {
-    font-family: 'Italianno', cursive;
-    font-family: 'Poppins', sans-serif;
-    
-    /* background-color: #ECECEC; */
-    background-color: #112D4E;
-    height: 55px;
-    width: 100%;
-    /* width: 100%;     dit is voor zonder sidebar */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7%; /*plaats tussen de buttons*/
-    /* gap: 10%; */
-    /* width: 1vw; */
-}
 
 .header-box-3 {
     font-family: 'Italianno', cursive;

@@ -24,12 +24,17 @@
             Pick your favorite topics for recieving gifts
         </div>
 
+
         <div class="sidenav2 border font-body">
-            <a href="#" ><u id="myAccount">My account</u></a>
+            <a href="myPreferences.php"><u id="forMe">For Me-Page </u></a>
 
             <br>
 
-            <a href="giftPreferences.php"><u id="giftPreferences">My gift preferences</u></a>
+            <a href="myProfile.php" ><u id="myAccount">My account</u></a>
+
+            <br>
+
+            <a href="giftPreferences.php"><u id="giftPreferences">Edit gift preferences</u></a>
 
             <br>
 

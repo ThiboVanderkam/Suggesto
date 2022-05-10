@@ -52,3 +52,4 @@ profileButton = document.querySelector("#profileButton");
 profileButton.addEventListener("click", function() {
     window.location.href = "../../profilePage.php" //moet Arne nog doen
 });
+
