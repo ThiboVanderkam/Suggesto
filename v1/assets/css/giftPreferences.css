@@ -110,8 +110,6 @@ h1 {
     color:#000000
 } */
 
-
-
 .suggestion-div {
     /* align-items: center; */
     /* justify-content: center; */
@@ -172,22 +170,24 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 85%;
-    margin-left: 15%;
+    padding-left: 15%;    
+
 }
 
 #gift-preferences {
+    display: flex;
     background-color: #c8e0fc;
     height: 440px;
     width: 500px;
     border-radius: 10%;
     float: left;
+    justify-content: center;
 }
 
 
 #pref-row-1 {
     float: left;
-    margin-left: 15%;
+    /* margin-left: 15%; */
     
 }
 

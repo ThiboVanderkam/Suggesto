@@ -164,14 +164,15 @@ h1 {
     width: 180px;
 }
 
-/* .box:hover {         doesn't work :(
-    color:#000000
-} */
+
+#ForMe-div {
+    margin-left: 5%;
+}
 
 .suggestion-div {
     /* align-items: center; */
     /* justify-content: center; */
-    margin: 5% 5% ; /*TOP-BOTTOM  LEFT-RIGHT*/
+    margin: 5%  5%; /*TOP-BOTTOM  LEFT-RIGHT*/
     display: flex;
     gap: 13%;
 }

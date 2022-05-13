@@ -22,7 +22,7 @@ fetch(link, { mode: 'no-cors'})
             var name = response[i].l_firstname + " " + response[i].l_lastname;
             bdayData[name] = response[i].l_birthday; 
         };
-        //printin the names in the sidebar
+        //printing the names in the sidebar
         for (var friend in bdayData ){
             if (bdayData[friend] != undefined){ //als bday undefined dan geen friend adden
                 friendsListElement.innerHTML += "<li>" + friend + "</li>";

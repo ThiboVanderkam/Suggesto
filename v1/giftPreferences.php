@@ -61,11 +61,11 @@
                     <br>
                     <br>
 
-                    <input type="checkbox" id="books" name="books" value="books">
+                    <!-- <input type="checkbox" id="books" name="books" value="books">
                     <label for="books">Books</label>
 
                     <br>
-                    <br>
+                    <br> -->
 
                     <input type="checkbox" id="nature" name="nature" value="nature">
                     <label for="nature">Nature</label>
@@ -95,8 +95,10 @@
                     <label for="beauty">Beauty</label>
                     <br>
                     <br>
+                    <input type="submit" value="Change">
+
                 </div>
-                <div id="pref-row-2">
+                <!-- <div id="pref-row-2">
                     <br>
                     <br>
                     <input type="checkbox" id="games" name="games" value="games">
@@ -116,7 +118,7 @@
 
                     <br>
                     <br>
-
+                    
                     <input type="checkbox" id="potography" name="potography" value="potography">
                     <label for="potography">Photography</label>
 
@@ -139,9 +141,8 @@
                     <label for="beauty">Beauty</label>
                     <br>
                     <br>
-                </div>
+                </div> -->
                 
-                <input type="submit" value="Change">
             </div>
         </div>
     </div> 
