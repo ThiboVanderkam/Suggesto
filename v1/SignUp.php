@@ -1,8 +1,9 @@
 <?php
 
-include "assets/db/databaseClass.php";
+include "assets/db/apiClass.php";
 include "sessionValid.php";
 
+$api = new Api();
 $db = new Database();
 
 if (isset($_POST["submit"])){
@@ -24,21 +25,41 @@ if (isset($_POST["submit"])){
         }
         else{    
             $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
-            $result = $db->insertQuery($query); //putting the things in the database
+            $result = $db->insertQuery($query); //putting the user in the database
             if($result == true){
+                $userId = $db->getQuery("SELECT u_id FROM user WHERE u_email='$email';")[0]["u_id"];
+                $interestsString = "";
+                if(!empty($_POST['check_list'])) {
+                    // Counting number of checked checkboxes.
+                    $checked_count = count($_POST['check_list']);        
+                    // Loop to store values of individual checked checkbox.
+                    foreach($_POST['check_list'] as $selected) {
+                        $interestsString .= $selected.",";
+                    }        
+                    $parameters = [
+                        "u_id" => $userId,
+                        "interests" => $interestsString
+                    ];
+                    $api->storeUserInterests($parameters);
+                    $parameters = [];
+                }
+                else{
+                    echo "<b>Please Select Atleast One Option.</b>";
+                }
                 $name = "";
                 $surname = "";
                 $bday = "";
                 $email = "";
                 $_POST["password"];
                 $_POST["cpassword"];
-                echo "<script>alert('Sign up success.')</script>";
+                echo "<script>alert('Sign up succes.')</script>";
+                }
+                else{
+                    echo "<script>alert('Something went wrong.')</script>";
+                }
             }
-            else{
-                echo "<script>alert('Something went wrong.')</script>";
-            }
-        }        
-    }
+            
+    }          
     else{
         echo "<script>alert('Passwords do not match.')</script>";
     }
@@ -142,33 +163,35 @@ if (isset($_POST["submit"])){
 
                     <div id="div3">
                         <h3 id="interests">Interests</h3>
-                        <div id="div4">
-                            <input type="checkbox" name="games" value="games" id="form-games" >
-                            <label for="form-games">Games</label>
-                            <br>
-                            <input type="checkbox" name="books" value="books" id="form-books" >
-                            <label for="form-books">Books</label>
-                            <br>
-                            <input type="checkbox" name="tech" value="tech" id="form-tech" >
-                            <label for="form-tech">Tech</label>
-                            <br>
-                            <input type="checkbox" name="sports" value="sports" id="form-sports" >
-                            <label for="form-sports">Sports</label>
-                        </div>
+                        <label for="games">Games</label>
+                        <input type="checkbox" id="games" name="check_list[]" value="games">
+                    
+                        <label for="books">Books</label>
+                        <input type="checkbox" id="books" name="check_list[]" value="books">
 
-                        <div id="div5">
-                            <input type="checkbox" name="beauty" value="beauty" id="form-beauty" >
-                            <label for="form-beauty">Beauty</label>
-                            <br>
-                            <input type="checkbox" name="nature" value="nature" id="form-nature" >
-                            <label for="form-nature">Nature</label>
-                            <br>
-                            <input type="checkbox" name="photography" value="photography" id="form-photography" >
-                            <label for="form-photography">Photography</label>
-                            <br>
-                            <input type="checkbox" name="other" value="other" id="form-other" >
-                            <label for="form-other">Other...</label>      
-                        </div>
+                        <br>
+
+                        <label for="nature">Nature</label>
+                        <input type="checkbox" id="nature" name="check_list[]" value="nature">
+
+                        <label for="tech">Tech</label>
+                        <input type="checkbox" id="tech" name="check_list[]" value="tech">
+                        
+                        <br>
+                        
+                        <label for="sports">Sports</label>
+                        <input type="checkbox" id="sports" name="check_list[]" value="sports">
+                        
+                        <label for="photo">Photo</label>
+                        <input type="checkbox" id="photo" name="check_list[]" value="photo">
+
+                        <br>
+                        
+                        <label for="drawing">Drawing</label>
+                        <input type="checkbox" id="drawing" name="check_list[]" value="drawing">
+                        
+                        <label for="beauty">Beauty</label>
+                        <input type="checkbox" id="beauty" name="check_list[]" value="beauty">
 
                     </div>
 

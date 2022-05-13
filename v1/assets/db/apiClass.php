@@ -74,6 +74,18 @@ class Api {
         }
     }
 
+    function storeUserInterests($parameters){
+        $u_id = $parameters["u_id"];
+        $interests = $parameters["interests"];
+        $interestsArray = explode(",", $interests);
+        foreach ($interestsArray as $interest) {
+            if(strlen($interest) > 0){
+                $query = "INSERT INTO `interests` (`u_id`, `keyword`) VALUES ('$u_id', '$interest');";
+                $this->conn->insertQuery($query);
+            }
+        }
+    }
+
     function addLocalFriend($parameters){
         $firstname = $parameters["firstname"];
         $lastname = $parameters["lastname"];
