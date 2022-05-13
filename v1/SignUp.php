@@ -146,9 +146,6 @@ if (isset($_POST["submit"])){
                             <input type="checkbox" name="games" value="games" id="form-games" >
                             <label for="form-games">Games</label>
                             <br>
-                            <input type="checkbox" name="books" value="books" id="form-books" >
-                            <label for="form-books">Books</label>
-                            <br>
                             <input type="checkbox" name="tech" value="tech" id="form-tech" >
                             <label for="form-tech">Tech</label>
                             <br>
