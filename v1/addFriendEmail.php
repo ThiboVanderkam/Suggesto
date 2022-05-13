@@ -64,7 +64,7 @@ $firstname = $user["u_firstname"];
             <div class="header-box">
                 <ul>
                     <li><a href="calendar.php">Calender</a></li>
-                    <li><a href="addFrinedEmail.php">Friends</a></li>
+                    <li><a href="addFriendEmail.php">Friends</a></li>
                     <li><a href="myProfile.php">My profile</a></li>
                 </ul>
             </div>
