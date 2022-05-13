@@ -34,6 +34,7 @@
         <div class="sidenav border">
             <div class="flex">
                 <a href="#" id="">Hello <?php echo $firstname;?></a>
+
                 <a href="logout.php" id="">Logout</a>
             </div>
 
@@ -58,34 +59,33 @@
                 </ul>
             </div>
 
-            <div class="center">
+            <div id="ForMe-div">
                 <h1><u>For me:</u></h1>
-            </div>
+                <br>
 
-            <br>
+                <div class="font-body">product soort 1</div>
+                <div class="suggestion-div">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
 
-            <div class="font-body category-box">product soort 1</div>
-            <div class="suggestion-div">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
+                <div class="font-body">product soort 2</div>
+                <div class="suggestion-div">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
 
-            <div class="font-body category-box">product soort 2</div>
-            <div class="suggestion-div">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
-
-            <div class="font-body category-box">product soort 3</div>
-            <div class="suggestion-div">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
+                <div class="font-body">product soort 3</div>
+                <div class="suggestion-div">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
             </div>
 
         </div>
