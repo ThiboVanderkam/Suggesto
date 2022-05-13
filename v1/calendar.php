@@ -32,16 +32,31 @@ $firstname = $user["u_firstname"];
     <body>
         <!-- __________________________________________Sidebar___________________________________________ -->
         <div class="sidenav border">
-            <div class="flex">
-                <a href="#" class="">Hello <?php echo $firstname;?></a>
-                <a href="logout.php">Logout</a>
+            <div id="">
+                <a href="myProfile.php">Hello <?php echo $firstname;?></a>
             </div>
 
-            <a href="#" class="bestFriends"><u>Your Friends</u></a>
-            <ul id="friendsList" class="font-body">
-                
-            </ul>
+            <div id="friendsNames">
+                <a href="addFriendEmail.php" ><u>Your Friends</u></a>
+                <ul id="friendsList" class="font-body">
 
+                </ul>
+            </div>
+
+            <div id="calendarFriends">
+                <p>Click on your friends bday to see their gifts!</p>
+                <ul id="dateList" class="font-body">
+
+                </ul>
+            </div>
+
+            <div id="friendsLinks">
+
+            </div>
+
+            <div id="logout">
+                <a href="logout.php">Logout</a>
+            </div>
         </div>
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->

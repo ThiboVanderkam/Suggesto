@@ -175,33 +175,7 @@ h1 {
     /* width: 1vw; */
 }
 
-.header-box-3 {
-    font-family: 'Italianno', cursive;
-    font-family: 'Poppins', sans-serif;
-    
-    /* background-color: #ECECEC; */
-    background-color: #112D4E;
-    height: 55px;
-    width: 100%;
-    /* width: 100%;     dit is voor zonder sidebar */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7%; /*plaats tussen de buttons*/
-    /* gap: 10%; */
-    /* width: 1vw; */
-}
-
 .header-box ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #DBE2EF;
-    width: 100%;
-}
-  
-.header-box-3 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -215,22 +189,8 @@ h1 {
     border-right: 1px solid #3F72AF;
     width: 33%;
 }
-
-.header-box-3 li {
-    float: left;
-    border-right: 1px solid #3F72AF;
-    width: 33%;
-}
   
 .header-box li a {
-    display: block;
-    color: #112D4E;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.header-box-3 li a {
     display: block;
     color: #112D4E;
     text-align: center;
@@ -242,17 +202,12 @@ h1 {
     background-color:#3F72AF; 
 }
 
-.header-box-3 li a:hover {
-    background-color:#3F72AF; 
-}
-
 .lilbox{
     border: 1px solid #112D4E;
     background-color: #e6e6e6;
     height: 200px;
     width: 100px;
 }
-
 
 .box {
     border: 1px solid #112D4E;
@@ -322,6 +277,25 @@ h1 {
     margin-right: 14.0052%; /* Same as the width of the sidebar */
 }
 
-.bestFriends{
-    margin: 30px 0px 0px 0px;
+.day{
+    display: block;
 }
+
+.friend{
+    display: block;
+}
+
+#friendsNames{
+    height: 500px;
+    margin-top: 30px;
+}
+
+#logout{
+    width: 100%;
+    bottom: 20px;
+    position: absolute;
+    text-align: center;
+}
+
+
+

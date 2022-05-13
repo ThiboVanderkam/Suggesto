@@ -128,7 +128,8 @@ class Calendar {
              
          
         return '<li id="li-'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).//if cellnum modulo 1 class= start (very cool :))
-                ($cellContent==null?'mask':'').'">'.$cellContent.'</li>';
+                ($cellContent==null?'mask':'').'"><span class="day">'.$cellContent.'</span></li>';
+                # added a span aroiund the date so it's easire to distinguish between day and friend name
     }
      
     /**
