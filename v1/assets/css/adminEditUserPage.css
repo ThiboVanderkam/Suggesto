@@ -1,0 +1,58 @@
+.grotere-box{
+    justify-content: left;
+    display: flex;
+}
+
+.side-box{
+height:700px;
+float: left;
+border-right: 2px solid black;
+padding: 2%;
+}
+
+.side-box a {
+    font-size: 24px;
+}
+
+.upper-box{
+width: 80em;
+height: 2em;
+margin:0%;
+display: table;
+}
+
+.button-div{
+display:table-row; 
+
+}
+
+#cu-button{
+font-size: 24px;
+float: left;
+width: 33%;
+}
+
+#du-button{
+font-size: 24px;
+width: 34%;
+
+}
+
+#eu-button{
+font-size: 24px;
+float: right;
+width: 33%;
+
+}
+
+#textUpper{
+font-size: 18px;
+float:left; 
+clear: left;
+}
+
+#logout-button{
+    font-size: 18px;
+    position: fixed;
+    bottom: 3%;
+}
