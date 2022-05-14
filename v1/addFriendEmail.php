@@ -102,7 +102,7 @@ $firstname = $user["u_firstname"];
                     <br>
                     <label for="friendEmailInput">Friend e-mail:</label>
                     <br>
-                    <input type="text" id="friendEmailInput">
+                    <input type="email" id="friendEmailInput" maxlength = "90" required>
 
                     <!-- ---- optioneel ---- -->
 

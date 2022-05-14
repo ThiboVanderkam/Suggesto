@@ -105,7 +105,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>Name</label>
                             <br>
-                            <input type="text" name="name" id="form-name" required>
+                            <input type="text" name="name" id="form-name" maxlength="90" required>
                         </div>
 
                         <!--Surname-->
@@ -113,7 +113,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>Surname</label>
                             <br>
-                            <input type="text" name="surname" id="form-surname" required>
+                            <input type="text" name="surname" id="form-surname" maxlength="90" required>
                             <br>
                         </div>
 
@@ -136,7 +136,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>E-mail</label>
                             <br>
-                            <input type="text" name="email" id="form-email"required>
+                            <input type="email" name="email" id="form-email"  maxlength="90" required>
                             <br>
                             <br>
                         </div>
@@ -145,7 +145,7 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" name="password" id="form-password" required>
+                            <input type="password" name="password" id="form-password" maxlength = "90" required>
                             <br>
                             <br>
                         </div>
@@ -154,7 +154,7 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Re- enter Password</label>
                             <br>
-                            <input type="password" name="cpassword" id="form-rePassword"required>
+                            <input type="password" name="cpassword" id="form-rePassword" maxlength = "90" required>
                             <br>
                             <br>
                         </div>
@@ -163,7 +163,6 @@ if (isset($_POST["submit"])){
 
                     <div id="div3">
                         <h3 id="interests">Interests</h3>
-<<<<<<< HEAD
                         <label for="games">Games</label>
                         <input type="checkbox" id="games" name="check_list[]" value="games">
                     
@@ -193,32 +192,6 @@ if (isset($_POST["submit"])){
                         
                         <label for="beauty">Beauty</label>
                         <input type="checkbox" id="beauty" name="check_list[]" value="beauty">
-=======
-                        <div id="div4">
-                            <input type="checkbox" name="games" value="games" id="form-games" >
-                            <label for="form-games">Games</label>
-                            <br>
-                            <input type="checkbox" name="tech" value="tech" id="form-tech" >
-                            <label for="form-tech">Tech</label>
-                            <br>
-                            <input type="checkbox" name="sports" value="sports" id="form-sports" >
-                            <label for="form-sports">Sports</label>
-                        </div>
-
-                        <div id="div5">
-                            <input type="checkbox" name="beauty" value="beauty" id="form-beauty" >
-                            <label for="form-beauty">Beauty</label>
-                            <br>
-                            <input type="checkbox" name="nature" value="nature" id="form-nature" >
-                            <label for="form-nature">Nature</label>
-                            <br>
-                            <input type="checkbox" name="photography" value="photography" id="form-photography" >
-                            <label for="form-photography">Photography</label>
-                            <br>
-                            <input type="checkbox" name="other" value="other" id="form-other" >
-                            <label for="form-other">Other...</label>      
-                        </div>
->>>>>>> 4e543f5310db8c9bdbff0c76094029f7e0d7eeee
 
                     </div>
 

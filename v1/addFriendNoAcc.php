@@ -147,17 +147,17 @@ if (isset($_POST["submit"])){
                 <br>
                     <label for="addFriendFirstnameIput">Friend FirstName:</label>
                     <br>
-                    <input type="text" name="firstname" id="addFriendNameInput">
+                    <input type="text" name="firstname" id="addFriendNameInput" maxlength = "90" required>
 
                     <br>
                     <label for="addFriendLastnameIput">Friend LastName:</label>
                     <br>
-                    <input type="text" name="lastname" id="addFriendNameInput">
+                    <input type="text" name="lastname" id="addFriendNameInput" maxlength = "90" required>
 
                     <br>
                     <label for="addFriendBrithdayInput">Friend BirthDay:</label>
                     <br>
-                    <input type="date" name="birthday" id="addFriendBrithdayInput">
+                    <input type="date" name="birthday" id="addFriendBrithdayInput" required>
                     
                     <br>
                     Interests:
