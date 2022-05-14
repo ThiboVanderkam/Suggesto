@@ -1,3 +1,8 @@
+<?php
+include "assets/db/apiClass.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

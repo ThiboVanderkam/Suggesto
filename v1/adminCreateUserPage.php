@@ -1,3 +1,70 @@
+<?php
+
+include "assets/db/apiClass.php";
+
+$api = new Api();
+$db = new Database();
+
+if (isset($_POST["submit"])){
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $bday = $_POST["birthday"];
+    $email = $_POST["email"];
+    $password = $_POST["password"]; 
+    $cpassword = $_POST["cpassword"];
+    //moet nog interests bij maken
+
+    if ($password == $cpassword){        
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        $query = "SELECT * FROM user WHERE u_email ='$email';";
+        $result = mysqli_query($db->connection, $query);
+        if($result->num_rows > 0){
+            echo "<script>alert('Email already in use.')</script>";
+        }
+        else{    
+            $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
+            $result = $db->insertQuery($query); //putting the user in the database
+            if($result == true){
+                $userId = $db->getQuery("SELECT u_id FROM user WHERE u_email='$email';")[0]["u_id"];
+                $interestsString = "";
+                if(!empty($_POST['check_list'])) {
+                    // Counting number of checked checkboxes.
+                    $checked_count = count($_POST['check_list']);        
+                    // Loop to store values of individual checked checkbox.
+                    foreach($_POST['check_list'] as $selected) {
+                        $interestsString .= $selected.",";
+                    }        
+                    $parameters = [
+                        "u_id" => $userId,
+                        "interests" => $interestsString
+                    ];
+                    $api->storeUserInterests($parameters);
+                    $parameters = [];
+                }
+                else{
+                    echo "<b>Please Select Atleast One Option.</b>";
+                }
+                $name = "";
+                $surname = "";
+                $bday = "";
+                $email = "";
+                $_POST["password"];
+                $_POST["cpassword"];
+                echo "<script>alert('You succesfully created an account.')</script>";
+                }
+                else{
+                    echo "<script>alert('Something went wrong.')</script>";
+                }
+            }
+            
+    }          
+    else{
+        echo "<script>alert('Passwords do not match.')</script>";
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,151 +105,158 @@
 
         </div>
 
-        <div class="grotere-box">
-                
-            <div class="admin-box">
+        <form method="POST" action="">
 
-                <div class="upper-box">
 
-                    <div class="button-div">
+            <div class="grotere-box">
+                    
+                <div class="admin-box">
 
-                        <div class="buttons">
-                            <a href='adminCreateUserPage.php'>
-                                <button type="button" id="cu-button">Create User</button>
-                            </a>
+                    <div class="upper-box">
+
+                        <div class="button-div">
+
+                            <div class="buttons">
+                                <a href='adminCreateUserPage.php'>
+                                    <button type="button" id="cu-button">Create User</button>
+                                </a>
+                            </div>
+
+                            <div class="buttons">
+                                <a href='adminDeleteUserPage.php'>
+                                    <button type="button" id="du-button">Delete User</button>
+                                </a>
+                            </div>
+
+                            <div class="buttons">
+                                <a href='adminEditUserPage.php'>
+                                    <button type="button" id="eu-button">Edit User</button>
+                                </a>
+                            </div>
+
                         </div>
 
-                        <div class="buttons">
-                            <a href='adminDeleteUserPage.php'>
-                                <button type="button" id="du-button">Delete User</button>
-                            </a>
+                        <div id="textUpper">
+                            <p>Make a new user account. This can be linked to a real person who might have difficulties creating their account or it can be a fake account used for testing.</p>
+                        </div>
+                    
+                    </div> <!--End of upperbox div-->
+
+                    <div class="main-box">
+
+                        <div id="div1">
+
+                            <!--Name-->
+                            <div>
+                                <br>
+                                <label>Name</label>
+                                <br>
+                                <input type="text" name="name" id="form-name" required>
+                            </div>
+
+                            <!--Surname-->
+                            <div>
+                                <br>
+                                <label>Surname</label>
+                                <br>
+                                <input type="text" name="surname" id="form-surname" required>
+                                <br>
+                            </div>
+
+                            <!--Birthday-->
+                            <div>
+                                <br>
+                                <label>Birthday</label>
+                                <br>
+                                <input type="date" name="birthday" id="form-birthday" required>
+                                <br>
+                                <br>
+                            </div>
+
                         </div>
 
-                        <div class="buttons">
-                            <a href='adminEditUserPage.php'>
-                                <button type="button" id="eu-button">Edit User</button>
-                            </a>
+                        <div id="div2">
+
+                            <!--e-mail-->
+                            <div>
+                                <br>
+                                <label>E-mail</label>
+                                <br>
+                                <input type="text" name="email" id="form-email"required>
+                                <br>
+                                <br>
+                            </div>
+
+                            <!--Password-->
+                            <div>
+                                <label>Password</label>
+                                <br>
+                                <input type="password" name="password" id="form-password" required>
+                                <br>
+                                <br>
+                            </div>
+
+                            <!--re-enter Password-->
+                            <div>
+                                <label>Re- enter Password</label>
+                                <br>
+                                <input type="password" name="cpassword" id="form-rePassword"required>
+                                <br>
+                                <br>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div id="div3">
+                            <h3 id="interests">Interests</h3>
+                                <label for="games">Games</label>
+                                <input type="checkbox" id="games" name="check_list[]" value="games">
+                            
+                                <label for="books">Books</label>
+                                <input type="checkbox" id="books" name="check_list[]" value="books">
 
-                    <div id="textUpper">
-                        <p>Make a new user account. This can be linked to a real person who might have difficulties creating their account or it can be a fake account used for testing.</p>
-                    </div>
-                
-                </div> <!--End of upperbox div-->
+                                <br>
 
-                <div class="main-box">
+                                <label for="nature">Nature</label>
+                                <input type="checkbox" id="nature" name="check_list[]" value="nature">
 
-                    <div id="div1">
+                                <label for="tech">Tech</label>
+                                <input type="checkbox" id="tech" name="check_list[]" value="tech">
+                                
+                                <br>
+                                
+                                <label for="sports">Sports</label>
+                                <input type="checkbox" id="sports" name="check_list[]" value="sports">
+                                
+                                <label for="photo">Photo</label>
+                                <input type="checkbox" id="photo" name="check_list[]" value="photo">
 
-                        <!--Name-->
-                        <div>
-                            <br>
-                            <label>Name</label>
-                            <br>
-                            <input type="text" name="name" id="form-name" required>
+                                <br>
+                                
+                                <label for="drawing">Drawing</label>
+                                <input type="checkbox" id="drawing" name="check_list[]" value="drawing">
+                                
+                                <label for="beauty">Beauty</label>
+                                <input type="checkbox" id="beauty" name="check_list[]" value="beauty">
+
+                            </div>
                         </div>
 
-                        <!--Surname-->
-                        <div>
-                            <br>
-                            <label>Surname</label>
-                            <br>
-                            <input type="text" name="surname" id="form-surname" required>
-                            <br>
-                        </div>
+                        <div id="div6">
 
-                        <!--Birthday-->
-                        <div>
-                            <br>
-                            <label>Birthday</label>
-                            <br>
-                            <input type="date" name="birthday" id="form-birthday" required>
-                            <br>
-                            <br>
-                        </div>
+                            <!--Submit button-->
+                            <div>
+                                <input class="signUpButton" type="submit" name="submit" value="Create User">
+                            </div>
 
-                    </div>
+                        </div>                
+                    
+                    </div><!--End of mainbox div--> 
 
-                    <div id="div2">
+                </div> <!--End of adminbox div-->  
 
-                        <!--e-mail-->
-                        <div>
-                            <br>
-                            <label>E-mail</label>
-                            <br>
-                            <input type="text" name="email" id="form-email"required>
-                            <br>
-                            <br>
-                        </div>
-
-                        <!--Password-->
-                        <div>
-                            <label>Password</label>
-                            <br>
-                            <input type="password" name="password" id="form-password" required>
-                            <br>
-                            <br>
-                        </div>
-
-                        <!--re-enter Password-->
-                        <div>
-                            <label>Re- enter Password</label>
-                            <br>
-                            <input type="password" name="cpassword" id="form-rePassword"required>
-                            <br>
-                            <br>
-                        </div>
-
-                    </div>
-
-                    <div id="div3">
-                        <h3 id="interests">Interests</h3>
-                        <div id="div4">
-                            <input type="checkbox" name="games" value="games" id="form-games" >
-                            <label for="form-games">Games</label>
-                            <br>
-                            <input type="checkbox" name="books" value="books" id="form-books" >
-                            <label for="form-books">Books</label>
-                            <br>
-                            <input type="checkbox" name="tech" value="tech" id="form-tech" >
-                            <label for="form-tech">Tech</label>
-                            <br>
-                            <input type="checkbox" name="sports" value="sports" id="form-sports" >
-                            <label for="form-sports">Sports</label>
-                        </div>
-
-                        <div id="div5">
-                            <input type="checkbox" name="beauty" value="beauty" id="form-beauty" >
-                            <label for="form-beauty">Beauty</label>
-                            <br>
-                            <input type="checkbox" name="nature" value="nature" id="form-nature" >
-                            <label for="form-nature">Nature</label>
-                            <br>
-                            <input type="checkbox" name="photography" value="photography" id="form-photography" >
-                            <label for="form-photography">Photography</label>
-                            <br>
-                            <input type="checkbox" name="other" value="other" id="form-other" >
-                            <label for="form-other">Other...</label>      
-                        </div>
-
-                    </div>
-
-                    <div id="div6">
-
-                        <!--Submit button-->
-                        <div>
-                            <input class="signUpButton" type="submit" name="submit" value="Create User">
-                        </div>
-
-                    </div>                
-                
-                </div><!--End of mainbox div--> 
-
-            </div> <!--End of adminbox div-->  
-
-        </div><!--End of grotere box div-->  
+            </div><!--End of grotere box div-->  
+        </form>
                
     </body>
 </html>

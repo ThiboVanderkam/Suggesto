@@ -1,3 +1,46 @@
+<?php
+/*Deze Code werkt nog niet */
+
+  session_start();
+  include "assets/db/apiClass.php";
+ if(isset($_POST['edit']))
+ {
+    $id=$_SESSION['u_id'];
+    $fname=$_POST['u_firstname'];
+    $lname=$_POST['u_lastname'];
+    $email=$_POST['u_email'];
+    $select= "select * from user where id='$id'";
+    $sql = mysqli_query($select);
+    $row = mysqli_fetch_assoc($sql);
+    $res= $row['u_id'];
+    if($res === $id)
+    {
+   
+       $update = "update user set u_firstname='$fname',u_lastname='$lname',u_email='$email' where u_id='$id'";
+       $sql2=mysqli_query($update);
+if($sql2)
+       { 
+           /*Successful*/
+           echo "<script>alert('You succesfully edited your account.')</script>";
+           header('location:adminEditUserPage.php');
+       }
+       else
+       {
+           /*sorry your profile is not update*/
+           echo "<script>alert('Sorry we couldn't edit your profile.')</script>";
+           header('location:adminEditUserPage.php');
+       }
+    }
+    else
+    {
+        /*sorry your id is not match*/
+        echo "<script>alert('Sorry your ID didn't match, maybe you mistyped something.')</script>";
+        header('location:adminEditUserPage.php');
+    }
+ }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

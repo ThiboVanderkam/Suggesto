@@ -66,6 +66,10 @@
 
                 <p id="name"><?php echo $firstname;?></p>
 
+                <div class="div2">
+                        <button id="modalButton">Edit</button>
+                    </div>
+
                 <div class="inner-box">
 
                     <div class="div1">
@@ -84,138 +88,45 @@
     -->
                     </div>
 
-                    <div class="div2">
-                        <button id="usernameButton">Edit</button>
-                        <br>
-                        <br>
-                        <button id="emailButton">Edit</button>
-                        <br>
-                        <br>
-                        <button id="passwordButton">Edit</button>
-                        <br><!--
-                        <br>
-                        <button type="button" id="edit-button">Edit</button>-->
-                    </div>
-
                 </div><!--End of innerbox div-->  
 
             </div> <!--End of loginbox div-->  
 
         </div><!--End of grotere box div-->  
 
-        <!-- The Modal for username-->
-        <div id="u_Modal" class="modal">
-
-            <!-- Modal content username-->
-            <div class="modal-content">
-                <span class="closeU">&times;</span>
-                <p>Write your new username here:</p>
-                <input type="text" name="username" id="modal-username">
-                <br>
-                <br>
-                <button id="Modal1ContentButton">Save Changes</button>
-            </div>
-        </div>
-
-        <!-- The Modal for email-->
-        <div id="e_Modal" class="modal">
-
-            <!-- Modal content email-->
-            <div class="modal-content">
-                <span class="closeE">&times;</span>
-                <p>Write your new email here:</p>
-                <input type="text" name="email" id="modal-email">
-                <br>
-                <br>
-                <button id="Modal2ContentButton">Save Changes</button>
-
-            </div>
-
-        </div>
-
-        <!-- The Modal for password-->
-        <div id="p_Modal" class="modal">
+        <!-- The Modal-->
+        <div id="Modal" class="modal">
 
             <!-- Modal content password-->
             <div class="modal-content">
-                <span class="closeP">&times;</span>
+                <span class="close">&times;</span>
+                <p>Write your new username here:</p>
+                <input type="text" name="username" id="modal">
+                <br>
+                <br>
+                <p>Write your new email here:</p>
+                <input type="text" name="email" id="modal">
+                <br>
+                <br>
                 <p>Write your new password here:</p>
-                <input type="text" name="password" id="modal-password">
+                <input type="text" name="password" id="modal">
                 <br>
                 <br>
-                <button id="Modal3ContentButton">Save Changes</button>
+                <button id="ModalContenButton">Save Changes</button>
 
             </div>
         </div>
-        
-        <!--Script modal username-->
+
+        <!--Script modal-->
         <script>
         // Get the modal
-        var modal = document.getElementById("u_Modal");
+        var modal = document.getElementById("Modal");
 
         // Get the button that opens the modal  
-        var btn = document.getElementById("usernameButton");
+        var btn = document.getElementById("modalButton");
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("closeU")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-        modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-        modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-        </script>
-
-        <!--Script modal email-->
-        <script>
-        // Get the modal
-        var modal = document.getElementById("e_Modal");
-
-        // Get the button that opens the modal  
-        var btn = document.getElementById("emailButton");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("closeE")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-        modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-        modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-        </script>
-
-        <!--Script modal password-->
-        <script>
-        // Get the modal
-        var modal = document.getElementById("p_Modal");
-
-        // Get the button that opens the modal  
-        var btn = document.getElementById("passwordButton");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("closeP")[0];
+        var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks on the button, open the modal
         btn.onclick = function() {
