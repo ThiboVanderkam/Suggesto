@@ -1,0 +1,90 @@
+.grotere-box{
+    /*background-image: url("/assets/images/gifts.webp");*/
+    padding-left: 10%;
+    justify-content: left;
+    display: flex;
+    padding-bottom: 14%;
+}
+
+.side-box{
+height:700px;
+float: left;
+border-right: 2px solid black;
+padding: 2%;
+}
+
+.side-box a {
+    font-size: 24px;
+}
+
+.login-box{
+background-color: grey;
+border: 2px solid black;
+margin-top: 10%;
+padding: 2%;
+height: 20%;
+width: 40%;
+}
+
+.inner-box{
+float: left;
+height: 20%;
+width: 100%;
+background-color: white;
+border: 2px solid black;
+}
+
+.div1{
+float: left;
+padding: 2%;
+font-size: 18px;
+text-align: left;
+
+}
+
+.div2{
+    float: right;
+    font-size: 20px;
+    text-align: right;
+    padding: 2%;
+}
+
+#logout-button{
+    font-size: 18px;
+    position: fixed;
+    bottom: 3%;
+}
+
+#first{
+margin-bottom:0;
+}
+
+#second{
+margin : 0; padding-top:0;
+}
+
+#usernameButton{
+font-size: 16px;
+padding: 1%;
+padding-top: 4px;
+margin-top: 16px;
+}
+
+#emailButton{
+    font-size: 16px;
+    padding: 1%;
+    padding-top: 4px;
+    margin-top: 16px;
+}
+
+#passwordButton{
+    font-size: 16px;
+    padding: 1%;
+    padding-top: 4px;
+    margin-top: 16px;
+}
+
+#name{
+font-size: 24px;
+color: white;
+}

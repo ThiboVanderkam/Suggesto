@@ -105,7 +105,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>Name</label>
                             <br>
-                            <input type="text" name="name" id="form-name" required>
+                            <input type="text" name="name" id="form-name" maxlength="90" required>
                         </div>
 
                         <!--Surname-->
@@ -113,7 +113,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>Surname</label>
                             <br>
-                            <input type="text" name="surname" id="form-surname" required>
+                            <input type="text" name="surname" id="form-surname" maxlength="90" required>
                             <br>
                         </div>
 
@@ -136,7 +136,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <label>E-mail</label>
                             <br>
-                            <input type="text" name="email" id="form-email"required>
+                            <input type="email" name="email" id="form-email"  maxlength="90" required>
                             <br>
                             <br>
                         </div>
@@ -145,7 +145,7 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Password</label>
                             <br>
-                            <input type="password" name="password" id="form-password" required>
+                            <input type="password" name="password" id="form-password" maxlength = "90" required>
                             <br>
                             <br>
                         </div>
@@ -154,7 +154,7 @@ if (isset($_POST["submit"])){
                         <div>
                             <label>Re- enter Password</label>
                             <br>
-                            <input type="password" name="cpassword" id="form-rePassword"required>
+                            <input type="password" name="cpassword" id="form-rePassword" maxlength = "90" required>
                             <br>
                             <br>
                         </div>

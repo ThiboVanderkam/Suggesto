@@ -1,0 +1,108 @@
+.grotere-box{
+    justify-content: left;
+    display: flex;
+}
+
+.side-box{
+height:700px;
+float: left;
+border-right: 2px solid black;
+padding: 2%;
+}
+
+.side-box a {
+    font-size: 24px;
+}
+
+.upper-box{
+width: 80em;
+height: 2em;
+margin:0%;
+display: table;
+}
+
+.button-div{
+display:table-row; 
+
+}
+
+#cu-button{
+font-size: 24px;
+float: left;
+width: 33%;
+}
+
+#du-button{
+font-size: 24px;
+width: 34%;
+
+}
+
+#eu-button{
+font-size: 24px;
+float: right;
+width: 33%;
+
+}
+
+#textUpper{
+font-size: 18px;
+float:left; 
+clear: left;
+}
+
+#logout-button{
+    font-size: 18px;
+    position: fixed;
+    bottom: 3%;
+}
+
+.main-box{
+text-align: center;
+margin-left: 20%;
+padding: 2%;
+height: 32em;
+width: 40%;
+background-color: white;
+padding-bottom: 0%;
+padding-top: 0%;
+}
+
+#form-birthday{
+width: 98%;
+}
+
+#topdiv{
+    font-size: 18px;
+}
+
+#div1{
+text-align: left;
+font-size: 18px;
+float: left;
+padding-left: 0%;
+padding-right: 20%;
+margin-left: 10%;
+}
+
+#div2{
+text-align: left;
+font-size: 18px;
+float: left;
+padding-left: 0%;
+padding-right: 0%;
+}
+
+#div3{
+    padding-top: 5%;
+    clear: both;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.DeleteUserButton{
+    font-size: 22px;
+    padding: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+}

@@ -107,7 +107,7 @@
                     <br>
                     <label for="friendNameInput">Friend Name:</label>
                     <br>
-                    <input type="text" id="friendNameInput">
+                    <input type="text" id="friendNameInput" maxlength = "90" required>
 
                     <br>
                     <br>
@@ -115,7 +115,7 @@
 
                     <label for="friendEmailInput">Friend e-mailaddress:</label>
                     <br>
-                    <input type="text" id="friendEmailInput">
+                    <input type="email" id="friendEmailInput" maxlength = "90" required>
                     
                     <br>
                     <br>
