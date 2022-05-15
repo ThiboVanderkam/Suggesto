@@ -49,7 +49,7 @@ fetch(link, { mode: 'no-cors'})
                     dateListElement.innerHTML 
                     +=  "<li><form action=myPreferences.php method=POST>" //value of friendId is friendId when submitting so you can call to their interests
                     + "<input type=hidden name=friendId value=" + idData[friendElements[j].innerHTML]+"></input>"
-                    + "<input type=submit value="+friendElements[j].innerHTML+ "</input>"
+                    + "<input type=submit value='"+friendElements[j].innerHTML+ "'></input>"
                     + "</form></li>"; 
                 }
             })
