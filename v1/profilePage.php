@@ -97,22 +97,26 @@
         <!-- The Modal-->
         <div id="Modal" class="modal">
 
-            <!-- Modal content password-->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Write your new username here:</p>
-                <input type="text" name="username" id="modal">
-                <br>
-                <br>
-                <p>Write your new email here:</p>
-                <input type="text" name="email" id="modal">
-                <br>
-                <br>
-                <p>Write your new password here:</p>
-                <input type="text" name="password" id="modal">
-                <br>
-                <br>
-                <button id="ModalContenButton">Save Changes</button>
+            <form method="POST" action="">
+
+                <!-- Modal content password-->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Write your new username here:</p>
+                    <input type="text" name="username" id="modal" required>
+                    <br>
+                    <br>
+                    <p>Write your new email here:</p>
+                    <input type="text" name="email" id="modal" required>
+                    <br>
+                    <br>
+                    <p>Write your new password here:</p>
+                    <input type="text" name="password" id="modal" required>
+                    <br>
+                    <br>
+                    <button id="ModalContenButton">Save Changes</button>
+
+                </form>
 
             </div>
         </div>
