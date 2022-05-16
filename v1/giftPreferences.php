@@ -21,20 +21,19 @@
     <div> <!-- MAIN maken voor de rest van de website buiten de sidebar -->
         <h1 class="border">SUGGESTO</h1>
         <div class="header-box">
-            Pick your favorite topics for recieving gifts
+            Edit your Preferences:
         </div>
-
 
         <div class="sidenav2 border font-body">
             <a href="myPreferences.php"><u id="forMe">For Me-Page </u></a>
 
             <br>
 
-            <a href="myProfile.php" ><u id="myAccount">My account</u></a>
+            <a href="giftPreferences.php"><u id="giftPreferences">Edit gift preferences</u></a>
 
             <br>
 
-            <a href="giftPreferences.php"><u id="giftPreferences">Edit gift preferences</u></a>
+            <a href="myProfile.php" ><u id="myAccount">My account</u></a>
 
             <br>
 
@@ -43,7 +42,6 @@
             <br>
 
             <a href="addFriendEmail.php"><u>Friends</u></a>
-            
         </div>
 
         <br>
@@ -51,7 +49,7 @@
         <br>
 
         <div class="gift-preferences-main">
-            <div id="gift-preferences" class="font-body border"> <!-- is eig gwn de friendsPage.php -->
+            <div id="gift-preferences" class="font-body border">
                 <div id="pref-row-1">
                     <br>
                     <br>
@@ -60,12 +58,6 @@
 
                     <br>
                     <br>
-
-                    <!-- <input type="checkbox" id="books" name="books" value="books">
-                    <label for="books">Books</label>
-
-                    <br>
-                    <br> -->
 
                     <input type="checkbox" id="nature" name="nature" value="nature">
                     <label for="nature">Nature</label>
@@ -97,52 +89,7 @@
                     <br>
                     <input type="submit" value="Change">
 
-                </div>
-                <!-- <div id="pref-row-2">
-                    <br>
-                    <br>
-                    <input type="checkbox" id="games" name="games" value="games">
-                    <label for="games">Games</label>
-
-                    <br>
-                    <br>
-
-                    <input type="checkbox" id="books" name="books" value="books">
-                    <label for="books">Books</label>
-
-                    <br>
-                    <br>
-
-                    <input type="checkbox" id="nature" name="nature" value="nature">
-                    <label for="nature">Nature</label>
-
-                    <br>
-                    <br>
-                    
-                    <input type="checkbox" id="potography" name="potography" value="potography">
-                    <label for="potography">Photography</label>
-
-                    <br>
-                    <br>
-
-                    <input type="checkbox" id="sports" name="sports" value="sports">
-                    <label for="sports">Sports</label>
-
-                    <br>
-                    <br>
-
-                    <input type="checkbox" id="tech" name="tech" value="tech">
-                    <label for="tech">Tech</label>
-
-                    <br>
-                    <br>
-
-                    <input type="checkbox" id="beauty" name="beauty" value="beauty">
-                    <label for="beauty">Beauty</label>
-                    <br>
-                    <br>
-                </div> -->
-                
+                </div>                
             </div>
         </div>
     </div> 

@@ -42,27 +42,23 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 7%; /*plaats tussen de buttons*/
-    /* gap: 10%; */
-    /* width: 1vw; */
-}
+    color: whitesmoke;
 
+}
+/* 
 .header-box2 {
     font-family: 'Italianno', cursive;
     font-family: 'Poppins', sans-serif;
     
-    /* background-color: #ECECEC; */
     background-color: #c8e0fc;
     height: 55px;
     width: 100%;
-    /* width: 100%;     dit is voor zonder sidebar */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7%; /*plaats tussen de buttons*/
-    /* gap: 10%; */
-    /* width: 1vw; */
-}
-
+    gap: 7%;
+} 
+*/
 
 .header-box ul {
     list-style-type: none;
