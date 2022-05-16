@@ -145,10 +145,10 @@ class Api {
         $userId = $this->conn->getQuery($userIdQuery)[0]["u_id"];
         $friendsIdQuery = "SELECT f_id FROM isFriendsWith WHERE u_id ='".$userId."';";
         $friendsId = $this->conn->getQuery($friendsIdQuery);
-        $friendsDataQuery = "SELECT l_firstname, l_lastname, l_birthday FROM local_friend WHERE local_id ='";
+        $friendsDataQuery = "SELECT local_id, l_firstname, l_lastname, l_birthday FROM local_friend WHERE local_id ='";
         $friendsData = array(count($friendsId));
-        for ($x = 0; $x < count($friendsId); $x++){
-            $friendsData[$x] = $this->conn->getQuery($friendsDataQuery . $friendsId[$x]["f_id"] . "';")[0];
+        for ($i = 0; $i < count($friendsId); $i++){
+            $friendsData[$i] = $this->conn->getQuery($friendsDataQuery . $friendsId[$i]["f_id"] . "';")[0];
         }
         return $friendsData;
     }

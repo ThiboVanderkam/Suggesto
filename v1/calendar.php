@@ -9,6 +9,10 @@ $userId = $_SESSION['u_id'];
 $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
 
 $firstname = $user["u_firstname"];
+
+if(isset($_POST["submit"])){
+    $friendId = $_POST["friendId"];
+}
 ?>
 
 <!DOCTYPE html>
