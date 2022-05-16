@@ -46,6 +46,27 @@ class Api {
         return $interests;
     }
 
+    
+    function getPreferencesById($parameters) {
+        $id = $parameters["id"];
+        $preferenceQuery = "SELECT keyword FROM interests WHERE u_id =\"" . $id . "\";";
+        $preferences = $this->conn->getQuery($preferenceQuery);
+        $gifts = [];
+        foreach ($preferences as $preference) {
+            $keyword = $preference["keyword"];
+            $getGifts = "SELECT * FROM gifts WHERE preference =\"" . $keyword . "\";";
+            $gift = $this->conn->getQuery($getGifts);
+            foreach ($gift as $item) {
+                array_push($gifts, $item);
+            }
+
+        }
+        return $gifts;
+
+        // return $gifts;
+    }
+
+
     function storeInterests($parameters) {
         $email = $parameters["email"];
         $interests = $parameters["interests"];
@@ -76,7 +97,7 @@ class Api {
 
     function storeUserInterests($parameters){
         $u_id = $parameters["u_id"];
-        $interests = $parameters["interests"];
+        $interests = $parameters["interests"]; 
         $interestsArray = explode(",", $interests);
         foreach ($interestsArray as $interest) {
             if(strlen($interest) > 0){
@@ -115,6 +136,8 @@ class Api {
         return "done";
     }
 
+    
+
 
     function getFriendsData($parameters){
         $email = $parameters["email"];
@@ -133,6 +156,10 @@ class Api {
     function selectCall($parameters) {
         if ($parameters["call"] == "login") {
             $output = $this->login($parameters);
+            return $output;
+        }
+        elseif ($parameters["call"] == "preferencesId") {
+            $output = $this->getPreferencesById($parameters);
             return $output;
         }
         elseif ($parameters["call"] == "signUp") {
