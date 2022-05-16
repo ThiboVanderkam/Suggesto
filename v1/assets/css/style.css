@@ -38,11 +38,9 @@ h1 {
     /* width: 100%;     dit is voor zonder sidebar */
     display: flex;
     align-items: center;
-    /* justify-content: center;  => dit moet weg, anders zit de side nav over een deel van de buttons => heb gefixt met padding left*/
-    padding-left: 0px;
+    justify-content: center; 
     gap: 7%; /*plaats tussen de buttons*/
-    /* gap: 10%; */
-    /* width: 1vw; */
+
 }
 
 .header-box2 {
@@ -75,7 +73,7 @@ h1 {
 .header-box li {
     float: left;
     border-right: 1px solid #3F72AF;
-    width: 24.8%;
+    width: 33%;
 }
   
 .header-box li a {
@@ -111,9 +109,13 @@ h1 {
 
 .blueDiv {
     background-color: rgb(0, 132, 255);
-    height: 405px;
+    /* height: 405px; */
     width: 500px;
     border-radius: 10%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    align-items: center;
+    justify-content: center;
 }
 
 .suggestion-div {
@@ -177,7 +179,6 @@ h1 {
 .main-friends {
     margin-left: 0px;
     margin-right: 14.0052%; /* Same as the width of the sidebar */
-    margin-left: 14.0052%; /* Same as the width of the sidebar */
 }
 
 .bestFriends{

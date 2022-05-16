@@ -89,34 +89,12 @@ if (isset($_POST["submit"])){
                 </ul>
             </div>
 
-            <div class="sidenav2 border">
-
-                <a href="#" ><u>All Friends</u></a>
-                <ul >
-                    <li id="friend-list">
-                        vriend 1
-                    </li>
-                    <li>
-                        vriend 2
-                    </li>
-                    <li>
-                        vriend 3
-                    </li>
-
-                </ul>
-            </div>
-
             <br>
 
             <div class="header-box2 border">
                 <a href="addFriendEmail.php">Add Friend Account</a>
                 <a href="addFriendNoAcc.php">Add Friend Without Account</a>
                 <a href="editFriendPage.php">Edit Friend</a>
-                <!-- <ul>
-                    <li><a href="#">Add Friend Account</a></li>
-                    <li><a href="#">Add friend without account</a></li>
-                    <li><a href="#">Edit Friend</a></li>
-                </ul> -->
             </div>
 
             <hr> 
@@ -141,16 +119,10 @@ if (isset($_POST["submit"])){
                     <input type="date" name="birthday" id="addFriendBrithdayInput" required>
                     
                     <br>
-                    Interests:
+                    <br>
+                    <u>Interests:</u>
+                    <br>
                     <div id="interestsDiv">
-                        <label for="games">Games</label>
-                        <input type="checkbox" id="games" name="check_list[]" value="games">
-                    
-                        <label for="books">Books</label>
-                        <input type="checkbox" id="books" name="check_list[]" value="books">
-
-                        <br>
-
                         <label for="nature">Nature</label>
                         <input type="checkbox" id="nature" name="check_list[]" value="nature">
 
@@ -172,12 +144,16 @@ if (isset($_POST["submit"])){
                         
                         <label for="beauty">Beauty</label>
                         <input type="checkbox" id="beauty" name="check_list[]" value="beauty">
-                        
+
+                        <br>
+
+                        <label for="games">Games</label>
+                        <input type="checkbox" id="games" name="check_list[]" value="games">                        
                     </div>
 
                     <br>
 
-                    <input type="submit" name="submit" value="Add">
+                    <input type="submit" name="submit" value="Add Friend">
                 
                     <div id="data" style = "display: none">
                         <?php

@@ -55,26 +55,9 @@
             
             <div class="header-box">
                 <ul>
-                    <li><a href="#">Calender</a></li>
-                    <li><a href="#">Friends</a></li>
-                    <li><a href="#">My profile</a></li>
-                </ul>
-            </div>
-
-            <div class="sidenav2 border">
-
-                <a href="#" ><u>All Friends</u></a>
-                <ul >
-                    <li id="friend-list">
-                        vriend 1
-                    </li>
-                    <li>
-                        vriend 2
-                    </li>
-                    <li>
-                        vriend 3
-                    </li>
-
+                    <li><a href="calendar.php">Calender</a></li>
+                    <li><a href="addFriendEmail.php">Friends</a></li>
+                    <li><a href="myProfile.php">My profile</a></li>
                 </ul>
             </div>
 
@@ -93,8 +76,6 @@
 
             <div id="addFriendPage" class="font-body"> <!-- is eig gwn de friendsPage.php -->
                 <div class="blueDiv border">
-                    <br>
-                    <br>
                     <label for="friendNameInput">Friend Name:</label>
                     <br>
                     <input type="text" id="friendNameInput" maxlength = "90" required>
@@ -113,9 +94,6 @@
 
 
                     <input type="submit" value="save">
-                    <br>
-                    <br>
-                    <br>
                 </div>
             </div>
 
