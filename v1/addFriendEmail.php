@@ -1,5 +1,5 @@
 <?php
-include "assets/db/databaseClass.php";
+include "assets/db/apiClass.php";
 include "sessionInvalid.php";
 
 $db = new Database();
@@ -9,6 +9,23 @@ $userId = $_SESSION['u_id'];
 $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
 
 $firstname = $user["u_firstname"];
+
+$api = new Api();
+if (isset($_POST["submitEmail"])){
+    $parameters = [
+        "call" => "addFriendEmail",
+        "friendEmail" => $_POST["friendEmail"],
+        "u_id" => $userId
+    ];
+    $result = $api->addFriendEmail($parameters);
+    $parameters = [];
+    if ($result){
+        echo "<script>alert('Friend added successfully.')</script>";
+    }
+    else{
+        echo "<script>alert('Something went wrong.')</script>";
+    }
+}
 
 ?>
 
@@ -76,13 +93,12 @@ $firstname = $user["u_firstname"];
 
             <div id="addFriendPage" class="font-body"> <!-- is eig gwn de friendsPage.php -->
                 <div class="blueDiv border">
-                    <label for="friendEmailInput">Friend e-mail:</label>
-                    <br>
-                    <input type="email" id="friendEmailInput" maxlength = "90" required>
-                    <br>
-                    <br>
-                    <input type="submit" value="Add Friend">
-
+                    <form method="POST" action="">
+                        <label for="friendEmail">Friend e-mail:</label>
+                        <br>
+                        <input type="email" name="friendEmail" id="friendEmail" maxlength = "90" required>
+                        <input type="submit" name="submitEmail" value="Add Friend">
+                    </form>
                 </div>
             </div>
 

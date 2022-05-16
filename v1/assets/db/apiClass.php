@@ -4,10 +4,8 @@ include "databaseClass.php";
 class Api {
     private $conn;
 
-
     function __construct()
-    {
-        
+    {        
         $this->conn = new Database();
     }
 
@@ -66,7 +64,6 @@ class Api {
         // return $gifts;
     }
 
-
     function storeInterests($parameters) {
         $email = $parameters["email"];
         $interests = $parameters["interests"];
@@ -124,6 +121,19 @@ class Api {
         }
     }
 
+    function addFriendEmail($parameters){
+        $friendEmail = $parameters["friendEmail"];
+        $f_id = $this->conn->getQuery("SELECT u_id FROM user WHERE u_email = '$friendEmail';")[0]["u_id"];
+        if($f_id){
+            $u_id = $parameters["u_id"];
+            $result = $this->conn->insertQuery("INSERT INTO isFriendsWith (u_id, f_id) VALUES ('$u_id', '$f_id');");
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     function signUp($parameters) {
         $name= $parameters["name"];
         $surname = $parameters["surname"];
@@ -136,19 +146,23 @@ class Api {
         return "done";
     }
 
-    
-
-
     function getFriendsData($parameters){
         $email = $parameters["email"];
         $userIdQuery = "SELECT u_id FROM user WHERE u_email =\"" . $email . "\";";
         $userId = $this->conn->getQuery($userIdQuery)[0]["u_id"];
         $friendsIdQuery = "SELECT f_id FROM isFriendsWith WHERE u_id ='".$userId."';";
         $friendsId = $this->conn->getQuery($friendsIdQuery);
-        $friendsDataQuery = "SELECT local_id, l_firstname, l_lastname, l_birthday FROM local_friend WHERE local_id ='";
+        $friendsDataQueryLocal = "SELECT local_id, l_firstname, l_lastname, l_birthday FROM local_friend WHERE local_id ='";
+        //alles opslaan AS zodat je js file de juiste dingen kan kiezen ook al is het een email friend
+        $friendsDataQueryEmail = "SELECT u_id AS local_id, u_firstname AS l_firstname, u_lastname AS l_lastname, u_dob AS l_birthday FROM user WHERE u_id ='";
         $friendsData = array(count($friendsId));
         for ($i = 0; $i < count($friendsId); $i++){
-            $friendsData[$i] = $this->conn->getQuery($friendsDataQuery . $friendsId[$i]["f_id"] . "';")[0];
+            if ($friendsId[$i]["f_id"] >= 1000000){
+                $friendsData[$i] = $this->conn->getQuery($friendsDataQueryLocal . $friendsId[$i]["f_id"] . "';")[0];
+            }
+            else{
+                $friendsData[$i] = $this->conn->getQuery($friendsDataQueryEmail . $friendsId[$i]["f_id"] . "';")[0];
+            }
         }
         return $friendsData;
     }
@@ -176,6 +190,10 @@ class Api {
         }
         elseif($parameters["call"] == "storeInterests") {
             $output = $this->storeInterests($parameters);
+            return $output;
+        }
+        elseif($parameters["call"] == "addFriendEmail"){
+            $output = $this->addFriendEmail($parameters);
             return $output;
         }
         else {
