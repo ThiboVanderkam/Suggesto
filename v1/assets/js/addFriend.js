@@ -26,30 +26,3 @@ fetch(link, { mode: 'no-cors'})
         };
     }
 );
-
-
-// ---- einde vrienden opleisten ----
-// ---- begin bol.com scraper in te trekken (nog niet volledig) ----
-
-console.log("connected");
-
-var test = ""
-// $_POST["friendId"]
-link = "http://localhost/assets/db/apiCall.php?call=preferencesId&id=1"; // let op, is nog gehardcode
-fetch(link, { mode: 'no-cors'})
-    .then(function(response) {
-        // return JSON.parse(response.text())["[0]"];
-        // return eval('({' + response.text() + '})');
-        return response;
-    }).then(function(data) { // hier moet het werkende gedeelte worden
-        console.log(JSON.parse(response));
-
-    });
-
-
-
-// voor later alles in boxen te zetten:
-var allBoxElements = document.querySelectorAll(".box");
-for (var i = 0; i < allBoxElements.length; i++) {
-    console.log(allBoxElements[i]);
-}

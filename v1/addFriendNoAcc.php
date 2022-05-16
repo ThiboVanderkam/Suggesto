@@ -63,36 +63,17 @@ if (isset($_POST["submit"])){
         
         <div class="sidenav border">
             <div class="flex">
-                <a href="#" class="">Hello <?php echo $firstname?></a>
-                <!-- hier nog naam en foto poppen van de user -->
+                <a href="#" class="">Hello <?php echo $firstname;?></a>
+            </div>
+            <br>
+            <div>
+                <a href="logout.php" id="">Logout</a>
             </div>
 
             <a href="#" class="bestFriends"><u>Your Friends</u></a>
-            <ul>
-                <li id="friend-list">
-                    vriend 1
-                </li>
-                <li>
-                    vriend 2
-                </li>
-                <li>
-                    vriend 3
-                </li>
+            <ul id="friendsList" class="font-body">
 
             </ul>
-            
-            <a href="#" class="bestFriends"><u>Upcomming events</u></a>
-
-            <button type="radio">ding1</button>
-            <br>
-            <br>
-            <button type="radio">ding2</button>
-            <br>
-            <br>
-            <button type="radio">ding3</button>
-            <br>
-            <br>
-            <button type="radio">ding4</button>
             
         </div>
 
@@ -198,12 +179,17 @@ if (isset($_POST["submit"])){
 
                     <input type="submit" name="submit" value="Add">
                 
+                    <div id="data" style = "display: none">
+                        <?php
+                            echo $user["u_email"];
+                        ?>
+                    </div>
                    
                 </div>
             </form>
         </div> 
         
-        <script src="assets/js/script.js">
+        <script src="assets/js/addFriend.js">
         </script>
     </body>
 </html>

@@ -1,3 +1,17 @@
+<?php
+    include "sessionInvalid.php";
+    include "assets/db/databaseClass.php";
+
+    $db = new Database();
+    $userId = $_SESSION['u_id'];
+    $user = $db->getQuery("SELECT * FROM user WHERE u_id = '$userId';")[0];
+    $firstname = $user["u_firstname"];
+    $lastname = $user["u_lastname"];
+    $dob = $user["u_dob"];
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,37 +36,17 @@
         
         <div class="sidenav border">
             <div class="flex">
-                <a href="#" class="">Hello user</a>
-                <!-- hier nog naam en foto poppen van de user -->
+                <a href="#" class="">Hello <?php echo $firstname;?></a>
+            </div>
+            <br>
+            <div>
+                <a href="logout.php" id="">Logout</a>
             </div>
 
-            <a href="#" class="bestFriends"><u>Best Friends</u></a>
-            <ul >
-                <li id="friend-list">
-                    vriend 1
-                </li>
-                <li>
-                    vriend 2
-                </li>
-                <li>
-                    vriend 3
-                </li>
+                <a href="#" class="bestFriends"><u>Your Friends</u></a>
+                <ul id="friendsList" class="font-body">
 
-            </ul>
-            
-            <a href="#" class="bestFriends"><u>Upcomming events</u></a>
-
-            <button type="radio">ding1</button>
-            <br>
-            <br>
-            <button type="radio">ding2</button>
-            <br>
-            <br>
-            <button type="radio">ding3</button>
-            <br>
-            <br>
-            <button type="radio">ding4</button>
-            
+                </ul>
         </div>
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
@@ -90,11 +84,7 @@
                 <a href="addFriendEmail.php">Add Friend Account</a>
                 <a href="addFriendNoAcc.php">Add Friend Without Account</a>
                 <a href="editFriendPage.php">Edit Friend</a>
-                <!-- <ul>
-                    <li><a href="#">Add Friend Account</a></li>
-                    <li><a href="#">Add friend without account</a></li>
-                    <li><a href="#">Edit Friend</a></li>
-                </ul> -->
+
             </div>
 
             <hr> 
@@ -121,11 +111,6 @@
                     <br>
                     <br>
 
-                    <label for="addToFavoriteCheckBox">Add To Favorite:</label>
-                    <input type="checkbox" id="addToFavoriteCheckBox">
-
-                    <br>
-                    <br>
 
                     <input type="submit" value="save">
                     <br>
@@ -134,10 +119,16 @@
                 </div>
             </div>
 
+            <div id="data" style = "display: none">
+                <?php
+                    echo $user["u_email"];
+                ?>
+            </div>
+
     
             
         </div> 
-        <script src="assets/js/script.js">
+        <script src="assets/js/addFriend.js">
         </script>
     </body>
 </html>
