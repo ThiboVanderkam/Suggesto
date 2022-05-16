@@ -93,7 +93,7 @@
                     <br>
 
 
-                    <input type="submit" value="save">
+                    <input type="submit" value="save" name="sumbit">
                 </div>
             </div>
 
