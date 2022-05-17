@@ -24,7 +24,7 @@ if (isset($_POST["submit"])){
             echo "<script>alert('Email already in use.')</script>";
         }
         else{    
-            $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('1', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
+            $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('0', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
             $result = $db->insertQuery($query); //putting the user in the database
             if($result == true){
                 $userId = $db->getQuery("SELECT u_id FROM user WHERE u_email='$email';")[0]["u_id"];
