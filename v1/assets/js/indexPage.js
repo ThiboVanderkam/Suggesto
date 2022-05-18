@@ -1,7 +1,7 @@
-homeButton = document.querySelector("#homeButton");
-homeButton.addEventListener("click", function() {
-    window.location.href = "../../index.php"
-});
+// homeButton = document.querySelector("#homeButton");
+// homeButton.addEventListener("click", function() {
+//     window.location.href = "../../index.php"
+// });
 
 forHimButton = document.querySelector("#forHimButton");
 forHimButton.addEventListener("click", function() {

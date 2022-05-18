@@ -32,7 +32,7 @@
             
             <div class="header-box">
                 <ul>
-                    <li><a id="homeButton" href="#">Home</a></li>
+                    <!-- <li><a id="homeButton" href="#">Home</a></li> -->
                     <li><a id="forHimButton" href="#">For him</a></li>
                     <li><a id="forHerButton" href="#">For her</a></li>
                     <li><a id="forKidsButton" href="#">For kids</a></li>
