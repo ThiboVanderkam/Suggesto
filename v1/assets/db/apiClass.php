@@ -55,6 +55,8 @@ class Api {
             $getGifts = "SELECT * FROM gifts WHERE preference =\"" . $keyword . "\";";
             $gift = $this->conn->getQuery($getGifts);
             foreach ($gift as $item) {
+                // het probleem was dus dat hij de link als ["link"] => ... zag ipv
+                // "link" => .... 
                 array_push($gifts, array(
                     "link" => $item["link"],
                     "fotoLink" => $item["fotoLink"],
@@ -88,9 +90,13 @@ class Api {
         foreach ($interestsArray as $interest) {
             if(strlen($interest) > 0){
                 $query = "INSERT INTO `interests` (`u_id`, `keyword`) VALUES ('$l_id', '$interest');";
-                $this->conn->insertQuery($query);
+                $result = $this->conn->insertQuery($query);
+                if (!$result){
+                    return false;
+                }
             }
         }
+        return true;        
     }
 
     function storeUserInterests($parameters){

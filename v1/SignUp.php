@@ -13,22 +13,28 @@ if (isset($_POST["submit"])){
     $email = $_POST["email"];
     $password = $_POST["password"]; 
     $cpassword = $_POST["cpassword"];
-    //moet nog interests bij maken
+    //de nodige dingen posten om een account aan te maken
 
     if ($password == $cpassword){        
-        $hash = password_hash($password, PASSWORD_DEFAULT);
+        //password even checken
+        $hash = password_hash($password, PASSWORD_DEFAULT); //hash van de pass maken
 
         $query = "SELECT * FROM user WHERE u_email ='$email';";
-        $result = mysqli_query($db->connection, $query);
+        $result = mysqli_query($db->connection, $query); 
+        //dit is om te kijken of er al een account bestaat zoekt eigenlijk gewoon de mail op in de database 
+        //als het een hit is dan wilt dat zeggen dat email in use is
         if($result->num_rows > 0){
             echo "<script>alert('Email already in use.')</script>";
         }
-        else{    
+        else{
+            //als de mail ongebruikt is voegt hij die persoon ineens toe aan de database
             $query = "INSERT INTO `user` (`u_isverified`, `u_firstname`, `u_lastname`, `u_dob`, `u_email`, `u_password`, `u_id`) VALUES ('0', '$name', '$surname', '$bday', '$email', '$hash', NULL);";
             $result = $db->insertQuery($query); //putting the user in the database
             if($result == true){
+                // zit in result weer omdat hij moet weten of de query gelukt is
                 $userId = $db->getQuery("SELECT u_id FROM user WHERE u_email='$email';")[0]["u_id"];
                 $interestsString = "";
+                //nu even de interesses van de persoon toevoegen
                 if(!empty($_POST['check_list'])) {
                     // Counting number of checked checkboxes.
                     $checked_count = count($_POST['check_list']);        
@@ -41,18 +47,12 @@ if (isset($_POST["submit"])){
                         "interests" => $interestsString
                     ];
                     $api->storeUserInterests($parameters);
-                    $parameters = [];
+                    $parameters = []; //parameters clearen zodat bij refresh geen dubbele dingen
                 }
                 else{
                     echo "<b>Please Select Atleast One Option.</b>";
                 }
-                $name = "";
-                $surname = "";
-                $bday = "";
-                $email = "";
-                $_POST["password"];
-                $_POST["cpassword"];
-                echo "<script>alert('Sign up succes.')</script>";
+                header("Location: login.php"); //naar login gaan als signup success
                 }
                 else{
                     echo "<script>alert('Something went wrong.')</script>";

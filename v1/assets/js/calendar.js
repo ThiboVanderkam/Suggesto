@@ -44,6 +44,7 @@ fetch(link, { mode: 'no-cors'})
                 dateListElement.innerHTML = ''; //clearing innerhtml when clicking on something new
                 var friendElements = document.querySelectorAll(".friend"+this.id.toString().substring(8));
                 //making friend form and getting its inner html to display submit button
+                //the hidden input item holds the id value of the clicked friend top post it to the preferences
                 for (var j = 0; j < friendElements.length; j++){
                     dateListElement.innerHTML 
                     +=  "<li><form action=myPreferences.php method=POST>" //value of friendId is friendId when submitting so you can call to their interests

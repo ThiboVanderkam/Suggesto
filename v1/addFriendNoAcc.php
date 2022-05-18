@@ -28,8 +28,14 @@ if (isset($_POST["submit"])){
             "interests" => $interestsString
         ];
         $api->addLocalFriend($parameters);
-        $api->storeLocalInterests($parameters);
-        $parameters = [];
+        $result = $api->storeLocalInterests($parameters);
+        if ($result){
+            echo "<script>alert('Friend added.')</script>";
+            $parameters = [];
+        }
+        else{
+            echo "<script>alert('Something went wrong.')</script>";
+        }
     }
     else{
         echo "<b>Please Select Atleast One Option.</b>";
