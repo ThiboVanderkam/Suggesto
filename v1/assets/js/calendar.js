@@ -45,7 +45,6 @@ fetch(link, { mode: 'no-cors'})
                 var friendElements = document.querySelectorAll(".friend"+this.id.toString().substring(8));
                 //making friend form and getting its inner html to display submit button
                 for (var j = 0; j < friendElements.length; j++){
-                    console.log(idData[friendElements[j].innerHTML])
                     dateListElement.innerHTML 
                     +=  "<li><form action=myPreferences.php method=POST>" //value of friendId is friendId when submitting so you can call to their interests
                     + "<input type=hidden name=friendId value=" + idData[friendElements[j].innerHTML]+"></input>"

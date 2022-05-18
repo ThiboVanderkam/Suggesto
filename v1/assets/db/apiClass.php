@@ -49,19 +49,20 @@ class Api {
         $id = $parameters["id"];
         $preferenceQuery = "SELECT keyword FROM interests WHERE u_id =\"" . $id . "\";";
         $preferences = $this->conn->getQuery($preferenceQuery);
-        $gifts = [];
+        $gifts = array();
         foreach ($preferences as $preference) {
             $keyword = $preference["keyword"];
             $getGifts = "SELECT * FROM gifts WHERE preference =\"" . $keyword . "\";";
             $gift = $this->conn->getQuery($getGifts);
             foreach ($gift as $item) {
-                array_push($gifts, $item);
+                array_push($gifts, array(
+                    "link" => $item["link"],
+                    "fotoLink" => $item["fotoLink"],
+                    "prijs" => $item["prijs"]
+                ));
             }
-
         }
         return $gifts;
-
-        // return $gifts;
     }
 
     function storeInterests($parameters) {

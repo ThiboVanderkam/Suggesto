@@ -10,6 +10,7 @@
     $dob = $user["u_dob"];
 
     
+    
 ?>
 
 <!DOCTYPE html>
@@ -94,6 +95,12 @@
         <div id="data" style = "display: none">
             <?php
                 echo $user["u_email"];
+            ?>
+        </div>
+
+        <div id="dataFriend" style = "display: none">
+            <?php
+                echo $_POST["friendId"];
             ?>
         </div>
     <script src="assets/js/myPreferences.js">
