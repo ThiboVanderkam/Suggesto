@@ -43,31 +43,31 @@
 
             <p class="font-body"><b>Sign up to get the best gift recommendations!</b></p>
             <p class="font-body">TOP PICKS:</p>
+            <p>(you have to log in to see top picks ;))</p>
     
             <br>
             <br>
 
             <div class="suggestion-div">
-                
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
+                <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
+                <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
+                <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
+                <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
             </div>
 
             <div class="suggestion-div">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
+            <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
+                <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
+                <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
+                <div class="box"><img src="assets/images/gift.png" alt="secret cadeau (sus)" width="170" height="170"></div>
             </div>
 
-            <div class="suggestion-div">
+            <!-- <div class="suggestion-div">
                 <div class="box"></div>
                 <div class="box"></div>
                 <div class="box"></div>
                 <div class="box"></div>
-            </div>
+            </div> -->
         </div>  
 
 

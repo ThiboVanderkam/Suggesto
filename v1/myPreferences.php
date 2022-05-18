@@ -62,32 +62,8 @@
             </div>
 
             <div id="ForMe-div">
-                <h1><u>For me:</u></h1>
+                <h1><u>For Your Friend:</u></h1>
                 <br>
-
-                <div class="font-body">product soort 1</div>
-                <div class="suggestion-div">
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                </div>
-
-                <div class="font-body">product soort 2</div>
-                <div class="suggestion-div">
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                </div>
-
-                <div class="font-body">product soort 3</div>
-                <div class="suggestion-div">
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                    <div class="box"></div>
-                </div>
             </div>
 
         </div>

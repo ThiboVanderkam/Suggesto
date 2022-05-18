@@ -60,7 +60,8 @@ class Api {
                 array_push($gifts, array(
                     "link" => $item["link"],
                     "fotoLink" => $item["fotoLink"],
-                    "prijs" => $item["prijs"]
+                    "prijs" => $item["prijs"],
+                    "preference" => $item["preference"]
                 ));
             }
         }

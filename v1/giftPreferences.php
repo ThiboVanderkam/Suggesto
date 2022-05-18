@@ -25,9 +25,9 @@
         </div>
 
         <div class="sidenav2 border font-body">
-            <a href="myPreferences.php"><u id="forMe">For Me-Page </u></a>
+            <!-- <a href="myPreferences.php"><u id="forMe">For Me-Page </u></a>
 
-            <br>
+            <br> -->
 
             <a href="giftPreferences.php"><u id="giftPreferences">Edit gift preferences</u></a>
 
