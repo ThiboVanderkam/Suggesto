@@ -39,7 +39,10 @@ if(isset($_POST["submit"])){
             <div id="">
                 <a href="myProfile.php">Hello <?php echo $firstname;?></a>
             </div>
-
+            <br>
+            <div>
+                <a href="logout.php" id="">Logout</a>
+            </div>
             <div id="friendsNames">
                 <a href="addFriendEmail.php" ><u>Your Friends</u></a>
                 <ul id="friendsList" class="font-body">
@@ -56,10 +59,6 @@ if(isset($_POST["submit"])){
 
             <div id="friendsLinks">
 
-            </div>
-
-            <div id="logout">
-                <a href="logout.php">Logout</a>
             </div>
         </div>
 

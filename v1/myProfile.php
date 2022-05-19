@@ -34,6 +34,9 @@
         <div class="sidenav border">
             <div class="flex">
                 <a href="#" id="">Hello <?php echo $firstname;?></a>
+            </div>
+            <br>
+            <div>
                 <a href="logout.php" id="">Logout</a>
             </div>
 

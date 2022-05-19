@@ -43,10 +43,10 @@
                 <a href="logout.php" id="">Logout</a>
             </div>
 
-                <a href="#" class="bestFriends"><u>Your Friends</u></a>
-                <ul id="friendsList" class="font-body">
+            <a href="#" class="bestFriends"><u>Your Friends</u></a>
+            <ul id="friendsList" class="font-body">
 
-                </ul>
+            </ul>
         </div>
 
         <!-- ____________________________HomeDing (hierboven was sidebar)_______________________________ -->
