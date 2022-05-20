@@ -52,15 +52,17 @@ if (isset($_POST["submit"])){
         <form method="POST" action="">
 
             <div class="grotere-box">
+
+                <div class="avatar-box">
+
+                </div>
                 
                 <div class="login-box">
 
                     <div id="div1">
 
-                        <h1 class="border">SUGGESTO</h1>
-
                         <!--Email-->
-                        <div class="font-body">
+                        <div>
                             <br>
                             <label>E-mail address</label>
                             <br>
@@ -70,7 +72,7 @@ if (isset($_POST["submit"])){
                         </div>
 
                         <!--Password-->
-                        <div class="font-body">
+                        <div>
                             <label>Password</label>
                             <br>
                             <input type="password" placeholder="Password" name="password" id="form-password" maxlength="90" required>
@@ -81,7 +83,7 @@ if (isset($_POST["submit"])){
                     </div>
 
                     <!--Submit button-->
-                    <div class="font-body">
+                    <div>
                         <br>
                         <input class="loginbutton" type="submit" name="submit" value="login">
                         <br>
@@ -90,7 +92,7 @@ if (isset($_POST["submit"])){
                     <div>
                     <!--<a href="/ForgotPassword.html" class="forgetPassword">Forgot password?</a>-->
     
-                    <p class="font-body">Need an account? <a href= "/SignUp.php" class="link">SIGN UP HERE</a></p>
+                    <p>Need an account? <a href= "/SignUp.php" class="link">SIGN UP HERE</a></p>
     
                     </div>
     

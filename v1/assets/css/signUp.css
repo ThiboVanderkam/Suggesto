@@ -1,45 +1,29 @@
 .body{
     background-image: url("/assets/images/forest.jpg");
-}
+    }
 
 .grotere-box{
 justify-content: center;
-text-align: center;
 display: flex;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.font-body{
-    font-family: 'Italianno', cursive;
-    font-family: 'Poppins', sans-serif;
-    /* font-size: 10px; */
-}
-
 .signUp-box{
-    text-align: center;
-    justify-content: center;
-    border: 2px solid black;
-    margin-top: 5%;
-    padding: 2%;
-    height: 40%;
-    width: 40%;
-    background-color: #6bb9e3;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    border-radius: 5%;
+text-align: center;
+border: 2px solid black;
+margin-top: 5%;
+padding: 2%;
+height: 32em;
+width: 40%;
+background-color: white;
+padding-bottom: 0%;
+padding-top: 0%;
 }
 
 .signUpButton{
-
 font-size: 22px;
 padding: 3%;
 padding-left: 10%;
-padding-right: 10%; 
+padding-right: 10%;
 }
 
 #form-birthday{
@@ -64,7 +48,7 @@ padding-right: 0%;
 }
 
 #div3{
-/* margin-left: 10%; */
+margin-left: 10%;
 font-size: 18px;
 clear: both;
 }
@@ -93,3 +77,8 @@ clear: both;
     padding-left: 5%;
     padding-right: 5%;
     }
+
+#interests{
+text-align: left;
+}
+

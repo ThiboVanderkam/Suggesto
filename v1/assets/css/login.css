@@ -1,14 +1,7 @@
 .body{
     background-image: url("/assets/images/forest.jpg");
     
-}
-
-h1 {
-    font-family: 'Italianno', cursive;
-    font-family: 'Poppins', sans-serif;
-    margin-top: 0;
-    margin-bottom: 0;
-}
+    }
 
 /*.avatar-box{
 width: 150px;
@@ -17,27 +10,20 @@ background-color: #0000ff;
 border-radius: 50%;
 }*/
 
-.font-body{
-    font-family: 'Italianno', cursive;
-    font-family: 'Poppins', sans-serif;
-}
-
 .grotere-box{
 justify-content: center;
 display: flex;
 }
 
 .login-box{
-    text-align: center;
-    border: 2px solid black;
-    margin-top: 10%;
-    padding: 2%;
-    height: 20%;
-    width: 30%;
-    background-color: #6bb9e3;
-    padding-bottom: 2%;
-    border-radius: 5%;
-
+text-align: center;
+border: 2px solid black;
+margin-top: 10%;
+padding: 2%;
+height: 20%;
+width: 30%;
+background-color: white;
+padding-bottom: 0%;
 
 }
 
