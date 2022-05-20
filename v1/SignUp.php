@@ -98,6 +98,7 @@ if (isset($_POST["submit"])){
                 
                 <div class="signUp-box">
 
+                    
                     <div id="div1">
 
                         <!--Name-->
