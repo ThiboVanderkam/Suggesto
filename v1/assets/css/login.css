@@ -15,24 +15,48 @@ justify-content: center;
 display: flex;
 }
 
+.font-body{
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+h1 {
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .login-box{
-text-align: center;
-border: 2px solid black;
-margin-top: 10%;
-padding: 2%;
-height: 20%;
-width: 30%;
-background-color: white;
-padding-bottom: 0%;
+    text-align: center;
+    border: 2px solid black;
+    margin-top: 10%;
+    padding: 2%;
+    height: 20%;
+    width: 30%;
+    background-color: #6bb9e3;
+    border-radius: 5%;
+
 
 }
 
 .loginbutton{
-font-size: 24px;
+/* font-size: 24px;
 padding-top: 4%;
 padding-bottom: 4%;
 padding-left: 20%;
-padding-right: 20%;
+padding-right: 20%; */
+    text-align: center;
+    border: 2px solid black;
+    /* margin-top: 10%; */
+    padding: 2%;
+    height: 20%;
+    width: 30%;
+    padding-bottom: 2%;
+    border-radius: 5%;
+
+
 }
 
 #div1{

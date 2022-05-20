@@ -51,13 +51,14 @@ if (isset($_POST["submit"])){
 
         <form method="POST" action="">
 
-            <div class="grotere-box">
+            <div class="grotere-box font-body">
 
                 <div class="avatar-box">
 
                 </div>
                 
                 <div class="login-box">
+                    <h1>Suggesto</h1>
 
                     <div id="div1">
 
@@ -92,7 +93,7 @@ if (isset($_POST["submit"])){
                     <div>
                     <!--<a href="/ForgotPassword.html" class="forgetPassword">Forgot password?</a>-->
     
-                    <p>Need an account? <a href= "/SignUp.php" class="link">SIGN UP HERE</a></p>
+                    <p class="font-body">Need an account? <a href= "/SignUp.php" class="link">SIGN UP HERE</a></p>
     
                     </div>
     

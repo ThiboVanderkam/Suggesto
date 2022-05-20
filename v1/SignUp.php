@@ -70,7 +70,7 @@ if (isset($_POST["submit"])){
 
 
 
-<!-- Arne Vernaillen -->
+<!-- Arne Vernaillen  -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -94,7 +94,7 @@ if (isset($_POST["submit"])){
 
         <form method="POST" action="">
 
-            <div class="grotere-box">
+            <div class="grotere-box font-body">
                 
                 <div class="signUp-box">
 
@@ -165,7 +165,7 @@ if (isset($_POST["submit"])){
                         <h3 id="interests">Interests</h3>
                         <label for="games">Games</label>
                         <input type="checkbox" id="games" name="check_list[]" value="games">
-<!--                     
+                        <!--                     
                         <label for="books">Books</label>
                         <input type="checkbox" id="books" name="check_list[]" value="books"> -->
 

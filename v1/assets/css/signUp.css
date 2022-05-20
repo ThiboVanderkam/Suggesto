@@ -7,16 +7,27 @@ justify-content: center;
 display: flex;
 }
 
+
+.font-body{
+    font-family: 'Italianno', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
 .signUp-box{
-text-align: center;
-border: 2px solid black;
-margin-top: 5%;
-padding: 2%;
-height: 32em;
-width: 40%;
-background-color: white;
-padding-bottom: 0%;
-padding-top: 0%;
+    text-align: center;
+    border: 2px solid black;
+    margin-top: 5%;
+    padding: 2%;
+    width: 40%;
+    background-color: #6bb9e3;
+    /* padding-bottom: 0%;
+    padding-top: 0%; */
+    border-radius: 5%;
+}
+
+.center {
+    /* display: flex; */
+    align-items: center;
 }
 
 .signUpButton{
@@ -48,7 +59,6 @@ padding-right: 0%;
 }
 
 #div3{
-margin-left: 10%;
 font-size: 18px;
 clear: both;
 }
@@ -76,9 +86,5 @@ clear: both;
     clear: both;
     padding-left: 5%;
     padding-right: 5%;
-    }
-
-#interests{
-text-align: left;
 }
 
