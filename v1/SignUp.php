@@ -97,70 +97,62 @@ if (isset($_POST["submit"])){
             <div class="grotere-box">
                 
                 <div class="signUp-box font-body">
-
-                    <div id="div1">
-
-                        <!--Name-->
-                        <div>
-                            <br>
-                            <label>Name</label>
-                            <br>
-                            <input type="text" name="name" id="form-name" maxlength="90" required>
+                    <div>
+                        <div id="div1">
+                            <!--Name-->
+                            <div>
+                                <br>
+                                <label>Name</label>
+                                <br>
+                                <input type="text" name="name" id="form-name" maxlength="90" required>
+                            </div>
+                            <!--Surname-->
+                            <div>
+                                <br>
+                                <label>Surname</label>
+                                <br>
+                                <input type="text" name="surname" id="form-surname" maxlength="90" required>
+                                <br>
+                            </div>
+                            <!--Birthday-->
+                            <div>
+                                <br>
+                                <label>Birthday</label>
+                                <br>
+                                <input type="date" name="birthday" id="form-birthday" required>
+                                <br>
+                                <br>
+                            </div>                        
                         </div>
-
-                        <!--Surname-->
-                        <div>
-                            <br>
-                            <label>Surname</label>
-                            <br>
-                            <input type="text" name="surname" id="form-surname" maxlength="90" required>
-                            <br>
+                        <div id="div2">
+                            <!--e-mail-->
+                            <div>
+                                <br>
+                                <label>E-mail</label>
+                                <br>
+                                <input type="email" name="email" id="form-email"  maxlength="90" required>
+                                <br>
+                                <br>
+                            </div>
+                            <!--Password-->
+                            <div>
+                                <label>Password</label>
+                                <br>
+                                <input type="password" name="password" id="form-password" maxlength = "90" required>
+                                <br>
+                                <br>
+                            </div>                            
+                            <!--re-enter Password-->
+                            <div>
+                                <label>Re- enter Password</label>
+                                <br>
+                                <input type="password" name="cpassword" id="form-rePassword" maxlength = "90" required>
+                                <br>
+                                <br>
+                            </div>
                         </div>
+                    <div>
 
-                        <!--Birthday-->
-                        <div>
-                            <br>
-                            <label>Birthday</label>
-                            <br>
-                            <input type="date" name="birthday" id="form-birthday" required>
-                            <br>
-                            <br>
-                        </div>
-                    
-                    </div>
-
-                    <div id="div2">
-
-                        <!--e-mail-->
-                        <div>
-                            <br>
-                            <label>E-mail</label>
-                            <br>
-                            <input type="email" name="email" id="form-email"  maxlength="90" required>
-                            <br>
-                            <br>
-                        </div>
-
-                        <!--Password-->
-                        <div>
-                            <label>Password</label>
-                            <br>
-                            <input type="password" name="password" id="form-password" maxlength = "90" required>
-                            <br>
-                            <br>
-                        </div>
-                        
-                        <!--re-enter Password-->
-                        <div>
-                            <label>Re- enter Password</label>
-                            <br>
-                            <input type="password" name="cpassword" id="form-rePassword" maxlength = "90" required>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-
-                        
                     <div id="div3 center">
                         <br>
                         <h3 id="interests">Interests:</h3>
@@ -193,31 +185,20 @@ if (isset($_POST["submit"])){
                         
                         <label for="beauty">Beauty</label>
                         <input type="checkbox" id="beauty" name="check_list[]" value="beauty">
-
                     </div>
-
+                                               
                     <div id="div6">
-
                         <!--Submit button-->
                         <div>
                             <input class="signUpButton" type="submit" name="submit" value="Sign Up">
                         </div>
         
                         <div>    
-                        <p>Already have an account? <a href= "/login.php" class="link">LOGIN HERE</a></p>
-        
+                        <p>Already have an account? <a href= "/login.php" class="link">LOGIN HERE</a></p>        
                         </div>
-
-                    </div>
-    
-                </div> <!--End of loginbox div-->  
-
-            </div>
-               
-                
-        </form>
-
-        
-	
+                    </div>    
+                </div> <!--End of loginbox div--><!--Goed bezig Arne!-->  
+            </div>               
+        </form>	
     </body>
 </html>

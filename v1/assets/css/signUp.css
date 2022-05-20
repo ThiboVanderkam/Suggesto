@@ -22,7 +22,8 @@ display: flex;
 
 .signUp-box{
     text-align: center;
-    justify-content: center;
+    justify-content: center; 
+    flex-direction: column;
     border: 2px solid black;
     margin-top: 5%;
     padding: 2%;
