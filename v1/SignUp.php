@@ -96,7 +96,7 @@ if (isset($_POST["submit"])){
 
             <div class="grotere-box">
                 
-                <div class="signUp-box">
+                <div class="signUp-box font-body">
 
                     <div id="div1">
 
@@ -149,7 +149,7 @@ if (isset($_POST["submit"])){
                             <br>
                             <br>
                         </div>
-
+                        
                         <!--re-enter Password-->
                         <div>
                             <label>Re- enter Password</label>
@@ -158,22 +158,23 @@ if (isset($_POST["submit"])){
                             <br>
                             <br>
                         </div>
-
                     </div>
 
-                    <div id="div3">
-                        <h3 id="interests">Interests</h3>
+                        
+                    <div id="div3 center">
+                        <br>
+                        <h3 id="interests">Interests:</h3>
                         <label for="games">Games</label>
                         <input type="checkbox" id="games" name="check_list[]" value="games">
-<!--                     
+                            <!--                     
                         <label for="books">Books</label>
                         <input type="checkbox" id="books" name="check_list[]" value="books"> -->
-
+                        
                         <br>
-
+                        
                         <label for="nature">Nature</label>
                         <input type="checkbox" id="nature" name="check_list[]" value="nature">
-
+                        
                         <label for="tech">Tech</label>
                         <input type="checkbox" id="tech" name="check_list[]" value="tech">
                         
@@ -184,7 +185,7 @@ if (isset($_POST["submit"])){
                         
                         <label for="photo">Photo</label>
                         <input type="checkbox" id="photo" name="check_list[]" value="photo">
-
+                        
                         <br>
                         
                         <label for="drawing">Drawing</label>

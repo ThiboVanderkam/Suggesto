@@ -7,6 +7,10 @@ body {
     color: #3F72AF
 }
 
+img {
+    border: 2px solid black
+}
+
 #infoDiv {
     display: flex;
     align-items: center;
