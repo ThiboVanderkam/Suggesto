@@ -1,20 +1,26 @@
-var friendsListElement = document.querySelector("#friendsList");
-var usernameElement = document.querySelector("#username");
-var emailAddressElement = document.querySelector("#emailAddress");
-// var passwordElement = document.querySelector("#password");
+class MyProfile {
+    constructor() {
+        this.friendsListElement = document.querySelector("#friendsList");
+        // var passwordElement = document.querySelector("#password");
 
 
-var dataElement = document.querySelector("#data");
-var userEmail = dataElement.innerHTML.trim();
+        this.dataElement = document.querySelector("#data");
+        this.userEmail = this.dataElement.innerHTML.trim();
 
-var response;
-link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+userEmail;
+        this.link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+this.userEmail;
+    }
 
-fetch(link, { mode: 'no-cors'})
-    .then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        response = data;
+    CallToApi() {
+        fetch(this.link, { mode: 'no-cors'})
+        .then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            var m1 = new MyProfile()
+            m1.AddFriend(data)
+        });
+    }
+
+    AddFriend(response) {
         var bdayData = {};
         // making the object with the name and bdays
         for (var i = 0; i < response.length; i++){
@@ -25,9 +31,16 @@ fetch(link, { mode: 'no-cors'})
         //printing the names in the sidebar
         for (var friend in bdayData ){
             if (bdayData[friend] != undefined){ //als bday undefined dan geen friend adden
-                friendsListElement.innerHTML += "<li>" + friend + "</li>";
+                this.friendsListElement.innerHTML += "<li>" + friend + "</li>";
                 console.log(friend);
             }
         };
     }
-);
+}
+
+
+var m = new MyProfile()
+m.CallToApi()
+
+
+

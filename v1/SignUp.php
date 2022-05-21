@@ -17,10 +17,10 @@ if (isset($_POST["submit"])){
 
     if ($password == $cpassword){        
         //password even checken
-        $hash = password_hash($password, PASSWORD_DEFAULT); //hash van de pass maken
+        $hash = $api->hashPassword($password); //hash van de pass maken
 
         $query = "SELECT * FROM user WHERE u_email ='$email';";
-        $result = mysqli_query($db->connection, $query); 
+        $result = $db->getQuery($db->connection, $query); 
         //dit is om te kijken of er al een account bestaat zoekt eigenlijk gewoon de mail op in de database 
         //als het een hit is dan wilt dat zeggen dat email in use is
         if($result->num_rows > 0){

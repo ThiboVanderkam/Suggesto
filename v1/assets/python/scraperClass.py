@@ -22,7 +22,8 @@ class ScraperBol():
                 cursor = connection.cursor()
                 
                 cursor.execute("INSERT INTO gifts(name, link, prijs, fotoLink, preference) VALUES(" + "\""+ name + "\"" + ", " + "\"" +link + "\"" + ", " + prijs + ", " + "\"" + fotoLink + "\"" + ", " +"\""+ preference + "\"" + ");")
-                connection.commit()     
+                connection.commit()
+                cursor.close()     
         except Error as e:
             print("Error while connecting to MySQL", e)
 
@@ -117,3 +118,6 @@ class ScraperBol():
             cursor = connection.cursor()
             cursor.execute("DELETE FROM gifts WHERE 1;")
             connection.commit()
+
+    def closeConnection(self):
+        self.connection.close()

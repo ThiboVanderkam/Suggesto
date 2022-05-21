@@ -12,4 +12,5 @@ from scraperClass import ScraperBol
 s = ScraperBol()
 s.clearEntries()
 s.GetCategories()
+s.closeConnection()
 

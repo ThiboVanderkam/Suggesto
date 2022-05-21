@@ -18,7 +18,7 @@ if (isset($_POST["submit"])){
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "SELECT * FROM user WHERE u_email ='$email';";
-        $result = mysqli_query($db->connection, $query);
+        $result = $db->getQuery($query);
         if($result->num_rows > 0){
             echo "<script>alert('Email already in use.')</script>";
         }

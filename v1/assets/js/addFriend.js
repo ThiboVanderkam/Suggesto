@@ -1,15 +1,14 @@
-var friendsListElement = document.querySelector("#friendsList");
-var dataElement = document.querySelector("#data");
-var userEmail = dataElement.innerHTML.trim();
+class AddFriend {
+    
+    constructor() {
+        this.friendsListElement = document.querySelector("#friendsList");
+        this.dataElement = document.querySelector("#data");
 
-var response;
-link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+userEmail;
-
-fetch(link, { mode: 'no-cors'})
-    .then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        response = data;
+        var userEmail = this.dataElement.innerHTML.trim();
+        this.link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+userEmail
+    }
+    
+    makeFriends(response) {
         var bdayData = {};
         // making the object with the name and bdays
         for (var i = 0; i < response.length; i++){
@@ -20,9 +19,26 @@ fetch(link, { mode: 'no-cors'})
         //printing the names in the sidebar
         for (var friend in bdayData ){
             if (bdayData[friend] != undefined){ //als bday undefined dan geen friend adden
-                friendsListElement.innerHTML += "<li>" + friend + "</li>";
+                this.friendsListElement.innerHTML += "<li>" + friend + "</li>";
                 console.log(friend);
             }
         };
     }
-);
+
+    callToApi() {
+        fetch(this.link, { mode: 'no-cors'})
+        .then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            var a1 = new AddFriend()
+            a1.makeFriends(data)
+        });
+    }
+
+}
+
+
+var a = new AddFriend();
+a.callToApi();
+
+
