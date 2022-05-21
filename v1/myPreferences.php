@@ -64,6 +64,10 @@
             <div id="ForMe-div">
                 <h1><u>For Your Friend:</u></h1>
                 <br>
+                <span id="timerspan" class="font-body">Cadeaus binnen:</span>
+                <div id="timer" class="font-body">
+
+                </div>
             </div>
 
         </div>

@@ -32,6 +32,10 @@ fetch(link, { mode: 'no-cors'})
 
 // SCRAPER IN FOTOS [
 
+    
+
+
+
 var friendId = document.querySelector("#dataFriend").innerHTML.trim(); 
 // hier neemt hij de id van de aangeduide friend mee vanuit een hidden div
 // in die hidden div staat gewoon de friend id gepost wanneer je op de form vanuit de calendar klikt
@@ -43,11 +47,35 @@ var scrapedPrices = [];
 var indexes = [];
 var firstPreference = "";
 var response;
+var pageElement = document.querySelector("#ForMe-div");
+
 fetch(link, { mode: 'no-cors'})
     .then(function(response) {
         return response.json();
     }).then(function(data) {
         response = data;
+        if(response.length == 0) { // GEEN PREFERENCES FOUND:
+            console.log("Empty, No Gift Preferences Filled In :(");
+            pageElement.innerHTML += "No gift preferences found for your friend, so no gifts :("
+            return;
+        }
+        else {
+            // TIMER DING OM AF TE TELLEN
+            var timerElement = document.querySelector("#timer");
+            var timerSpanElement = document.querySelector("#timerspan");
+            var seconds = 3;
+            timerElement.innerHTML = seconds;
+            var chronometer = setInterval(function() {
+                seconds -= 0.5;
+                if (seconds == 1) {
+                    timerElement.classList.add("none");
+                    timerSpanElement.classList.add("none");
+                    clearInterval(chronometer); //om het te stoppen
+                } else {
+                    timerElement.innerHTML = seconds; //dit verandert de timer in html naar het aant seconden
+                }
+            }, 500);
+        }
         firstPreference = String(response[0].preference); // eerste pref nemen
         for (var i = 0; i < response.length; i++){
             var link = String(response[i].link);
@@ -72,7 +100,8 @@ fetch(link, { mode: 'no-cors'})
 );
 
 var allBoxElements = document.querySelectorAll(".box");
-var pageElement = document.querySelector("#ForMe-div");
+
+
 
 setTimeout(function(){ // wachten want moet er nog inkomen
     var uniquePreferences = Array.from(new Set(scrapedPreference)); // unieke waarden krijgen uit preferences
@@ -108,7 +137,7 @@ setTimeout(function(){ // wachten want moet er nog inkomen
                 }
             };
             suggestionDivIndex++;
-            allSuggDivs[suggestionDivIndex].innerHTML += "<a href=' " + scrapedLinks[i] + "' target='_blank'><img src='" + scrapedFotoLinks[i] + "' alt='productImage'></a>";
+            allSuggDivs[suggestionDivIndex].innerHTML += "<a href=' " + scrapedLinks[i] + "' target='_blank' class='product'><img src='" + scrapedFotoLinks[i] + "' alt='productImage'></a>";
             boxDivCount++;
         }
         else {
@@ -119,7 +148,7 @@ setTimeout(function(){ // wachten want moet er nog inkomen
                     break;
                 }
             };
-            allSuggDivs[suggestionDivIndex].innerHTML += "<a href=' " + scrapedLinks[i] + "' target='_blank'><img src='" + scrapedFotoLinks[i] + "' alt='productImage'></a>";
+            allSuggDivs[suggestionDivIndex].innerHTML += "<a href=' " + scrapedLinks[i] + "' target='_blank' class='product'><img src='" + scrapedFotoLinks[i] + "' alt='productImage'></a>";
             boxDivCount++;
         }
     };
