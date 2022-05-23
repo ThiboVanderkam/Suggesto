@@ -32,10 +32,6 @@ fetch(link, { mode: 'no-cors'})
 
 // SCRAPER IN FOTOS [
 
-    
-
-
-
 var friendId = document.querySelector("#dataFriend").innerHTML.trim(); 
 // hier neemt hij de id van de aangeduide friend mee vanuit een hidden div
 // in die hidden div staat gewoon de friend id gepost wanneer je op de form vanuit de calendar klikt
@@ -101,32 +97,11 @@ fetch(link, { mode: 'no-cors'})
 
 var allBoxElements = document.querySelectorAll(".box");
 
-
-
-setTimeout(function(){ // wachten want moet er nog inkomen
-    var uniquePreferences = Array.from(new Set(scrapedPreference)); // unieke waarden krijgen uit preferences
-    var catBegin = "<div class='categoryDiv font-body'>";
-    var boxBegin = "<div class='box'>";
-    var suggDiv = "<div class='suggestion-div'>"
-    var divEnd = "</div>";
-    
-    var aantCategorien = uniquePreferences.length;
-    for (var i = 0; i < aantCategorien; i++) {
-        pageElement.innerHTML += catBegin + divEnd; //categoryDivs erinzetten
-    };
-    var allCategoryTiles = document.querySelectorAll(".categoryDiv");
-    for (var i = 0; i < allCategoryTiles.length; i++) { //category dividers erinzetten
-        allCategoryTiles[i].innerHTML = uniquePreferences[i] + ":" + "<br>";
-    };
-
-    for (var i = 0; i < allCategoryTiles.length; i++) { //suggestionDivs in tiles zetten (om de boxes mooi naast elkaar te krijgen)
-        for (var j = 0; j < Math.ceil(scrapedFotoLinks.length/uniquePreferences.length/4); j++ ) // voor de suggestionDivs aantal te weten dat je moet printen als je 4 producten per rij wilt
-        allCategoryTiles[i].innerHTML += suggDiv + divEnd;
-    };
-    var allSuggDivs = document.querySelectorAll(".suggestion-div");
-    var boxDivCount = 0; // het worden veel variabelen, i know srry, ma deze is voor te checken dat er maar enkel 4 boxen op een lijn mogen, anders is lay out lelijk `~`
-
+function ZetBoxesErin(scrapedFotoLinks, scrapedLinks, indexes) {
     var suggestionDivIndex = 0;
+    var boxDivCount = 0; //voor te checken dat er maar enkel 4 boxen op een lijn mogen, anders is lay out lelijk `~`
+    var allSuggDivs = document.querySelectorAll(".suggestion-div");
+
     for (var i = 0; i < scrapedFotoLinks.length; i++) { //boxes erin zetten
         if(boxDivCount%4 == 0 && boxDivCount != 0) {
             for (var y = 0; y < indexes.length; y++) {
@@ -152,12 +127,33 @@ setTimeout(function(){ // wachten want moet er nog inkomen
             boxDivCount++;
         }
     };
+}
 
 
+setTimeout(function(){ // wachten want moet er nog inkomen
+    var uniquePreferences = Array.from(new Set(scrapedPreference)); // unieke waarden krijgen uit preferences
+    var catBegin = "<div class='categoryDiv font-body'>";
+    var suggDiv = "<div class='suggestion-div'>"
+    var divEnd = "</div>";
+    
+    var aantCategorien = uniquePreferences.length;
+    for (var i = 0; i < aantCategorien; i++) {
+        pageElement.innerHTML += catBegin + divEnd; //categoryDivs erinzetten
+    };
+    var allCategoryTiles = document.querySelectorAll(".categoryDiv");
+    for (var i = 0; i < allCategoryTiles.length; i++) { //category dividers erinzetten
+        allCategoryTiles[i].innerHTML = uniquePreferences[i] + ":" + "<br>";
+    };
 
-    // console.log(scrapedLinks);
-    // console.log(scrapedFotoLinks);
-    // console.log(scrapedPreference);
+    for (var i = 0; i < allCategoryTiles.length; i++) { //suggestionDivs in tiles zetten (om de boxes mooi naast elkaar te krijgen)
+        for (var j = 0; j < Math.ceil(scrapedFotoLinks.length/uniquePreferences.length/4); j++ ) {// voor de suggestionDivs aantal te weten dat je moet printen als je 4 producten per rij wilt
+            allCategoryTiles[i].innerHTML += suggDiv + divEnd;
+        } 
+    };
+
+    // BOXEN ERINPLAATSEN
+    ZetBoxesErin(scrapedFotoLinks,scrapedLinks, indexes)
+
 
 }, 2500);
 
