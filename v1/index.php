@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>🎁SUGGESTO🎁</title>
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
         <!-- fonts -->
@@ -33,9 +33,9 @@
             <div class="header-box">
                 <ul>
                     <!-- <li><a id="homeButton" href="#">Home</a></li> -->
-                    <li><a id="forHimButton" href="#">For him</a></li>
-                    <li><a id="forHerButton" href="#">For her</a></li>
-                    <li><a id="forKidsButton" href="#">For kids</a></li>
+                    <li><a id="forHimButton" href="#" target="_blank">For him</a></li>
+                    <li><a id="forHerButton" href="#" target="_blank">For her</a></li>
+                    <li><a id="forKidsButton" href="#" target="_blank">For kids</a></li>
                 </ul>
             </div>
 

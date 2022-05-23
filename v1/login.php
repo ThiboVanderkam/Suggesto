@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0); //makes sure the warnings are not displayed on screen
 include "assets/db/databaseClass.php";
 include "sessionValid.php";
 
@@ -8,16 +8,20 @@ $db = new Database();
 if (isset($_POST["submit"])){
     $email = $_POST["email"];
     $password = $_POST["password"];
-
-    $query = "SELECT * FROM user WHERE u_email = '$email';";
-    $result = mysqli_query($db->connection, $query);
-    $response = mysqli_fetch_assoc($result);
-    $passVerify = password_verify($password, $response['u_password']);
-    if($result->num_rows > 0 && $passVerify){
-        $_SESSION['u_id'] = $response['u_id'];
-        header("Location: calendar.php");
+    try {
+        $query = "SELECT * FROM user WHERE u_email = '$email';";
+        $result = mysqli_query($db->connection, $query);
+        $response = mysqli_fetch_assoc($result);
+        $passVerify = password_verify($password, $response['u_password']);
+        if($result->num_rows > 0 && $passVerify){
+            $_SESSION['u_id'] = $response['u_id'];
+            header("Location: calendar.php");
+        }
+        else{
+            echo "<script>alert('Email or password is incorrect.')</script>";
+        }
     }
-    else{
+    catch (Exception $e) {
         echo "<script>alert('Email or password is incorrect.')</script>";
     }
 }

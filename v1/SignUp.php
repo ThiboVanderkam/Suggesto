@@ -165,7 +165,7 @@ if (isset($_POST["submit"])){
                     <div id="div3">
                         <h3 id="interests">Interests</h3>
                         <label for="games">Games</label>
-                        <input type="checkbox" id="games" name="check_list[]" value="games">
+                        <input type="checkbox" id="games" name="check_list[]" value="video games">
                         <!--                     
                         <label for="books">Books</label>
                         <input type="checkbox" id="books" name="check_list[]" value="books"> -->

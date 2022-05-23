@@ -35,7 +35,7 @@ if (isset($_POST["submitEmail"])){
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>addFriendEmail</title>
         <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
         <!-- fonts -->
