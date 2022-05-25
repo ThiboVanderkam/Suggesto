@@ -7,7 +7,7 @@ class MyProfile {
         this.dataElement = document.querySelector("#data");
         this.userEmail = this.dataElement.innerHTML.trim();
 
-        this.link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+this.userEmail;
+        this.link = "https://suggesto.thibovanderkam.be/assets/db/apiCall.php?call=getFriendsData&email="+this.userEmail;
     }
 
     CallToApi() {

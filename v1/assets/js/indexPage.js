@@ -1,8 +1,3 @@
-// homeButton = document.querySelector("#homeButton");
-// homeButton.addEventListener("click", function() {
-//     window.location.href = "../../index.php"
-// });
-
 var forHimButton = document.querySelector("#forHimButton");
 forHimButton.addEventListener("click", function() {
     window.location.href = "https://www.bol.com/be/nl/sdl/heren/2?promo=main_314_sdl__category_2_&bltgh=pS8axOV72Xn3T8bdhYtIsg.61_62_63.65.CategoryImage"
@@ -20,11 +15,11 @@ forKidsButton.addEventListener("click", function() {
 
 var signUpButton = document.querySelector("#signUpButton");
 signUpButton.addEventListener("click", function() {
-    window.location.href = "../../SignUp.php"
+    window.location.href = "https://suggesto.thibovanderkam.be/SignUp.php"
 });
 
 var loginButton = document.querySelector("#logInButton");
 loginButton.addEventListener("click", function() {
-    window.location.href = "../../login.php"
+    window.location.href = "https://suggesto.thibovanderkam.be/login.php"
 });
 

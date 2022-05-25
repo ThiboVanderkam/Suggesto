@@ -5,7 +5,7 @@ var userEmail = dataElement.innerHTML.trim();
 // VRIENDENCODE [
 
 var response;
-link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+userEmail;
+link = "https://suggesto.thibovanderkam.be/assets/db/apiCall.php?call=getFriendsData&email="+userEmail;
 
 fetch(link, { mode: 'no-cors'})
     .then(function(response) {
@@ -35,7 +35,7 @@ fetch(link, { mode: 'no-cors'})
 var friendId = document.querySelector("#dataFriend").innerHTML.trim(); 
 // hier neemt hij de id van de aangeduide friend mee vanuit een hidden div
 // in die hidden div staat gewoon de friend id gepost wanneer je op de form vanuit de calendar klikt
-link = "http://localhost/assets/db/apiCall.php?call=preferencesId&id="+friendId;
+link = "https://suggesto.thibovanderkam.be/assets/db/apiCall.php?call=preferencesId&id="+friendId;
 var scrapedLinks = [];
 var scrapedFotoLinks = [];
 var scrapedPreference = [];

@@ -20,7 +20,7 @@ if (isset($_POST["submit"])){
         $hash = $api->hashPassword($password); //hash van de pass maken
 
         $query = "SELECT * FROM user WHERE u_email ='$email';";
-        $result = $db->getQuery($db->connection, $query); 
+        $result = $db->getQuery($query); 
         //dit is om te kijken of er al een account bestaat zoekt eigenlijk gewoon de mail op in de database 
         //als het een hit is dan wilt dat zeggen dat email in use is
         if($result->num_rows > 0){
@@ -48,16 +48,16 @@ if (isset($_POST["submit"])){
                     ];
                     $api->storeUserInterests($parameters);
                     $parameters = []; //parameters clearen zodat bij refresh geen dubbele dingen
+                    header("Location: login.php"); //naar login gaan als signup success
                 }
                 else{
                     echo "<b>Please Select Atleast One Option.</b>";
                 }
-                header("Location: login.php"); //naar login gaan als signup success
                 }
-                else{
-                    echo "<script>alert('Something went wrong.')</script>";
-                }
+            else{
+                echo "<script>alert('Something went wrong.')</script>";
             }
+        }
             
     }          
     else{

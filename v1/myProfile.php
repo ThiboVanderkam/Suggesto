@@ -65,12 +65,7 @@
 
             <div id="infoDiv">
                 <div id="userInfoDiv">
-                    <a href="myProfile.php" class="font-body gap">My Account</a>
-                    <a href="giftPreferences.php" class="font-body gap">My Gift Preferences</a>
 
-                    <br>
-                    <br>
-                    <br>
 
                     <div id="username" class="font-body">
                         <p class="black">Firstname: <?php

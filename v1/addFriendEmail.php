@@ -83,7 +83,6 @@ if (isset($_POST["submitEmail"])){
             <div class="header-box2 border">
                 <a href="addFriendEmail.php">Add Friend Account</a>
                 <a href="addFriendNoAcc.php">Add Friend Without Account</a>
-                <a href="editFriendPage.php">Edit Friend</a>
 
             </div>
 

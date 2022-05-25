@@ -5,7 +5,7 @@ class AddFriend {
         this.dataElement = document.querySelector("#data");
 
         var userEmail = this.dataElement.innerHTML.trim();
-        this.link = "http://localhost/assets/db/apiCall.php?call=getFriendsData&email="+userEmail
+        this.link = "https://suggesto.thibovanderkam.be/assets/db/apiCall.php?call=getFriendsData&email="+userEmail
     }
     
     makeFriends(response) {

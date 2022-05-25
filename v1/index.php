@@ -32,7 +32,6 @@
             
             <div class="header-box">
                 <ul>
-                    <!-- <li><a id="homeButton" href="#">Home</a></li> -->
                     <li><a id="forHimButton" href="#" target="_blank">For him</a></li>
                     <li><a id="forHerButton" href="#" target="_blank">For her</a></li>
                     <li><a id="forKidsButton" href="#" target="_blank">For kids</a></li>
